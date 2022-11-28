@@ -4,68 +4,121 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <title>MainPage | Bidder</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><button>Login</button></li>
-            </ul>
-        </nav>
-        <div id="logo">
-            <img src="images/logo.png" alt="The Bidder logo">
+    <header class="bg-primary d-flex">
+        <nav class="col-3 navbar ">
+            <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar" aria-controls="navbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-start bg-primary" tabindex="-1" id="navbar">
+                <div class="offcanvas-header">
+                  <button type="button" class="border-dark border-1 bg-primary rounded-3" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-arrow-left"></i> back</button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="loginNav" type="button"class="btn btn-link ms-0 ps-0">Login</button>
+                      </li>
+                    
+                  </ul>
+                </div>
+              </div>
         </div>
-        <div id="profileHeader">
+        </nav>
+        <div id="logo" class="col-6 d-flex justify-content-center">
+            <img src="assets/logo.svg" alt="The Bidder logo">
+        </div>
+        <div id="profileHeader" class=" d-flex justify-content-center align-items-center col-3">
+            <div class="col-6">
+                </div>
         </div>
         
     </header>
     <main>
-        <section id="mainSection">
+        <section class="d-flex flex-column col-12 align-items-center mb-2" id="mainSection">
             <!--Here the buy sell buttons will be when you are not logged in, and the profile picture and some buttons when you are logged in-->
-            <h1>Welcome! what do you seek?</h1>
-            <div>
-                <img src="" alt="buy image">
+            <h1 class="">Welcome!</h1>
+            <h2> what do you seek?</h2>
+            <div id="actions" class="d-flex flex-column col-11 justify-content-center align-items-center bg-light rounded-1 py-2">
+            <div class="position-relative col-8 mx-2 my-1">
+                <div id="buyOverlay" class="position-absolute top-50 start-50 translate-middle">
+                    <button type="button" class="btn border-dark">Buy</button>
+                </div>
+                <img class="opacity-25 rounded-1 col-12"src="./assets/buy.jpg" alt="buy image">
                 <!--hover effect-->
             </div>
-            <div>
-                <img src="" alt="sell image">
+            <div class="position-relative col-8 mx-2 my-1">
+                <div id="sellOverlay " class="position-absolute top-50 start-50 translate-middle">
+                    <button type="button" class="btn border-dark">Sell</button>
+                </div>
+                <img class="rounded-1 col-12 opacity-25" src="./assets/sell.jpg" alt="sell image">
                 <!--hover effect-->
             </div>
+        </div>
         </section>
         <section>
-        <div id="ListingTop">
-            <i>icon / button to scroll down here</i>
-            <h2>Listings</h2>
-            <p>Showning "52" listings</p>
+        <div id="ListingTop" class="d-flex flex-column align-items-center bg-secondary">
+            <i class="bi bi-chevron-down"></i>
+            <h2 class="py-1 my-1">Listings</h2>
+            <div class="d-flex my-2 align-items-center col-12">
+            <button id="phoneFilter" type="button" class="p-1 d-lg-none col-3 m-2 btn bg-white rounded-0"><i class="bi bi-funnel-fill">Filter</i></button>
+            <p class="m-0 p-0 col-6">Showning "52" listings</p>
+        </div>
         </div>
         <div id="mainContent">
-            <div>filter will be here</div>
+            <div class="d-none d-lg-block">filter will be here(on pc and tablet)</div>
             <div id="listings">
                 listings will be here
+                <div class="fillerListing card mx-3 mb-2">
+                    <img class="bigImg card-img-top" src="assets/">
+                    <div class="card-body pb-0">
+                        <div class="card-title d-flex">
+                        <h3 class="col-7">Listing title</h3>
+                        <a href="profile.html?username=something" class="col-6">Username <img src="profielImg"></a>
+                        </div>
+                        <div class="d-flex align-items-end">
+                        <p class="card-text mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <div>
+                        <div class="border rounded-1">00H:01M:22S</div>
+                        <section class="d-flex align-items-center">
+                        <div class="amount d-flex my-1"><p class="m-0">50<img class="ms-1"src="./assets/token.svg" alt=""></p></div>
+                        <button type="button" class="btn btn-primary ms-1 py-0">Bid</button>
+                        </section>
+                    </div>
+                    </div>
+                </div>
             </div>
-            <div id="profileRight">
+            <div id="profileRight" class="d-none d-xl-block">
                 this will be login or profile on pc, and is hidden on mobile and tablet
             </div>
         </div>
         </section>
     </main>
-    <footer>
-        <div id="footerProfile">
-            <a href="profile.html">Profile</a>
+    <footer class="bg-primary d-flex align-items-center ">
+        <div id="footerProfile" class="col-3 d-flex justify-content-center ">
+            <a class="text-dark" href="profile.html">Profile</a>
         </div>
-        <div id="iconToTop"></div>>
-            <i>
-                icon to scroll up here
+        <div id="iconToTop" class="col-6 d-flex justify-content-center">
+            <i class="rounded-circle bi bi-arrow-up-short bg-warning">
             </i>
         </div>
-        <div>
-            <button id="footerLogout">
+        <div class="col-3 d-flex justify-content-center ">
+            <button id="footerLogout" type="button" class="btn btn-link text-dark">
                 Logout
             </button>
         </div>
     </footer>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
