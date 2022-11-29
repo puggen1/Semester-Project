@@ -4,58 +4,148 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <title>username | Bidder</title>
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><button>Login</button></li>
-            </ul>
-        </nav>
-        <div id="logo">
-            <img src="assets/logo.svg" alt="The Bidder logo">
+<body class="d-flex flex-column min-vh-100">
+    <header class="bg-primary d-flex">
+        <nav class="col-3 navbar ">
+            <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar" aria-controls="navbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-start bg-primary" tabindex="-1" id="navbar">
+                <div class="offcanvas-header">
+                  <button type="button" class="btn border-dark border-1 bg-primary rounded-3" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-arrow-left"></i> back</button>
                 </div>
-        <div id="profileHeader">
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="loginNav" type="button"class="btn btn-link ms-0 ps-0">Login</button>
+                      </li>
+                    
+                  </ul>
+                </div>
+              </div>
+        </div>
+        </nav>
+        <div id="logo" class="col-6 d-flex justify-content-center">
+            <img src="assets/logo.svg" alt="The Bidder logo">
+        </div>
+        <div id="profileHeader" class=" d-flex justify-content-center align-items-center col-3">
+            <div class="col-6">
+                </div>
         </div>
         
     </header>
-    <main>
-        <section id="ListingTop">
-            <button id="back"> <i>arrow icon</i> Back</button>
-            <h2>My Listings</h2>
-            <button id="new">New</button>
+    <main class="d-flex flex-column">
+        <section id="ListingTop" class="d-flex order-1">
+            <button type="button" class="btn btn-white border m-1 py-1 ms-0" id="back"> <i class="bi bi-arrow-left"></i> Back</button>
+          
         </section>
-        <section id="profileListings">
-            listings will come here
-        </section>
-        <section id="userSection">
-            <img src="#">
-            <h1 id="username">Username</h1>
-            <div id="userTokens">
-                <p>amount</p>
-                <i>token icon here</i>
+        <section id="profileListings" class="order-3">
+            <div class="bg-secondary d-flex justify-content-md-center">
+            <h2 class="">My Listings</h2>
+            <button class="btn btn-primary">New</button>
             </div>
-            <button id="editPicture">Edit picture</button>
-            
+            <article class="d-md-flex flex-md-column align-items-md-center col-md-10 m-md-auto">
+            <div class="fillerListing card d-md-flex flex-md-row col-md-10 mx-3 my-2">
+                <img class="bigImg col-md-4" src="assets/buy.jpg">
+                <div class="card-body px-2 pb-0 pt-md-1 px-md-3">
+                    <div class="card-title d-flex mb-md-1 align-items-md-center">
+                    <h3 class="col-6 mb-md-0 fs-5">Listing title</h3>
+                    <a href="profile.html?username=something" class="col-6 text-end text-dark d-md-flex align-items-md-end justify-content-md-end">Username <img class="col-5  rounded-circle"src="assets/avatar.jpg"></a>
+                    </div>
+                    <div class="d-flex flex-md-wrap pb-2">
+                    <p class="card-text mb-0 col-md-12">Lorem ipsum dolor sit amet consectetur adipisicing elit dorem el emmet dolorem. </p>
+                    <div class="d-flex flex-column  col-md-12 flex-md-row justify-content-between">
+                    <div class="border rounded-1 col-md-6">00H:01M:22S</div>
+                    <section class="d-flex col-md-6 align-items-center justify-content-md-end align-items-md-end">
+                    <div class="amount d-flex my-1 mb-0"><p class="m-0 fs-md-5">50<img class="ms-1 "src="./assets/token.svg" alt=""></p></div>
+                    <button type="button" class="btn btn-primary ms-1 py-0 text-dark fs-md-5">Bid</button>
+                    </section>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="fillerListing card d-md-flex flex-md-row col-md-10 mx-3 my-2">
+                <img class="bigImg col-md-4" src="assets/buy.jpg">
+                <div class="card-body px-2 pb-0 pt-md-1 px-md-3">
+                    <div class="card-title d-flex mb-md-1 align-items-md-center">
+                    <h3 class="col-6 mb-md-0 fs-5">Listing title</h3>
+                    <a href="profile.html?username=something" class="col-6 text-end text-dark d-md-flex align-items-md-end justify-content-md-end">Username <img class="col-5  rounded-circle"src="assets/avatar.jpg"></a>
+                    </div>
+                    <div class="d-flex flex-md-wrap pb-2">
+                    <p class="card-text mb-0 col-md-12">Lorem ipsum dolor sit amet consectetur adipisicing elit dorem el emmet dolorem. </p>
+                    <div class="d-flex flex-column  col-md-12 flex-md-row justify-content-between">
+                    <div class="border rounded-1 col-md-6">00H:01M:22S</div>
+                    <section class="d-flex col-md-6 align-items-center justify-content-md-end align-items-md-end">
+                    <div class="amount d-flex my-1 mb-0"><p class="m-0 fs-md-5">50<img class="ms-1 "src="./assets/token.svg" alt=""></p></div>
+                    <button type="button" class="btn btn-primary ms-1 py-0 text-dark fs-md-5">Bid</button>
+                    </section>
+                </div>
+                </div>
+            </div>
+            </div>
+        </article>
+        </section>
+        <section id="userSection" class="order-2 bg-secondary py-3 px-4 my-3 col-8 col-md-10 m-auto rounded-3 d-flex flex-column flex-md-row flex-md-wrap align-items-center">
+            <div class="d-flex justify-content-center order-md-2 flex-md-column col-md-6 align-items-md-center">
+            <img src="assets/avatar.jpg" class="col-8 col-md-8 rounded-circle">
+            <button type="button" class="btn btn-danger py-1 px-3 d-none d-md-block mt-md-2" id="editPicture">Edit picture</button>
+            </div>
+            <div class="d-flex  flex-column justify-content-center order-md-1 col-md-6 align-items-md-center">
+            <h1 id="username" class="mb-0  col-md-6">Username</h1>
+            <div id="userTokens" class="border rounded-1 d-flex justify-content-center  p-1 my-2 col-md-3">
+                <p class="m-0 pe-1">1000</p>
+                <img src="assets/token.svg" alt="token">
+            </div>
+            <button type="button" class="btn btn-danger py-1 px-3 d-block d-md-none col-md-4" id="editPicture">Edit picture</button>
+        </div>
+        </section>
+        <section id="collection" class="order-4">
+            <div class="bg-secondary py-1">
+            <h2 class="text-center">My Collection</h2>
+            </div>
+            <div class="fillerListing card d-md-flex flex-md-row col-md-10 mx-3 my-2">
+                <img class="bigImg col-md-4" src="assets/buy.jpg">
+                <div class="card-body px-2 pb-0 pt-md-1 px-md-3">
+                    <div class="card-title d-flex mb-md-1 align-items-md-center">
+                    <h3 class="col-6 mb-md-0 fs-5">Listing title</h3>
+                    <a href="profile.html?username=something" class="col-6 text-end text-dark d-md-flex align-items-md-end justify-content-md-end">Username <img class="col-5  rounded-circle"src="assets/avatar.jpg"></a>
+                    </div>
+                    <div class="d-flex flex-md-wrap pb-2">
+                    <p class="card-text mb-0 col-md-12">Lorem ipsum dolor sit amet consectetur adipisicing elit dorem el emmet dolorem. </p>
+                    <div class="d-flex flex-column  col-md-12 flex-md-row justify-content-between">
+                    <section class="d-flex col-md-6 align-items-center justify-content-md-end align-items-md-end">
+                    </section>
+                </div>
+                </div>
+            </div>
+            </div>
         </section>
     </main>
-    <footer>
-        <div id="footerProfile">
-            <a href="profile.html">Profile</a>
+    <footer class="bg-primary d-flex align-items-center mt-auto py-4">
+        <div id="footerProfile" class="col-3 d-flex justify-content-center ">
+            <a class="text-dark" href="profile.html">Profile</a>
         </div>
-        <div id="iconToTop"></div>>
-            <i>
-                icon to scroll up here
+        <div id="iconToTop" class="col-6 d-flex justify-content-center">
+            <i class="rounded-circle bi bi-arrow-up-short bg-warning">
             </i>
         </div>
-        <div>
-            <button id="footerLogout">
+        <div class="col-3 d-flex justify-content-center ">
+            <button id="footerLogout" type="button" class="btn btn-link text-dark">
                 Logout
             </button>
         </div>
     </footer>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
