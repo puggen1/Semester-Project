@@ -45,14 +45,15 @@
         </div>
         
     </header>
-    <main class="d-flex flex-column flex-md-wrap flex-md-row">
+    <main class="d-flex flex-column flex-md-wrap flex-md-row justify-content-center">
         <div class="bg-secondary py-2 col-md-12">
             <h1 class="text-center">New Listing</h1>
         </div>
-        <div class="col-10 m-auto">
+        <article id="lowerPart" class="d-flex flex-column flex-md-wrap flex-md-row justify-content-center col-12 col-lg-8">
+        <div class="col-10  m-auto">
             <button type="button" class="btn btn-white border border-dark rounded-3 mt-2" id="backBtn"><i class="bi bi-arrow-left"></i> back</button>
         </div>
-        <section id="content" class="d-flex col-md-5 justify-content-center my-2">
+        <section id="content" class="d-flex col-md-5 col-lg-5 justify-content-center my-2 align-items-md-start">
             <form class="col-10 border rounded-1 p-4">
                 <h2>Content</h2>
             <label class="form-label">title*</label>
@@ -71,16 +72,14 @@
             <button type="button" class="btn btn-danger">Cancel</button>
         </form>
         </section>
-        <section id="preview" class="col-md-6">
-            <div class="bg-secondary">
-                <h2 class="text-center py-2">Preview</h2>
-            </div>
+        <section id="preview" class="col-md-6  col-lg-5 border rounded-1 p-lg-2 my-lg-2">
+           
             <!--these buttons will be shown on mobile, and will decide what content  is shown under, it is important that the content under is shown in the corresponding format(mobile, tablet or pc)-->
             <div id="phoneButtons" class="d-md-none d-flex justify-content-center">
                 <button type="button" class="btn btn-primary mx-1">Small</button>
                 <button type="button" class="btn btn-outline-primary mx-1">Big</button>
             </div>
-            <div class="fillerListing card d-md-flex flex-md-row m-auto col-11 col-md-12 my-2">
+            <div class="fillerListing card d-md-flex flex-md-row m-auto col-11 col-md-12 my-2 my-lg-0  mb-lg-2">
                 <img class="bigImg col-md-4" src="assets/buy.jpg">
                 <div class="card-body px-2 pb-0 pt-md-1 px-md-3">
                     <div class="card-title d-flex mb-md-1 align-items-md-center">
@@ -91,8 +90,7 @@
                     <p class="card-text mb-0 col-md-12">Lorem ipsum dolor sit amet consectetur adipisicing elit dorem el emmet dolorem. </p>
                     <div class="d-flex flex-column  col-md-12 flex-md-row justify-content-between">
                     <div class="border rounded-1 col-md-6">00H:01M:22S</div>
-                    <section class="d-flex col-md-6 align-items-center justify-content-md-end align-items-md-end">
-                    <div class="amount d-flex my-1 mb-0"><p class="m-0 fs-md-5">50<img class="ms-1 "src="./assets/token.svg" alt=""></p></div>
+                    <section class="d-flex col-md-6 align-items-center justify-content-end align-items-md-end">
                     <button type="button" class="btn btn-primary ms-1 py-0 text-dark fs-md-5">Bid</button>
                     </section>
                 </div>
@@ -120,7 +118,7 @@
                 </section>
                 <section class="col-11 col-md-10 d-md-flex mt-md-2">
                     <div class="bigLeft col-md-9 me-md-1 ">
-                    <h1 id="listingTitle">Title comes here</h1>
+                    <h1 id="listingTitle" class="fs-4">Title comes here</h1>
                     
                     <h2>Listed by <a href="profile.html?username=something" class="col-6 text-end text-dark d-md-flex align-items-md-end">Username <img class="col-2  rounded-circle"src="assets/avatar.jpg"></a></h2>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore placeat voluptatibus rem sed fuga labore. Voluptatum animi, eaque nisi dolore nostrum praesentium nobis quo molestiae facilis tempore blanditiis, dolor id!</p>
@@ -141,6 +139,7 @@
                 </div>
                 </section>    
             </article>
+        </article>
     </main>
     <footer class="bg-primary d-flex align-items-center mt-auto py-4">
         <div id="footerProfile" class="col-3 d-flex justify-content-center ">
