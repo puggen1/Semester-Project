@@ -50,7 +50,7 @@
             <button class="btn btn-white border m-1 py-1 ms-0" type="button" id="back"> <i class="bi bi-arrow-left"></i> Back</button>
         </div>
         <article id="listingPage" class="d-flex flex-column flex-lg-row flex-lg-wrap justify-content-lg-center align-items-center align-items-lg-stretch ">
-            <section id="mediaGallery" class="d-flex flex-column flex-md-row flex-lg-column align-items-center  col-11 col-md-10 col-lg-5 col-xl-4">
+            <section id="mediaGallery" class="d-flex flex-column flex-md-row flex-lg-column align-items-center  col-11 col-md-10 col-lg-5 ">
                 <img class="bigImage col-12 col-md-10 rounded-1" src="assets/sell.jpg" alt="placeholder">
                 <div id="subContent" class="col-12 col-md-2 col-lg-10 d-flex flex-md-column flex-lg-row align-items-center">
                     <i id="leftButton" class="bi bi-chevron-left d-md-none d-lg-block">
@@ -68,19 +68,26 @@
                     </i>
             </div>
             </section>
-            <section class="col-11 col-md-10 col-lg-5 col-xl-6 col-xxl-5 d-md-flex flex-lg-wrap mt-md-2">
-                <div class="bigLeft col-md-9 col-lg-12 flex-lg-wrap d-lg-flex me-md-1 ">
-                <h1 id="listingTitle"class="col-lg-6 col-xl-8 fs-3">Title comes here</h1>
-                
-                <p class="col-lg-6 col-xl-4 d-flex align-items-center">Listed by <a href="profile.html?username=something" class="col-6 col-xl-8 text-end text-dark d-md-flex align-items-md-end ">Username <img class="col-2  rounded-circle"src="assets/avatar.jpg"></a></p>
-                <p class="mb-lg-1 col-xl-8 col-xxl-7">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore placeat voluptatibus rem sed fuga labore. Voluptatum animi, eaque nisi dolore nostrum praesentium nobis quo molestiae facilis tempore blanditiis, dolor id!</p>
-                <section class="d-lg-flex flex-lg-wrap align-items-lg-center  col-lg-10 col-xl-7 col-xxl-7">
-                <div id="singlePageTags" class="col-lg-6 col-xl-7">
+            <section class="col-11 col-md-10 col-lg-5 d-md-flex flex-lg-wrap mt-md-2">
+                <div class="bigLeft col-md-8 col-lg-12 flex-lg-wrap d-lg-flex me-md-1 ">
+                <h1 id="listingTitle"class="col-lg-6 fs-3">Title comes here</h1>
+                <div class="d-flex col-lg-6 justify-content-lg-end">
+                <p class=" me-1 fs-5 d-flex mb-0 align-items-center align-items-xl-start">Listed by </p>
+                <a href="profile.html?username=something" class="col-6 col-sm-5 col-md-4 col-lg-7 col-xl-6 col-xxl-5 fs-5 text-end text-dark text-decoration-none d-flex align-items-center align-items-xl-start">
+                    Username
+                    <div class="profileImageListing ratio">
+                        <img src="assets/avatar.jpg" class="rounded-circle img-fluid ">
+                    </div>
+                </a>
+                </div>
+                <p class="mb-lg-1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore placeat voluptatibus rem sed fuga labore. Voluptatum animi, eaque nisi dolore nostrum praesentium nobis quo molestiae facilis tempore blanditiis, dolor id!</p>
+                <section class="d-sm-flex flex-wrap align-items-center  mb-sm-1 col-lg-10 col-xl-12 justify-content-between  justify-content-md-start">
+                <div id="singlePageTags" class=" mb-2 mb-sm-1 mb-md-0">
                     <button type="button" class="btn btn-secondary py-1">Something</button>
                     <button type="button" class="btn btn-secondary py-1">test</button>
                 </div>
 
-                <div class="countdown border rounded-1 my-3 col-5 col-md-6 col-lg-5">
+                <div class="countdown border rounded-1 px-2 py-1 ms-md-2">
                     00H:01M:22S
                 </div>
                 <article id="lowerPart" class="d-flex flex-column flex-md-wrap flex-md-row justify-content-center col-12 col-lg-8">
@@ -89,24 +96,25 @@
                 <p>Listed: 29.11.2022 at 14:48</p>
                 -->
                 </div>
-                <div class="bigRight d-md-flex flex-md-column col-lg-12 col-xl-10 col-xxl-8">
-                <div id="currentBid" class=" d-flex align-items-md-end">
-                    <p class="col-8 col-lg-6 col-xl-5 col-xxl-7 mb-0 d-lg-flex justify-content-lg-center align-items-lg-center">Current bid: <a href="profile.html?username=something" class="col-6 col-md-12 col-lg-6 text-end text-dark d-md-flex align-items-md-end">Username <img class="col-2 col-lg-4 rounded-circle"src="assets/avatar.jpg"></a></p> <p class="mb-0 col-md-4 col-lg-6">50 <img src="assets/token.svg" alt="token"></p>
-                
-                </div>
-                <div id="loggedInContent">
-                    <div class="top d-flex justify-content-end mt-2">
-                        <button id="bidButtonPhone" type="button" class="btn btn-primary py-1 px-4 d-md-none">Log in to bid</button>
+                <section class="bigRight d-md-flex flex-md-column col-md-4 col-lg-12 col-xl-12 justify-content-md-between justify-content-xl-start flex-xl-row">
+                    <div id="currentBid" class="d-flex flex-wrap justify-content-between justify-content-lg-start align-items-md-end align-items-xl-start col-12 col-xl-6">
+                        <p class="d-flex mb-0 fs-4 ">Current bid: </p>
+                        <p class="mb-0 fs-4 d-flex justify-content-end">50 <img src="assets/token.svg" alt="token"></p>
                     </div>
-                    <div id="bidSection" class="d-none d-md-block col-lg-8">
-                        <div class="d-md-flex flex-md-column flex-lg-row  justify-content-md-end align-items-md-end">
-                            <input type="number" class="form-control" id="bidAmount" placeholder="Bid amount">   
-                            <button type="button" class="btn btn-primary col-4 mt-md-2 ms-lg-1" id="bidButton">Bid</button>
+                    <div id="loggedInContent" class="col-xl-6">
+                        <div class="top d-flex justify-content-end mt-2 mt-xl-0">
+                            <button id="bidButtonPhone" type="button" class="btn btn-primary py-1 px-4 d-md-none">Log in to bid</button>
                         </div>
-                    </div>
+                        <div id="bidSection" class="d-none d-md-block col-lg-8 col-xl-12">
+                            <div class="d-md-flex flex-md-column flex-lg-row  col-md-8 col-xl-12 ms-auto justify-content-md-end justify-content-lg-start ms-lg-0 align-items-md-end">
+                                <input type="number" class="form-control" id="bidAmount" placeholder="Bid amount">   
+                                <button type="button" class="btn btn-primary col-5 mt-md-2 mt-xl-0 ms-lg-1" id="bidButton">Bid</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            </section>
             </section>
             <i id="arrowDown" class="bi bi-chevron-down col-lg-12"></i>
             <section id="popularListings" class="col-12">
