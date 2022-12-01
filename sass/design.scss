@@ -5,6 +5,13 @@
   $danger: #CC6631;
 
 
+.bigImg{
+    border-radius: 5px 5px 0px 0px;
+
+    height: 50vw;
+    object-fit: cover;
+    object-position: center;
+}
   .profileImage{
     position: relative;
     --bs-aspect-ratio: 100%;
@@ -16,6 +23,16 @@
   overflow: hidden;
     --bs-aspect-ratio: 100%;
     width: 25% !important;
+}
+.profileImageRight{
+    position: relative;
+    overflow: hidden;
+        --bs-aspect-ratio: 100%;
+        width: 50% !important;
+}
+.profileImageRight img{
+    object-fit: cover;
+    object-position: center;
 }
 .profileImageListing img{
   object-fit: cover;
@@ -30,16 +47,24 @@
     .profileImage{
         width: 25% !important;
     }
+    
+   
 }
 @media screen and (min-width: 768px) {
     .profileImage{
         width: 20% !important;
     }
+    .bigImg{
+        border-radius: 5px 0px 0px 5px;
+        height: 150px;
+       }
+    
 }
 @media screen and (min-width: 992px) {
     .profileImage{
         width: 15% !important;
     }
+
 }
 @media screen and (min-width: 1200px) {
     .profileImage{
