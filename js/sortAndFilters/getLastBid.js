@@ -4,8 +4,8 @@ function sortBids(allBids) {
     if (bid.amount > lastBid.amount) {
       lastBid = bid;
     }
-    return lastBid;
   }
+  return lastBid;
 }
 
 export default function getLastBid(bids) {

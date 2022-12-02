@@ -1,8 +1,11 @@
 import apiCall from "./api/apiCall.mjs";
 import getLastBid from "./sortAndFilters/getLastBid.js";
 import timeDisplay from "./htmlTemplate/timeDisplay.js";
+import cardListing from "./htmlTemplate/cardListing.js";
 import createTags from "./htmlTemplate/tags.js";
+import popular from "./sortAndFilters/popular.js";
 let singleListingLocation = document.querySelector("#listingPage");
+let popularListings = document.querySelector("#listings");
 let url = window.location.search;
 let params = new URLSearchParams(url);
 let id = params.get("id");
@@ -99,8 +102,16 @@ async function displaySingle(id) {
   singleListingLocation.insertAdjacentElement("afterbegin", singleListing);
 }
 
+async function showPopular() {
+  let result = await apiCall("listings?_bids=true&_seller=true", "GET");
+  let mostPopular = popular(result, true);
+  popularListings.innerHTML = "";
+  for (let listing of mostPopular) {
+    popularListings.insertAdjacentElement("beforeend", cardListing(listing));
+  }
+}
 displaySingle(id);
-
+showPopular();
 //todo:
 //create function to check if logged in, change lower part based on that...
 // filter listings under to show most popular, exclude the one that is already showing here?
