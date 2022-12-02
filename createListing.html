@@ -4,112 +4,109 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <title>create New | Bidder</title>
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="profile.html">Profile</a></li>
-                <li><button>Login</button></li>
-            </ul>
-        </nav>
-        <div id="logo">
-            <img src="images/logo.png" alt="The Bidder logo">
-        </div>
-        <div id="profileHeader">
-        </div>
-    </header>
-    <main>
-        <div class="backGround">
-            <h1>New Listing</h1>
-        </div>
-        <button id="back"> <i>arrow icon</i> Back</button>
-        <section id="content">
-            <label>Listing title</label>
-            <input type="text" placeholder="Title" required>
-            <label>Listing description</label>
-            <input type="text" placeholder="Description">
-            <label>Listing gallery</label>
-            <input type="text" placeholder="valid image url">
-            <label>Tags</label>
-            <input type="text" placeholder="Separated by space">
-            <label>End date</label>
-            <input type="date" placeholder="Date" required>
-            <input type="time" placeholder="Time" required>
-            <button>Create</button>
-            <button>Cancel</button>
-        </section>
-        <section id="preview">
-            <h2>Preview</h2>
-            <!--these buttons will be shown on mobile, and will decide what content  is shown under, it is important that the content under is shown in the corresponding format(mobile, tablet or pc)-->
-            <button>Small</button>
-            <button>Big</button>
-
-            <h3>Small version</h3>
-            <div class="listing">
-                <img src="images/placeholder.png" alt="placeholder">
-                <div class="listingContent">
-                    <h3>Listing title</h3>
-                    <a href="profile.html?name=username">username <img src="userimage"></a>
-                    <p>desc</p>
-                    <div class="countdown">
-                        <p>countdown timer comes here</p>
-                    </div>
-                    <div class="currentBid">
-                        <p>amount <i>token icon</i></p>
-                    </div>
-                    <button>Bid</button>
-            </div>
-            <h3>Big version</h3>
-            <article id="listingPage">
-                <section id="mediaGallery">
-                    <img class="bigImage" src="images/placeholder.png" alt="placeholder">
-                    <div id="subContent">
-                        <i id="firstButton">
-                        </i>
-                    <div id="thumbnails">
-                        <img class="thumbnail" src="images/placeholder.png" alt="placeholder">
-                        <img class="thumbnail" src="images/placeholder.png" alt="placeholder">
-                        <img class="thumbnail" src="images/placeholder.png" alt="placeholder">
-                    </div>
-                    <i id="secondButton">
-                    </i>
+<body class="d-flex flex-column min-vh-100">
+    <header class="bg-primary d-flex">
+        <nav class="col-3 navbar ">
+            <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar" aria-controls="navbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-start bg-primary" tabindex="-1" id="navbar">
+                <div class="offcanvas-header">
+                  <button type="button" class="btn border-dark border-1 bg-primary rounded-3" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-arrow-left"></i> back</button>
                 </div>
-                </section>
-                <section>
-                    <h1 id="listingTitle">Title comes here</h1>
-                    <h2>Listed by <a href="./profile.html?name=username">username <img src="userimage"></a></h2>
-                    <p>desc comes here</p>
-                    <div id="singlePageTags">
-                        <button>Tag</button>
-                        <button>Tag</button>
-                    </div>
-                    <div class="countdown">
-                        <p>countdown timer comes here</p>
-                    </div>
-                    <div id="ownListing">
-                        <button><i>icon</i>Update</button>
-                        <button><i>icon</i>Delete</button>
-                    </div>
-                </section>
-        </section>
-    </main>
-    <footer>
-        <div id="footerProfile">
-            <a href="profile.html">Profile</a>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="loginNav" type="button"class="btn btn-link ms-0 ps-0">Login</button>
+                      </li>
+                    
+                  </ul>
+                </div>
+              </div>
         </div>
-        <div id="iconToTop"></div>>
-            <i>
-                icon to scroll up here
+        </nav>
+        <div id="logo" class="col-6 d-flex justify-content-center">
+            <img src="assets/logo.svg" alt="The Bidder logo">
+        </div>
+        <div id="profileHeader" class=" d-flex justify-content-center align-items-center col-3">
+            <div class="col-6">
+                </div>
+        </div>
+        
+    </header>
+    <main class="d-flex flex-column flex-md-wrap flex-md-row justify-content-center">
+        <div class="bg-secondary py-2 col-md-12">
+            <h1 class="text-center">New Listing</h1>
+        </div>
+        <article id="lowerPart" class="d-flex flex-column flex-md-wrap flex-md-row justify-content-center col-12 col-xl-11">
+        <div class="col-10 col-md-11 col-lg-11 col-xl-10 m-auto">
+            <button type="button" class="btn btn-white border border-dark rounded-3 mt-2" id="backBtn"><i class="bi bi-arrow-left"></i> back</button>
+        </div>
+        <section id="content" class="d-flex col-md-5 col-lg-5 col-xl-5 me-md-2 me-lg-0 justify-content-center my-2 align-items-md-start">
+            <form class="col-10 col-md-12 border rounded-1 p-4">
+                <h2>Content</h2>
+            <label class="form-label">title*</label>
+            <input class="form-control" type="text" placeholder="Title" required>
+            <label class="form-label">description</label>
+            <input class="form-control" type="text" placeholder="Description">
+            <label class="form-label">gallery</label>
+            <input class="form-control" type="text" placeholder="valid image url">
+            <button type="button" class="btn btn-white border border-dark rounded-3 mt-2 d-block" id="addImgBtn"><i class="bi bi-plus"></i></button>
+            <label class="form-label">Tags</label>
+            <input class="form-control" type="text" placeholder="Separated by space">
+            <label class="form-label">End date*</label>
+            <input class="form-control mb-1" type="date" required>
+            <input class="form-control mb-1" type="time" required>
+            <button type="button"class="btn btn-primary">Create</button>
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </form>
+        </section>
+        <section id="preview" class="col-md-6  col-lg-6 col-xl-5 rounded-1 p-lg-2 my-lg-2">
+            <div class="fillerListing card d-md-flex flex-md-row m-auto col-11 col-md-12 col-lg-10 col-xl-12 col-xxl-10 my-2 my-lg-0  mb-lg-2">
+                <img class="bigImg col-md-4 rounded-start" src="assets/buy.jpg">
+                <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-flex flex-column justify-content-between">
+                    <div class="card-title d-flex mb-md-1 align-items-end align-items-md-center">
+                    <h3 class="col-6 mb-0 fs-5">Listing title</h3>
+                    <a href="profile.html?username=something" class="col-6 d-flex text-end text-dark d-md-flex align-items-end justify-content-end">Username <div class="profileImageListing ratio"><img src="assets/avatar.jpg" class="rounded-circle img-fluid "></div></a>
+                    </div>
+                    <div class="d-flex flex-md-wrap pb-2">
+                    <div class="d-flex col-12  col-md-12 flex-md-row justify-content-between">
+                    <div class="border rounded-1 col-md-6">00H:01M:22S</div>
+                    <section class="d-flex col-md-6 align-items-center justify-content-md-end align-items-md-end">
+                    <div class="amount d-flex my-1 mb-0"><p class="m-0 fs-md-5">50<img class="ms-1 "src="./assets/token.svg" alt=""></p></div>
+                    <button type="button" class="btn btn-primary ms-1 py-0 text-dark fs-md-5">Bid</button>
+                    </section>
+                </div>
+                </div>
+            </div>
+            </div>
+        </article>
+    </main>
+    <footer class="bg-primary d-flex align-items-center mt-auto py-4">
+        <div id="footerProfile" class="col-3 d-flex justify-content-center ">
+            <a class="text-dark" href="profile.html">Profile</a>
+        </div>
+        <div id="iconToTop" class="col-6 d-flex justify-content-center">
+            <i class="rounded-circle bi bi-arrow-up-short bg-warning">
             </i>
         </div>
-        <div>
-            <button id="footerLogout">
+        <div class="col-3 d-flex justify-content-center ">
+            <button id="footerLogout" type="button" class="btn btn-link text-dark">
                 Logout
             </button>
         </div>
     </footer>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -4,7 +4,8 @@
   "description": "This is the Bidder website package, that sorts out all of the required things this site need",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sassBuild": "sass --watch ./sass/design.scss:./css/style.css"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/puggen1/Semester-Project/issues"
   },
-  "homepage": "https://github.com/puggen1/Semester-Project#readme"
+  "homepage": "https://github.com/puggen1/Semester-Project#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.2"
+  }
 }
