@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <!-- todo to make the vertical work: transelate on prev, next and active 0, 100%, 0 & 0, -100%, 0-->
+    <section id="mediaGallery" class="d-flex flex-column flex-md-row flex-lg-column align-items-center  col-11 col-md-10 col-lg-5 ">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide verical" data-bs-ride="carousel">
+            
+            <div class="carousel-inner">
+              <div class="carousel-item active" >
+                <img src="./assets/buy.jpg" class="d-block w-100" alt="...">
+                </div>
+              <div class="carousel-item">
+                <img src="./assets/sell.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="./assets/avatar.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+          </div>
+    </div>
+    <section id="lowerMedia" class="d-flex align-items-center">
+    <div class="carouselButtons col-1">
+        <button class="btn" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="bi bi-chevron-left" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          </div>
+          <div class="col-10 d-flex justify-content-around">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active btn btn-link col-3" aria-current="true" aria-label="Slide 1">
+                <img src="./assets/buy.jpg" class="d-block w-100" alt="...">
+            </button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" class="col-3 btn btn-link" aria-label="Slide 2">
+                <img src="./assets/sell.jpg" class="d-block w-100" alt="...">
+            </button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" class="col-3 btn btn-link" aria-label="Slide 3">
+                <img src="./assets/avatar.jpg" class="d-block w-100" alt="...">
+            </button>
+          </div>
+          <div class="carouselButtons col-1">
+          <button class="btn" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="bi bi-chevron-right" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          </div>
+        </section>
+    </section>
+   
+      <div> </div>
+      <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
