@@ -1,15 +1,18 @@
-let heroLocation = document.querySelector("#mainSection");
+import storageRetriever from "../storage/storageRetriever.js";
 
-let isLoggedIn =  localStorage.getItem("isLoggedIn");
-export default function dynamicHero(){
+let heroLocation = document.querySelector("#mainSection");
+let isLoggedIn = storageRetriever("isLoggedIn");
+let username = storageRetriever("username");
+let avatar = storageRetriever("avatar");
+function dynamicHero(){
     if(isLoggedIn){
         heroLocation.innerHTML = `
         <!--Here the buy sell buttons will be when you are not logged in, and the profile picture and some buttons when you are logged in-->
         <div class="d-flex col-12  col-lg-6 col-xl-4 justify-content-center profileImage ratio">
             <!--use trick to make round all the time-->
-            <img src="assets/avatar.jpg" alt="profile picture" class="img-fluid rounded-circle col-6">
+            <img src="${avatar}" alt="profile picture" class="img-fluid rounded-circle col-6">
         </div>
-        <h1 class=" col-lg-6 col-xl-4 col-xxl-3 text-center">Hello username</h1>
+        <h1 class=" col-lg-6 col-xl-4 col-xxl-3 text-center">Hello ${username}</h1>
         <h2 class="col-lg-6 col-xl-4 col-xxl-3 text-center"> what do you seek?</h2>
         <div id="actions" class="d-flex flex-column col-11 col-lg-6 col-xl-4 col-xxl-3 justify-content-center align-items-center rounded-1 py-2">
             <a href="profile.html#yourListings" class="btn btn-primary col-10 col-sm-3 col-lg-4 col-xl-5 col-xxl-4 my-2">Your Listings</a>
@@ -44,3 +47,5 @@ export default function dynamicHero(){
     }
     
 }
+
+dynamicHero();

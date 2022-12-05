@@ -1,5 +1,7 @@
 import getLastBid from "../sortAndFilters/getLastBid.js";
 import timeDisplayer from "./timeDisplay.js";
+import storageRetriever from "../storage/storageRetriever.js";
+let isLoggedIn = storageRetriever("isLoggedIn");
 export default function buildCardListing(listingData) {
   //gets the diffrent elements we need to build the card
   let { id, title, media, endsAt, bids, seller } = listingData;
@@ -8,7 +10,10 @@ export default function buildCardListing(listingData) {
   if (media.length > 0) {
     bigMedia = media[0];
   }
-
+  let cta = "view";
+  if(isLoggedIn){
+    cta = "Bid";
+  }
   //for user avatar
   let avatar = "../../assets/avatar.jpg";
   if (seller.avatar) {
@@ -49,7 +54,7 @@ export default function buildCardListing(listingData) {
         <div class="border rounded-1 col-md-6 my-0 px-1 d-flex align-items-center">${nonFunctionCountDown}</div>
         <section class="d-flex col-md-6 align-items-center justify-content-md-end align-items-md-end">
         ${lastBid}
-        <button href="./listing.html/?id=${id}"type="button" class="btn btn-primary ms-1 py-0 text-dark fs-md-5">Bid</button>
+        <button href="./listing.html/?id=${id}"type="button" class="btn btn-primary ms-1 py-0 text-dark fs-md-5">${cta}</button>
         </section>
     </div>
 </div>`;

@@ -1,6 +1,5 @@
 import apiCall from "./api/apiCall.mjs";
 import buildCardListing from "./htmlTemplate/cardListing.js";
-import dynamicHero from "./loggedIn/dynamicHero.js";
 let listings = document.querySelector("#listings");
 let listingListTitle = document.querySelector("#numberOfListings");
 
@@ -13,5 +12,4 @@ async function showListings() {
   }
   listingListTitle.innerHTML = `showing ${result.length} listings`;
 }
-dynamicHero()
 showListings();
