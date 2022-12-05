@@ -5,7 +5,9 @@ export default function loginModal() {
   modal.tabIndex = "-1";
   modal.ariaLabel = "loginModalLabel";
   modal.ariaHidden = true;
-  modal.innerHTML = `<div class="modal-dialog">
+  modal.innerHTML = `
+  <form id="loginForm">
+  <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="loginModalLabel">Login</h1>
@@ -18,11 +20,12 @@ export default function loginModal() {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-link text-dark" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Login</button>
         <button type="button" id="register" class="btn btn-secondary">Register</button>
       </div>
     </div>
-  </div>`;
+  </div>
+  </form>`;
 
   return modal;
 }
