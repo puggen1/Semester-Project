@@ -27,6 +27,10 @@ async function displaySingle(id) {
   if (tags.lenth > 0) {
     allTags = createTags(tags);
   }
+  //description
+  if (description === null || description === "") {
+    description = "no description";
+  }
   let singleListing = document.createElement("div");
   singleListing.classList.add(
     "col-12",
