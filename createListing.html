@@ -19,7 +19,7 @@
                 <div class="offcanvas-header">
                   <button type="button" class="btn border-dark border-1 bg-primary rounded-3" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-arrow-left"></i> back</button>
                 </div>
-                <div class="offcanvas-body">
+                <div id="navContent" class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end">
                     <li class="nav-item">
                       <a class="nav-link active" aria-current="page" href="index.html">Home</a>
@@ -39,8 +39,8 @@
         <div id="logo" class="col-6 d-flex justify-content-center">
             <img src="assets/logo.svg" alt="The Bidder logo">
         </div>
-        <div id="profileHeader" class=" d-flex justify-content-center align-items-center col-3">
-            <div class="col-6">
+        <div id="profileHeader" class=" d-flex justify-content-end align-items-center col-3">
+            <div class="col-12 col-lg-6 d-flex justify-content-end me-3">
                 </div>
         </div>
         
@@ -108,5 +108,8 @@
         </div>
     </footer>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/loggedIn/dynamicHeader.js" type="module"></script>
+<script src="./js/loggedIn/dynamicNav.js" type="module"></script>
+<script src="./js/loginRegister/activateModals.js" type="module"></script>
 </body>
 </html>
