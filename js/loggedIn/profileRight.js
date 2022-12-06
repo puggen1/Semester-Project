@@ -1,5 +1,6 @@
 import storageRetriever from "../storage/storageRetriever.js";
 import login from "../loginRegister/login.js";
+import logOut from "../loginRegister/loggOut.js";
 let desktopProfile = document.querySelector("#profileRight");
 let username = storageRetriever("username");
 let avatar = storageRetriever("avatar");
@@ -18,9 +19,13 @@ if (isLoggedIn) {
                     <a type="button" href="./createlisting.html" class="btn btn-primary col-lg-3 col-xl-3 col-xxl-4 my-1">New</a>
                     <div class="col-xl-6 col-xxl-8 d-flex">
                     <a href="profile.html" class="btn btn-primary col-xl-6 my-1 me-2">Profile</a>
-                    <button type="button" class="btn btn-danger col-xl-6 my-1">Logout</button>
+                    <button id="sideLogout"type="button" class="btn btn-danger col-xl-6 my-1">Logout</button>
                 </div>
                 </div>`;
+  let sideLogout = document.querySelector("#sideLogout");
+  sideLogout.addEventListener("click", () => {
+    logOut();
+  });
 } else {
   desktopProfile.innerHTML = `
     <form id="sideLogin">

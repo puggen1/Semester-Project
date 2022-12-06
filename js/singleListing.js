@@ -36,10 +36,9 @@ async function displaySingle(id) {
   //if own
   let self = storageRetriever("username");
   let bidSection;
-  if(seller === self){
-    bidSection= ``;
-  }
-  else if(!storageRetriever("isLoggedIn")){
+  if (seller === self) {
+    bidSection = ``;
+  } else if (!storageRetriever("isLoggedIn")) {
     bidSection = `<div id="loggedInContent" class="col-xl-6">
     <div class="top d-flex justify-content-end mt-2 mt-xl-0">
         <button id="bidButtonPhone" type="button" class="btn btn-primary py-1 px-4 d-md-none">Bid</button>
@@ -49,9 +48,8 @@ async function displaySingle(id) {
             <button type="button" class="btn btn-primary col-5 mt-md-2 mt-xl-0 ms-lg-1" id="loginButtonBidSection">log in to bid</button>
         </div>
     </div>
-</div>`
-  }
-  else{
+</div>`;
+  } else {
     bidSection = `<div id="loggedInContent" class="col-xl-6">
     <div class="top d-flex justify-content-end mt-2 mt-xl-0">
         <button id="bidButtonPhone" type="button" class="btn btn-primary py-1 px-4 d-md-none">Bid</button>
@@ -62,7 +60,7 @@ async function displaySingle(id) {
             <button type="submit" class="btn btn-primary col-5 mt-md-2 mt-xl-0 ms-lg-1" id="bidButton">Bid</button>
         </form>
     </div>
-</div>`
+</div>`;
   }
   let singleListing = document.createElement("div");
   singleListing.classList.add(
@@ -111,7 +109,7 @@ async function displaySingle(id) {
         ${allTags}
       </div>
 
-      <div class="countdown border rounded-1 px-2 py-1 ms-md-2">
+      <div class="countdown border rounded-1 px-2 py-1 ms-md-2 ms-lg-0">
          ${countdown}
       </div>
       <article id="lowerPart" class="d-flex flex-column flex-md-wrap flex-md-row justify-content-center col-12 col-lg-8">
@@ -128,16 +126,20 @@ async function displaySingle(id) {
           ${bidSection}`;
   singleListingLocation.insertAdjacentElement("afterbegin", singleListing);
   //add bid function to button
-  if(storageRetriever("isLoggedIn")){
+  if (storageRetriever("isLoggedIn")) {
     let bidForm = document.querySelector("#bidForm");
-    bidForm.addEventListener("submit", (event)=>{
+    bidForm.addEventListener("submit", (event) => {
       event.preventDefault();
       bid(event.target[0].valueAsNumber, id);
     });
+  } else {
+    let loginBidButton = document.querySelector("#loginButtonBidSection");
+    loginBidButton.addEventListener("click", () => {
+      let loginModal = bootstrap.Modal.getOrCreateInstance("#loginModal");
+      loginModal.show();
+    });
   }
 }
-
-
 async function showPopular() {
   let result = await apiCall("listings?_bids=true&_seller=true", "GET");
   let mostPopular = popular(result, true);
