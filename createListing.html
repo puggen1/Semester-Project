@@ -57,34 +57,32 @@
             <form class="col-10 col-md-12 border rounded-1 p-4">
                 <h2>Content</h2>
             <label class="form-label">title*</label>
-            <input class="form-control" type="text" placeholder="Title" required>
+            <input class="form-control" type="text" id="listingTitle" placeholder="Title" required>
             <label class="form-label">description</label>
-            <input class="form-control" type="text" placeholder="Description">
+            <textarea class="form-control" type="text" id="listingDesc" placeholder="Description"></textarea>
             <label class="form-label">gallery</label>
-            <input class="form-control" type="text" placeholder="valid image url">
+            <input class="form-control" id="tempImage" type="text" placeholder="valid image url">
             <button type="button" class="btn btn-white border border-dark rounded-3 mt-2 d-block" id="addImgBtn"><i class="bi bi-plus"></i></button>
             <label class="form-label">Tags</label>
-            <input class="form-control" type="text" placeholder="Separated by space">
+            <input class="form-control" id="listingTags"  type="text" placeholder="Separated by space">
             <label class="form-label">End date*</label>
-            <input class="form-control mb-1" type="date" required>
-            <input class="form-control mb-1" type="time" required>
-            <button type="button"class="btn btn-primary">Create</button>
+            <input class="form-control mb-1" id="listingEnd" type="datetime-local" value="2022-12-07T13:48:00" required>
+            <button type="submit"class="btn btn-primary">Create</button>
             <button type="button" class="btn btn-danger">Cancel</button>
         </form>
         </section>
         <section id="preview" class="col-md-6  col-lg-6 col-xl-5 rounded-1 p-lg-2 my-lg-2">
             <div class="fillerListing card d-md-flex flex-md-row m-auto col-11 col-md-12 col-lg-10 col-xl-12 col-xxl-10 my-2 my-lg-0  mb-lg-2">
-                <img class="bigImg col-md-4 rounded-start" src="assets/buy.jpg">
+                <img id="previewImg"class="bigImg col-md-4 rounded-start" src="">
                 <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-flex flex-column justify-content-between">
                     <div class="card-title d-flex mb-md-1 align-items-end align-items-md-center">
-                    <h3 class="col-6 mb-0 fs-5">Listing title</h3>
-                    <a href="profile.html?username=something" class="col-6 d-flex text-end text-dark d-md-flex align-items-end justify-content-end">Username <div class="profileImageListing ratio"><img src="assets/avatar.jpg" class="rounded-circle img-fluid "></div></a>
+                    <h3 id="previewTitle"class="col-6 mb-0 fs-5">Listing title</h3>
+                    <a id="previewUser" href="" class="col-6 d-flex text-end text-dark d-md-flex align-items-end justify-content-end"></a>
                     </div>
                     <div class="d-flex flex-md-wrap pb-2">
                     <div class="d-flex col-12  col-md-12 flex-md-row justify-content-between">
-                    <div class="border rounded-1 col-md-6">00H:01M:22S</div>
+                    <div id="previewEnd"class="border rounded-1 col-md-6">00H:01M:22S</div>
                     <section class="d-flex col-md-6 align-items-center justify-content-md-end align-items-md-end">
-                    <div class="amount d-flex my-1 mb-0"><p class="m-0 fs-md-5">50<img class="ms-1 "src="./assets/token.svg" alt=""></p></div>
                     <button type="button" class="btn btn-primary ms-1 py-0 text-dark fs-md-5">Bid</button>
                     </section>
                 </div>
@@ -111,5 +109,6 @@
 <script src="./js/loggedIn/dynamicHeader.js" type="module"></script>
 <script src="./js/loggedIn/dynamicNav.js" type="module"></script>
 <script src="./js/loginRegister/activateModals.js" type="module"></script>
+<script src="./js/createListing.js" type="module"></script>
 </body>
 </html>

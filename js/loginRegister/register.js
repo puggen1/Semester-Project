@@ -15,18 +15,18 @@ export default async function register(e) {
 
   if(usernameRegex.test(username) && emailRegex.test(email) && passwordRegex.test(password)){
     let data = {
-      username: username,
+      name: username,
       avatar: avatar,
       email: email,
       password: password,
     };
-    let response = await apiCall("users", "POST", data);
+    let response = await apiCall("auth/register", "POST", data);
     if(response.error){
       alert(response.message);
     } else {
       //give success message
       
-      
+      console.log(response);
       //after delay go to login modal?
       setTimeout(()=>{
         let registerModal = bootstrap.Modal.getOrCreateInstance("#registerModal");

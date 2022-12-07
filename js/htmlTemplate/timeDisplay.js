@@ -1,5 +1,6 @@
 export default function timeDisplayer(endTime) {
   let timeNow = new Date();
+  
   let endDate = new Date(endTime);
   let timeLeft = endDate - timeNow;
   let nonFunctionCountDown = "";

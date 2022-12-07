@@ -3,6 +3,7 @@ function createCarousel(media, placement) {
   carouselouter.id = "mediaGallery";
   carouselouter.classList.add(
     "d-flex",
+    "m-auto",
     "flex-column",
     "flex-md-row",
     "flex-lg-column",
@@ -41,8 +42,8 @@ function createCarousel(media, placement) {
       "flex-lg-row"
     );
     let smallPartHtml = "";
-    smallPartHtml = `<div class="carouselButtons d-md-flex justify-content-md-center col-1 col-md-12 col-lg-1">
-    <button class="btn" type="button" data-bs-target="#carouselBigImage" data-bs-slide="prev">
+    smallPartHtml = `<div class="carouselButtons d-flex justify-content-center col-1 col-md-12 col-lg-1">
+    <button class="btn p-0" type="button" data-bs-target="#carouselBigImage" data-bs-slide="prev">
         <span class="bi bi-chevron-left d-md-none d-lg-block" aria-hidden="true"></span>
         <span class="bi bi-chevron-up d-none d-md-block d-lg-none" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -65,8 +66,8 @@ function createCarousel(media, placement) {
       x++;
     }
     smallPartHtml += `</div>
-    <div class="carouselButtons d-md-flex justify-content-md-center col-1 col-md-12 col-lg-1">
-    <button class="btn" type="button" data-bs-target="#carouselBigImage" data-bs-slide="next">
+    <div class="carouselButtons d-flex justify-content-center col-1 col-md-12 col-lg-1">
+    <button class="btn p-0" type="button" data-bs-target="#carouselBigImage " data-bs-slide="next">
         <span class="bi bi-chevron-right d-md-none d-lg-block" aria-hidden="true"></span>
         <span class="bi bi-chevron-down d-none d-md-block d-lg-none" aria-hidden="true"></span>
         <span class="visually-hidden">next</span>
