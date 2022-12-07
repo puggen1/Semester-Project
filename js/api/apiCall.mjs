@@ -21,7 +21,25 @@ export default async function apiCall(url, method, data = null, token= null) {
       "Authorization": token,
     };
   }
-  let response = await fetch(fullUrl, options);
-  let json = await response.json();
-  return json;
+  try {
+    let response = await fetch(fullUrl, options)
+    .then(
+      async (response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+
+          let readyError = await response.json();
+          throw new Error(
+            readyError.message
+              ? readyError.message
+              : readyError.errors[0].message
+          );
+        }
+      }
+    );
+    return response;
+  } catch (error) {
+    return error;
+  }
 }

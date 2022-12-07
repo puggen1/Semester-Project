@@ -21,11 +21,11 @@ export default async function register(e) {
       password: password,
     };
     let response = await apiCall("auth/register", "POST", data);
-    if(response.error){
-      alert(response.message);
+    if(!response.id){
+      //response error = response.message
+
     } else {
       //give success message
-      
       console.log(response);
       //after delay go to login modal?
       setTimeout(()=>{
@@ -33,7 +33,7 @@ export default async function register(e) {
         registerModal.hide();
         let loginModal = bootstrap.Modal.getOrCreateInstance("#loginModal");
         loginModal.show();
-      }, 2000)
+      }, 2000);
      
     }
   }

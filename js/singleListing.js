@@ -5,7 +5,7 @@ import cardListing from "./htmlTemplate/cardListing.js";
 import createTags from "./htmlTemplate/tags.js";
 import popular from "./sortAndFilters/popular.js";
 import storageRetriever from "./storage/storageRetriever.js";
-import bid from "./postActions/bid.js";
+import bid from "./listingActions/bid.js";
 let singleListingLocation = document.querySelector("#listingPage");
 let popularListings = document.querySelector("#listings");
 let url = window.location.search;
@@ -40,22 +40,16 @@ async function displaySingle(id) {
     bidSection = ``;
   } else if (!storageRetriever("isLoggedIn")) {
     bidSection = `<div id="loggedInContent" class="col-xl-6">
-    <div class="top d-flex justify-content-end mt-2 mt-xl-0">
-        <button id="bidButtonPhone" type="button" class="btn btn-primary py-1 px-4 d-md-none">Bid</button>
-    </div>
-    <div id="bidSection" class="d-none d-md-block col-lg-8 col-xl-12">
-        <div class="d-md-flex flex-md-column flex-lg-row  col-md-8 col-xl-12 ms-auto justify-content-md-end justify-content-lg-end ms-lg-0 align-items-md-end">
-            <button type="button" class="btn btn-primary col-5 mt-md-2 mt-xl-0 ms-lg-1" id="loginButtonBidSection">log in to bid</button>
+    <div id="bidSection" class="d-block col-lg-8 col-xl-12">
+        <div class="d-flex justify-content-end flex-md-column flex-lg-row  col-md-12 col-xl-12 ms-auto justify-content-md-end justify-content-lg-end ms-lg-0 align-items-md-end">
+            <button type="button" class="btn btn-primary mt-md-2 mt-xl-0 ms-lg-1" id="loginButtonBidSection">log in to bid</button>
         </div>
     </div>
 </div>`;
   } else {
     bidSection = `<div id="loggedInContent" class="col-xl-6">
-    <div class="top d-flex justify-content-end mt-2 mt-xl-0">
-        <button id="bidButtonPhone" type="button" class="btn btn-primary py-1 px-4 d-md-none">Bid</button>
-    </div>
-    <div id="bidSection" class="d-none d-md-block col-lg-8 col-xl-12">
-        <form id="bidForm" class="d-md-flex flex-md-column flex-lg-row  col-md-8 col-xl-12 ms-auto justify-content-md-end justify-content-lg-start ms-lg-0 align-items-md-end">
+    <div id="bidSection" class=" col-lg-8 col-xl-12">
+        <form id="bidForm" class="d-flex justify-content-end flex-md-column flex-lg-row  col-md-8 col-xl-12 ms-auto justify-content-md-end justify-content-lg-start ms-lg-0 align-items-md-end">
             <input type="number" class="form-control" id="bidAmount" placeholder="Bid amount">   
             <button type="submit" class="btn btn-primary col-5 mt-md-2 mt-xl-0 ms-lg-1" id="bidButton">Bid</button>
         </form>
