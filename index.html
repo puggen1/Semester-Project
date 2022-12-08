@@ -19,7 +19,7 @@
                 <div class="offcanvas-header">
                   <button type="button" class="btn border-dark border-1 bg-primary rounded-3" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-arrow-left"></i> back</button>
                 </div>
-                <div class="offcanvas-body">
+                <div id="navContent" class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end">
                     <li class="nav-item">
                       <a class="nav-link active fs-3" aria-current="page" href="index.html">Home</a>
@@ -39,29 +39,15 @@
         <div id="logo" class="col-6 d-flex justify-content-center">
             <img src="assets/logo.svg" alt="The Bidder logo">
         </div>
-        <div id="profileHeader" class=" d-flex justify-content-center align-items-center col-3">
-            <div class="col-6">
+        <div id="profileHeader" class=" d-flex justify-content-end align-items-center col-3">
+            <div class="col-12 col-lg-6 d-flex justify-content-end me-3">
                 </div>
         </div>
         
     </header>
     <main>
         <section class="d-flex flex-column col-12 align-items-center mb-2 bg-md-secondary mt-2" id="mainSection">
-            <!--Here the buy sell buttons will be when you are not logged in, and the profile picture and some buttons when you are logged in-->
-            <div class="d-flex col-12  col-lg-6 col-xl-4 justify-content-center profileImage ratio">
-                <!--use trick to make round all the time-->
-                <img src="assets/avatar.jpg" alt="profile picture" class="img-fluid rounded-circle col-6">
-            </div>
-            <h1 class=" col-lg-6 col-xl-4 col-xxl-3 text-center">Hello username</h1>
-            <h2 class="col-lg-6 col-xl-4 col-xxl-3 text-center"> what do you seek?</h2>
-            <div id="actions" class="d-flex flex-column col-11 col-lg-6 col-xl-4 col-xxl-3 justify-content-center align-items-center rounded-1 py-2">
-                <a href="profile.html#yourListings" class="btn btn-primary col-10 col-sm-3 col-lg-4 col-xl-5 col-xxl-4 my-2">Your Listings</a>
-                <a href="createListing.html" class="btn btn-primary col-10 col-sm-3 col-lg-4 col-xl-5 col-xxl-4 my-2">New Listing</a>
-                <p>or</p>
-                <h3>something to buy</h3>
-                <a href="#listingTop"><i class="bi bi-chevron-down"></i></a>
-
-                    </div>
+          
         </section>
         <section>
         <div id="ListingTop" class="d-flex flex-column align-items-center bg-secondary p-md-3">
@@ -69,7 +55,7 @@
             <h2 class="py-1 my-1">Listings</h2>
             <div class="d-flex my-2 align-items-center col-12">
             <button id="phoneFilter" type="button" data-bs-toggle="modal" data-bs-target="#phoneFilterModal" class="p-1 m-md-0 d-lg-none col-3 m-2 btn bg-white rounded-0"><i class="bi bi-funnel-fill">Filter</i></button>
-            <p class="m-0 p-0 col-6 col-lg-12 col-xl-12 text-center">Showning "52" listings</p>
+            <p id="numberOfListings"class="m-0 p-0 col-6 col-lg-12 col-xl-12 text-center">Showning "52" listings</p>
         </div>
         </div>
         <div id="mainContent" class="d-md-flex flex-md-wrap mt-md-2 align-items-md-start justify-content-lg-between">
@@ -100,46 +86,9 @@
             </div>
         </div>
             <div id="listings" class="col-md-8 col-lg-6 col-xl-6 col-xl-4 d-md-flex flex-column justify-content-center align-items-center">
-                <div class="fillerListing shadow card d-md-flex flex-md-row col-md-10 col-xxl-8 mx-3 my-2">
-                    <img class="bigImg col-md-4" src="assets/buy.jpg">
-                    <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-md-flex flex-md-column justify-content-md-between">
-                        <div class="card-title d-flex mb-md-1 align-items-end align-items-center">
-                        <h3 class="col-6 mb-0 fs-5">Listing title</h3>
-                        <a href="profile.html?username=something" class="col-6 d-flex text-end fs-5 text-decoration-none text-dark d-md-flex align-items-center justify-content-end">
-                            Username
-                            <div class="profileImageListing ratio">
-                                <img src="assets/avatar.jpg" class="rounded-circle img-fluid ">
-                            </div></a>
-                        </div>
-                        <div class="d-flex flex pb-2 col-md-12 flex-md-row justify-content-between">
-                        <div class="border rounded-1 col-md-6 my-0 px-1 d-flex align-items-center">00H:01M:22S</div>
-                        <section class="d-flex col-md-6 align-items-center justify-content-md-end align-items-md-end">
-                        <div class="amount d-flex my-1 my-0"><p class="m-0 fs-md-5">50<img class="ms-1 "src="./assets/token.svg" alt=""></p></div>
-                        <button type="button" class="btn btn-primary ms-1 py-0 text-dark fs-md-5">Bid</button>
-                        </section>
-                    </div>
-                </div>
             </div>
-            <div class="fillerListing shadow card d-md-flex flex-md-row col-md-10 col-xxl-8 mx-3 my-2">
-                <img class="bigImg col-md-4" src="assets/buy.jpg">
-                <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-md-flex flex-md-column justify-content-md-between">
-                    <div class="card-title d-flex mb-md-1 align-items-end align-items-center">
-                    <h3 class="col-6 mb-0 fs-5">Listing title</h3>
-                    <a href="profile.html?username=something" class="col-6 d-flex text-end fs-5 text-decoration-none text-dark d-md-flex align-items-center justify-content-end">
-                        Username
-                        <div class="profileImageListing ratio">
-                            <img src="assets/avatar.jpg" class="rounded-circle img-fluid ">
-                        </div></a>
-                    </div>
-                    <div class="d-flex flex pb-2 col-md-12 flex-md-row justify-content-between">
-                    <div class="border rounded-1 col-md-6 my-0 px-1 d-flex align-items-center">00H:01M:22S</div>
-                    <section class="d-flex col-md-6 align-items-center justify-content-md-end align-items-md-end">
-                    <div class="amount d-flex my-1 my-0"><p class="m-0 fs-md-5">50<img class="ms-1 "src="./assets/token.svg" alt=""></p></div>
-                    <button type="button" class="btn btn-primary ms-1 py-0 text-dark fs-md-5">Bid</button>
-                    </section>
-                </div>
-            </div>
-        </div>
+            <div id="profileRight" class="d-none col-lg-3 col-xl-3 col-xxl-2  d-lg-block border border-end-0 rounded-start mt-lg-2 p-lg-1">
+                <!--changing content-->
             </div>
         </section>
     </main>
@@ -191,5 +140,12 @@
         </div>
     </footer>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/loggedIn/dynamicHeader.js" type="module"></script>
+    <script src="./js/loggedIn/dynamicNav.js" type="module"></script>
+    <script src="js/loggedIn/dynamicHero.js" type="module"></script>
+    <script src="js/index.js" type="module"></script>
+    <script src="./js/loginRegister/activateModals.js" type="module"></script>
+    <script src="./js/loggedIn/profileRight.js" type="module"></script>
+
 </body>
 </html>

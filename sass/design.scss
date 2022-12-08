@@ -3,7 +3,8 @@
   $secondary: #C7BC9D;
   $warning: #C7AD5E;
   $danger: #CC6631;
-
+  
+  
 .card{
     border: none !important;
 }
@@ -60,7 +61,6 @@
         border-radius: 5px 0px 0px 5px;
         height: 150px;
        }
-    
 }
 @media screen and (min-width: 992px) {
     .profileImage{
