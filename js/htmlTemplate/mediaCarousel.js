@@ -13,7 +13,7 @@ export default function createCarousel(media, placement) {
         active = "active";
       }
       html += `<div class="carousel-item ${active}">
-          <img src="${media[i]}" class="d-block w-100" alt="listing Image">
+          <img src="${media[i]}" class="d-block w-100 " alt="listing Image">
           </div>`;
     }
     html += `</div>`;

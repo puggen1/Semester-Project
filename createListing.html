@@ -62,9 +62,14 @@
             <textarea class="form-control" type="text" id="listingDesc" placeholder="Description"></textarea>
             <label class="form-label">gallery</label>
             <input class="form-control" id="tempImage" type="text" placeholder="valid image url">
-            <button type="button" class="btn btn-white border border-dark rounded-3 mt-2 d-block" id="addImgBtn"><i class="bi bi-plus"></i></button>
+            <button type="button" id="add" class="btn btn-white border border-dark rounded-3 mt-2 d-block" id="addImgBtn"><i class="bi bi-plus"></i></button>
+            <div id="gallery" class="d-flex flex-column">
+                
+            </div>
             <label class="form-label">Tags</label>
-            <input class="form-control" id="listingTags"  type="text" placeholder="Separated by space">
+            <input class="form-control" id="listingTags"  type="text" placeholder="example: boat">
+            <button type="button" id="addTag" class="btn btn-white border border-dark rounded-3 mt-2 d-block" id="addImgBtn"><i class="bi bi-plus"></i></button>
+            <div id="tags" class="d-flex flex-wrap"></div>
             <label class="form-label">End date*</label>
             <input class="form-control mb-1" id="listingEnd" type="datetime-local" value="2022-12-07T13:48:00" required>
             <button type="submit"class="btn btn-primary">Create</button>
@@ -73,7 +78,7 @@
         </section>
         <section id="preview" class="col-md-6  col-lg-6 col-xl-5 rounded-1 p-lg-2 my-lg-2">
             <div class="fillerListing card d-md-flex flex-md-row m-auto col-11 col-md-12 col-lg-10 col-xl-12 col-xxl-10 my-2 my-lg-0  mb-lg-2">
-                <img id="previewImg"class="bigImg col-md-4 rounded-start" src="">
+                <img id="previewImg" class="bigImg col-md-4 rounded-start" src="https://picsum.photos/500/500">
                 <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-flex flex-column justify-content-between">
                     <div class="card-title d-flex mb-md-1 align-items-end align-items-md-center">
                     <h3 id="previewTitle"class="col-6 mb-0 fs-5">Listing title</h3>
