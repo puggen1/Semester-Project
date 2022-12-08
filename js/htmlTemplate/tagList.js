@@ -22,4 +22,4 @@ function displayTags(location){
     console.log(tags);
 }
 
-export {addTag, removeTag, displayTags};
+export {addTag, removeTag, displayTags, tags};

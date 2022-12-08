@@ -1,9 +1,9 @@
 import createListing from "./listingActions/create.js";
 import previewListing from "./listingActions/listingPreview.js";
 import storageRetriever from "./storage/storageRetriever.js";
-import {addMedia, removeMedia, displayMedia} from "./htmlTemplate/mediaList.js";
+import {addMedia, removeMedia, displayMedia, list as imgList} from "./htmlTemplate/mediaList.js";
 import {imageRegex} from "./validation/image.js";
-import {addTag, removeTag, displayTags} from "./htmlTemplate/tagList.js";
+import {addTag, removeTag, displayTags, tags as tagList} from "./htmlTemplate/tagList.js";
 let username = storageRetriever("username");
 let avatar = storageRetriever("avatar");
 let previewuser = document.querySelector("#previewUser");

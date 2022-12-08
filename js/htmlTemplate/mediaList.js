@@ -16,4 +16,4 @@ function displayMedia(location){
 
 }
 
-export {addMedia, removeMedia, displayMedia};
+export {addMedia, removeMedia, displayMedia, list};
