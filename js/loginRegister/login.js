@@ -11,7 +11,7 @@ export default async function logIn(e) {
     if(response.accessToken){
         let avatar = response.avatar;
         if(!response.avatar){
-            avatar = "https://picsum.photos/200";
+            avatar = "./assets/placeholder.png";
         }
         storageSaver("loginToken", `Bearer ${response.accessToken}`);
         storageSaver("username", response.name);

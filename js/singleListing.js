@@ -50,8 +50,8 @@ async function displaySingle(id) {
     bidSection = `<div id="loggedInContent" class="col-xl-6">
     <div id="bidSection" class=" col-lg-8 col-xl-12">
         <form id="bidForm" class="d-flex justify-content-end flex-md-column flex-lg-row  col-md-8 col-xl-12 ms-auto justify-content-md-end justify-content-lg-start ms-lg-0 align-items-md-end">
-            <input type="number" class="form-control" id="bidAmount" placeholder="Bid amount">   
-            <button type="submit" class="btn btn-primary col-5 mt-md-2 mt-xl-0 ms-lg-1" id="bidButton">Bid</button>
+            <div class="col-6  col-md-12 col-xxl-8 me-2 me-md-0 "><input type="number" class="form-control" id="bidAmount" placeholder="Bid amount"></div>
+            <button type="submit" class="btn btn-primary col-4 mt-md-2 mt-xl-0 ms-lg-1" id="bidButton">Bid</button>
         </form>
     </div>
 </div>`;
@@ -103,7 +103,7 @@ async function displaySingle(id) {
         ${allTags}
       </div>
 
-      <div class="countdown border rounded-1 px-2 py-1 ms-md-2 ms-lg-0">
+      <div class="countdown border rounded-1 px-2 py-1 ms-lg-0">
          ${countdown}
       </div>
       <article id="lowerPart" class="d-flex flex-column flex-md-wrap flex-md-row justify-content-center col-12 col-lg-8">
