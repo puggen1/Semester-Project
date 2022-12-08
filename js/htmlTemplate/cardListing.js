@@ -6,12 +6,12 @@ export default function buildCardListing(listingData) {
   //gets the diffrent elements we need to build the card
   let { id, title, media, endsAt, bids, seller } = listingData;
   //for the big image on the card
-  let bigMedia = "placeholderImage";
+  let bigMedia = "https://via.placeholder.com/300";
   if (media.length > 0) {
     bigMedia = media[0];
   }
   let cta = "view";
-  if(isLoggedIn){
+  if (isLoggedIn) {
     cta = "Bid";
   }
   //for user avatar

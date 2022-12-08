@@ -6,6 +6,9 @@ import createTags from "./htmlTemplate/tags.js";
 import popular from "./sortAndFilters/popular.js";
 import storageRetriever from "./storage/storageRetriever.js";
 import bid from "./listingActions/bid.js";
+import createCarousel from "./htmlTemplate/mediaCarousel.js";
+import arrowButtons from "./buttonActivation/arrowBtn.js";
+import imgButtons from "./buttonActivation/mediaImgBtn.js";
 let singleListingLocation = document.querySelector("#listingPage");
 let popularListings = document.querySelector("#listings");
 let url = window.location.search;
@@ -14,7 +17,10 @@ let id = params.get("id");
 
 async function displaySingle(id) {
   let listing = await apiCall(`listings/${id}?_bids=true&_seller=true`, "GET");
-  let { title, tags, bids, endsAt, created, description, seller } = listing;
+  let { title, tags, bids, endsAt, created, description, seller, media } =
+    listing;
+  //title
+  document.title = `${title} | Bidder`;
   //seller avatar
   let avatar = "../assets/avatar.jpg";
   if (seller.avatar) {
@@ -33,6 +39,7 @@ async function displaySingle(id) {
   if (description === null || description === "") {
     description = "no description";
   }
+
   //if own
   let self = storageRetriever("username");
   let bidSection;
@@ -68,22 +75,7 @@ async function displaySingle(id) {
   );
   singleListing.innerHTML = `
   <section id="mediaGallery" class="d-flex flex-column flex-md-row flex-lg-column align-items-center  col-11 col-md-10 col-lg-5 ">
-      <img class="bigImage col-12 col-md-10 rounded-1" src="assets/sell.jpg" alt="placeholder">
-      <div id="subContent" class="col-12 col-md-2 col-lg-10 d-flex flex-md-column flex-lg-row align-items-center">
-          <i id="leftButton" class="bi bi-chevron-left d-md-none d-lg-block">
-          </i>
-          <i id="upButton" class="bi bi-chevron-up d-none d-md-block d-lg-none">
-          </i>
-          <div id="thumbnails" class="d-flex flex-md-column flex-lg-row justify-content-center">
-              <img class="thumbnail col-3 col-md-12 col-lg-3 m-2 rounded-1" src="assets/buy.jpg" alt="placeholder">
-              <img class="thumbnail col-3 col-md-12 col-lg-3 m-2 rounded-1" src="assets/buy.jpg" alt="placeholder">
-              <img class="thumbnail col-3 col-md-12 col-lg-3 m-2 rounded-1" src="assets/buy.jpg" alt="placeholder">
-          </div>
-          <i id="rightButton" class="bi bi-chevron-right d-md-none d-lg-block">
-          </i>
-          <i id="downButton" class="bi bi-chevron-down d-none d-md-block d-lg-none">
-          </i>
-  </div>
+     
   </section>
   <section class="col-11 col-md-10 col-lg-5 d-md-flex flex-lg-wrap mt-md-2">
       <div class="bigLeft col-md-8 col-lg-12 flex-lg-wrap d-lg-flex me-md-1 ">
@@ -119,6 +111,13 @@ async function displaySingle(id) {
           </div>
           ${bidSection}`;
   singleListingLocation.insertAdjacentElement("afterbegin", singleListing);
+  //media Carousel
+  let mediaGallery = document.querySelector("#mediaGallery");
+  createCarousel(media, mediaGallery);
+  let numberOfSlides = media.length;
+  let currentSlide = 0;
+  imgButtons(numberOfSlides, currentSlide);
+  arrowButtons(numberOfSlides, currentSlide);
   //add bid function to button
   if (storageRetriever("isLoggedIn")) {
     let bidForm = document.querySelector("#bidForm");
