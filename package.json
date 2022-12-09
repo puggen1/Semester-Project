@@ -1,6 +1,6 @@
 {
   "name": "bidder-website",
-  "version": "0.1.1",
+  "version": "0.3.3",
   "description": "This is the Bidder website package, that sorts out all of the required things this site need",
   "main": "script.js",
   "scripts": {
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/puggen1/Semester-Project#readme",
   "dependencies": {
     "bootstrap": "^5.2.3",
-    "bootstrap-icons": "^1.10.2"
+    "bootstrap-icons": "^1.10.2",
+    "sass": "^1.56.1"
   }
 }

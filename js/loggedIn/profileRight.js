@@ -15,10 +15,10 @@ if (isLoggedIn) {
                 </div>
                 <h4 class=" col-xl-12 text-center">${username}</h4>
                 <div id="actions" class="d-flex flex-column col-xl-12 justify-content-center align-items-center rounded-1 py-2">
-                    <div class="token border border-2 rounded-1 p-1 px-2 d-flex">${token}<img src="assets/token.svg" class="ms-1" alt="token"></div>
+                    <div class="token border border-2 rounded-1 p-1 px-2 d-flex">${token}<img src="./assets/token.svg" class="ms-1" alt="token"></div>
                     <a type="button" href="./createlisting.html" class="btn btn-primary col-lg-3 col-xl-3 col-xxl-4 my-1">New</a>
                     <div class="col-xl-6 col-xxl-8 d-flex">
-                    <a href="profile.html" class="btn btn-primary col-xl-6 my-1 me-2">Profile</a>
+                    <a href="./profile.html" class="btn btn-primary col-xl-6 my-1 me-2">Profile</a>
                     <button id="sideLogout"type="button" class="btn btn-danger col-xl-6 my-1">Logout</button>
                 </div>
                 </div>`;

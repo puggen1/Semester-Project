@@ -5,10 +5,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["Build", "main"]
-  pull_request:
-    branches:
-      - master
-      - "Build"
+    
   # manual trigger
   workflow_dispatch:
 
@@ -33,6 +30,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: run npm
+        run: npm i
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
