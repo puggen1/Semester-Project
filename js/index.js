@@ -6,7 +6,6 @@ let listingListTitle = document.querySelector("#numberOfListings");
 async function showListings() {
   listings.innerHTML = "";
   let result = await apiCall("listings?_bids=true&_seller=true", "GET");
-  console.log(result);
   for (let listing of result) {
     let card = buildCardListing(listing);
     listings.insertAdjacentElement("beforeEnd", card);
