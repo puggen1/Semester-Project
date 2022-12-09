@@ -1,5 +1,7 @@
 import apiCall from "../api/apiCall.mjs";
-
+import { emailRegex, passwordRegex, usernameRegex } from "../regex/regex.js";
+import createAlertResponse from "../responses/createAlertResponse.js";
+import createTextResponse from "../responses/createTextResponse.js";
 export default async function register(e) {
   console.log(e);
   //validating for minimal errors
@@ -8,12 +10,40 @@ export default async function register(e) {
   let email = e.target[2].value;
   let password = e.target[3].value;
 
-  //using sam eregex as last time
-  let usernameRegex = /^[a-zA-Z0-9_æøåÆØÅ]{3,15}$/;
-  let emailRegex = /^[a-z0-9.æøå]{0,}[a-z0-9]{1,}@(stud.)?noroff.no$/i;
-  let passwordRegex = /^[a-zA-Z0-9æøåÆØÅ]{8,30}$/;
+  
+  // alertLocations
+  let alertLocationPassword = document.querySelector("#registerPasswordResponse");
+  let alertLocationEmail = document.querySelector("#registerEmailResponse");
+  let alertLocationUsername = document.querySelector("#registerUsernameResponse");
+  let alertLocationLower = document.querySelector("#registerResponse");
 
+  if(!usernameRegex.test(username)){
+    let response = createTextResponse("Please do not use special characters except _");
+    alertLocationUsername.innerHTML = "";
+    alertLocationUsername.insertAdjacentElement("beforeend", response);
+  }
+  else{
+    alertLocationUsername.innerHTML = "";
+  }
+  if(!emailRegex.test(email)){
+    let response = createTextResponse("Please enter a noroff email");
+    alertLocationEmail.innerHTML = "";
+    alertLocationEmail.insertAdjacentElement("beforeend", response);
+  }
+  else{
+    alertLocationEmail.innerHTML = "";
+  }
+  if(!passwordRegex.test(password)){
+    let response = createTextResponse("Please enter a valid password (8-30 characters)");
+    alertLocationPassword.innerHTML = "";
+    alertLocationPassword.insertAdjacentElement("beforeend", response);
+  }
+  else{
+    alertLocationPassword.innerHTML = "";
+  }
   if(usernameRegex.test(username) && emailRegex.test(email) && passwordRegex.test(password)){
+    //reseting alert field
+    alertLocationLower.innerHTML = "";
     let data = {
       name: username,
       avatar: avatar,
@@ -22,18 +52,23 @@ export default async function register(e) {
     };
     let response = await apiCall("auth/register", "POST", data);
     if(!response.id){
-      //response error = response.message
+      let alertResponse = createAlertResponse("danger", response.message);
+      alertLocationLower.innerHTML = "";
+      alertLocationLower.insertAdjacentElement("beforeend", alertResponse);
 
     } else {
       //give success message
       console.log(response);
+      let alertResponse = createAlertResponse("You have successfully registered, you will be redirected to login", "success");
+      alertLocationLower.innerHTML = "";
+      alertLocationLower.insertAdjacentElement("beforeend", alertResponse);
       //after delay go to login modal?
       setTimeout(()=>{
         let registerModal = bootstrap.Modal.getOrCreateInstance("#registerModal");
         registerModal.hide();
         let loginModal = bootstrap.Modal.getOrCreateInstance("#loginModal");
         loginModal.show();
-      }, 2000);
+      }, 3000);
      
     }
   }
