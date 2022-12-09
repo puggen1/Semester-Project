@@ -28,7 +28,7 @@ else{
      <a class="nav-link" href="./profile.html">Profile <img class="rounded-circle col-1"src="${avatar}"></a>
    </li>
    <li class="nav-item">
-       <button id="navNewListing" type="button"class="btn btn-link text-decoration-none ms-0 ps-0"><a href="./createListing.html" class="text-dark text-decoration-none">New Listing</a></button>
+       <button id="navNewListing" type="button"class="btn btn-link text-decoration-none ms-0 ps-0"><a href="./createlisting.html" class="text-dark text-decoration-none">New Listing</a></button>
    </li>
    <li class="nav-item">
        <a class="nav-link" href="./profile.html#myCollection">My collection</a>
