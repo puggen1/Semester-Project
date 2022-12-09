@@ -58,6 +58,7 @@
                 <h2>Content</h2>
             <label class="form-label">title*</label>
             <input class="form-control" type="text" id="listingTitle" placeholder="Title" required>
+            <div id="createListingTitleResponse"></div>
             <label class="form-label">description</label>
             <textarea class="form-control" type="text" id="listingDesc" placeholder="Description"></textarea>
             <label class="form-label">gallery</label>
@@ -71,9 +72,11 @@
             <button type="button" id="addTag" class="btn btn-white border border-dark rounded-3 mt-2 d-block" id="addImgBtn"><i class="bi bi-plus"></i></button>
             <div id="tags" class="d-flex flex-wrap"></div>
             <label class="form-label">End date*</label>
-            <input class="form-control mb-1" id="listingEnd" type="datetime-local" value="2022-12-07T13:48:00" required>
+            <input class="form-control mb-1" id="listingEnd" type="datetime-local" max="2050-09-24T00:00" value="2022-12-07T13:48:00" required>
+            <div id="createListingDateResponse"></div>
             <button type="submit"class="btn btn-primary">Create</button>
             <button type="button" class="btn btn-danger">Cancel</button>
+            <div id="createListingResponse"></div>
         </form>
         </section>
         <section id="preview" class="col-md-6  col-lg-6 col-xl-5 rounded-1 p-lg-2 my-lg-2">
