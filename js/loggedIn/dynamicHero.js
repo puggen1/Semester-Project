@@ -15,8 +15,8 @@ function dynamicHero() {
         <h1 class=" col-lg-6 col-xl-4 col-xxl-3 text-center">Hello ${username}</h1>
         <h2 class="col-lg-6 col-xl-4 col-xxl-3 text-center"> what do you seek?</h2>
         <div id="actions" class="d-flex flex-column col-11 col-lg-6 col-xl-4 col-xxl-3 justify-content-center align-items-center rounded-1 py-2">
-            <a href="profile.html#yourListings" class="btn btn-primary col-10 col-sm-3 col-lg-4 col-xl-5 col-xxl-4 my-2">Your Listings</a>
-            <a href="createListing.html" class="btn btn-primary col-10 col-sm-3 col-lg-4 col-xl-5 col-xxl-4 my-2">New Listing</a>
+            <a href="./profile.html#yourListings" class="btn btn-primary col-10 col-sm-3 col-lg-4 col-xl-5 col-xxl-4 my-2">Your Listings</a>
+            <a href="./createListing.html" class="btn btn-primary col-10 col-sm-3 col-lg-4 col-xl-5 col-xxl-4 my-2">New Listing</a>
             <p>or</p>
             <h3>something to buy</h3>
             <a href="#mainContent"><i class="bi bi-chevron-down"></i></a>

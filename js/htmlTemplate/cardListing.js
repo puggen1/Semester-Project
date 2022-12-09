@@ -44,7 +44,7 @@ export default function buildCardListing(listingData) {
     <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-md-flex flex-md-column justify-content-md-between">
         <div class="card-title d-flex mb-md-1 align-items-end align-items-center">
         <h3 class="col-6 mb-0 fs-5">${title}</h3>
-        <a href="profile.html?username=${seller.name}" class="col-6 d-flex text-end fs-5 text-decoration-none text-dark d-md-flex align-items-center justify-content-end">
+        <a href="./profile.html?username=${seller.name}" class="col-6 d-flex text-end fs-5 text-decoration-none text-dark d-md-flex align-items-center justify-content-end">
             ${seller.name}
             <div class="profileImageListing ratio">
                 <img src="${avatar}" class="rounded-circle img-fluid ">
