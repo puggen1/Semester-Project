@@ -5,10 +5,7 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["Build", "main"]
-  pull_request:
-    branches:
-      - master
-      - "Build"
+    
   # manual trigger
   workflow_dispatch:
 
