@@ -6,7 +6,7 @@ let headerProfileImg = document.querySelector("#profileHeader div");
 function dynamicHeaderImg(){
     if(isLoggedIn){
         let avatar = storageRetriever("avatar");
-        headerProfileImg.innerHTML = `<a class="col-12 d-flex justify-content-end" href="./profile.html"><img class="rounded-circle col-6 col-md-4 col-lg-4" src="${avatar}"></a>`;
+        headerProfileImg.innerHTML = `<a class="col-12 d-flex justify-content-end profileImage ratio" href="./profile.html"><img class="rounded-circle col-6 col-md-4 col-lg-4" src="${avatar}"></a>`;
     }
 }
 

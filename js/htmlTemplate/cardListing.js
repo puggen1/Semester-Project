@@ -6,7 +6,7 @@ export default function buildCardListing(listingData) {
   //gets the diffrent elements we need to build the card
   let { id, title, media, endsAt, bids, seller } = listingData;
   //for the big image on the card
-  let bigMedia = "https://via.placeholder.com/300";
+  let bigMedia = "./assets/noImg.png";
   if (media.length > 0) {
     bigMedia = media[0];
   }
@@ -42,8 +42,8 @@ export default function buildCardListing(listingData) {
   cardListing.innerHTML = `
   <img class="bigImg col-md-4" src="${bigMedia}">
     <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-md-flex flex-md-column justify-content-md-between">
-        <div class="card-title d-flex mb-md-1 align-items-end align-items-center">
-        <h3 class="col-6 mb-0 fs-5">${title}</h3>
+        <div class="card-title d-flex mb-md-1 flex-wrap align-items-end justify-content-between align-items-center">
+        <h3 class=" mb-0 fs-5">${title}</h3>
         <a href="./profile.html?username=${seller.name}" class="col-6 d-flex text-end fs-5 text-decoration-none text-dark d-md-flex align-items-center justify-content-end">
             ${seller.name}
             <div class="profileImageListing ratio">
