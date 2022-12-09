@@ -21,7 +21,6 @@ export default function registerModal() {
           <input type="email" id="registerEmail" class="form-control mb-2" placeholder="email">
           <label for="registerPassword" class="form-label">password</label>
           <input type="password" id="registerPassword"class="form-control mb-2" placeholder="password">
-          </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-link text-dark" data-bs-dismiss="modal">Cancel</button>
