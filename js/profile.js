@@ -2,6 +2,7 @@ import storageRetriever from "./storage/storageRetriever.js";
 import apiCall from "./api/apiCall.mjs";
 import buildCardListing from "./htmlTemplate/cardListing.js";
 import back from "./buttonActivation/back.js";
+import avatarModal from "./htmlTemplate/editAvatarModal.js";
 let username = document.querySelector("#username");
 let token = document.querySelector("#tAmount");
 let listingLocation = document.querySelector("#profileListings article");
@@ -29,6 +30,14 @@ async function showProfile() {
       console.log(profileData);
       console.log(listings);
       profileListings(listings, profileData);
+      //activate edit picture modal and create it
+      let main = document.querySelector("main");
+      let modal = avatarModal(profileData.avatar);
+      main.insertAdjacentElement("afterEnd", modal);
+
+      document.querySelector("#editPicture").addEventListener("click", () => {
+        bootstrap.Modal.getOrCreateInstance("#avatarModal").show();
+      });
     } else {
       profileData = await apiCall(
         `profiles/${user}?_listings=true`,
