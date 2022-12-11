@@ -36,18 +36,19 @@ export default function buildCardListing(listingData, from = "index.html") {
     "col-md-10",
     "col-xxl-8",
     "mx-3",
-    "my-2"
+    "my-2",
+    "text-dark"
   );
   //adds everything to the parent div
   cardListing.innerHTML = `
-  <img class="bigImg col-md-4" src="${bigMedia}">
+  <img  alt="first listing picture if any" class="bigImg col-md-4" src="${bigMedia}">
     <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-md-flex flex-md-column justify-content-md-between">
         <div class="card-title d-flex mb-md-1 flex-wrap align-items-end justify-content-between align-items-center">
         <h3 class=" mb-0 fs-5 text-break">${title}</h3>
         <a href="./profile.html?username=${seller.name}" class="col-6 d-flex text-end fs-5 text-decoration-none text-dark d-md-flex align-items-center justify-content-end">
             ${seller.name}
             <div class="profileImageListing ratio">
-                <img src="${avatar}" class="rounded-circle img-fluid ">
+                <img src="${avatar}" class="rounded-circle img-fluid " alt="the avatar of the user that created this listing">
             </div></a>
         </div>
         <div class="d-flex flex pb-2 col-md-12 flex-md-row justify-content-between">
