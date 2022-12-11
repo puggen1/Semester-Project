@@ -9,6 +9,7 @@ import bid from "./listingActions/bid.js";
 import createCarousel from "./htmlTemplate/mediaCarousel.js";
 import arrowButtons from "./buttonActivation/arrowBtn.js";
 import imgButtons from "./buttonActivation/mediaImgBtn.js";
+import back from "./buttonActivation/back.js";
 let singleListingLocation = document.querySelector("#listingPage");
 let popularListings = document.querySelector("#listings");
 let url = window.location.search;
@@ -151,3 +152,7 @@ showPopular();
 //modal for login/ register if click the login btn,
 //link another script to all pages so header and footer change based on logged in or not...
 //media carousel? and what if no images or many??
+
+//back button
+let backButton = document.querySelector("#back");
+backButton.addEventListener("click", back);
