@@ -16,7 +16,7 @@ function removeTag(value){
 function displayTags(location){
     location.innerHTML = "";
     for(let i = 0; i < tags.length; i++){
-        location.innerHTML += `<button type="button" data-tag-name="${tags[i]}" class="d-flex justify-content-between btn btn-secondary">${tags[i]}<i class="bi bi-trash"></i></button>`;
+        location.innerHTML += `<button type="button" data-tag-name="${tags[i]}" class="d-flex justify-content-between btn m-1 btn-secondary">${tags[i]}<i class="bi bi-trash"></i></button>`;
     }
     console.log(location)
     console.log(tags);

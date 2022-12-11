@@ -8,7 +8,7 @@ async function showListings() {
   let result = await apiCall("listings?_bids=true&_seller=true", "GET");
   for (let listing of result) {
     let card = buildCardListing(listing);
-    listings.insertAdjacentElement("afterbegin", card);
+    listings.insertAdjacentElement("beforeEnd", card);
   }
   listingListTitle.innerHTML = `showing ${result.length} listings`;
 }

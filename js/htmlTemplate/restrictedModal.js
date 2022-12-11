@@ -12,7 +12,7 @@ export default function restrictedModal(from) {
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5 text-center" id="restricted">you have to be logged in to create a listing</h1>
+          <h1 class="modal-title fs-5 text-center" id="restricted">you have to be logged in to be here</h1>
         </div>
         <div class="modal-body d-flex justify-content-between">
         <button type=buttton" id="goBack" class="btn btn-link text-dark text-decoration-none border" data-bs-dismiss="modal"><i class="bi bi-arrow-left"></i>Go back</button>

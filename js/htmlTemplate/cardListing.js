@@ -2,11 +2,11 @@ import getLastBid from "../sortAndFilters/getLastBid.js";
 import timeDisplayer from "./timeDisplay.js";
 import storageRetriever from "../storage/storageRetriever.js";
 let isLoggedIn = storageRetriever("isLoggedIn");
-export default function buildCardListing(listingData) {
+export default function buildCardListing(listingData, from = "index.html") {
   //gets the diffrent elements we need to build the card
   let { id, title, media, endsAt, bids, seller } = listingData;
   //for the big image on the card
-  let bigMedia = "https://via.placeholder.com/300";
+  let bigMedia = "./assets/noImg.png";
   if (media.length > 0) {
     bigMedia = media[0];
   }
@@ -23,7 +23,7 @@ export default function buildCardListing(listingData) {
   let lastBid = getLastBid(bids);
   //create the parent div
   let cardListing = document.createElement("a");
-  cardListing.href = `./listing.html?id=${id}`;
+  cardListing.href = `./listing.html?id=${id}&from=${from}`;
   //timeleft
   let nonFunctionCountDown = timeDisplayer(endsAt);
   //adds the class to the parent div
@@ -42,8 +42,8 @@ export default function buildCardListing(listingData) {
   cardListing.innerHTML = `
   <img class="bigImg col-md-4" src="${bigMedia}">
     <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-md-flex flex-md-column justify-content-md-between">
-        <div class="card-title d-flex mb-md-1 align-items-end align-items-center">
-        <h3 class="col-6 mb-0 fs-5">${title}</h3>
+        <div class="card-title d-flex mb-md-1 flex-wrap align-items-end justify-content-between align-items-center">
+        <h3 class=" mb-0 fs-5 text-break">${title}</h3>
         <a href="./profile.html?username=${seller.name}" class="col-6 d-flex text-end fs-5 text-decoration-none text-dark d-md-flex align-items-center justify-content-end">
             ${seller.name}
             <div class="profileImageListing ratio">
@@ -51,10 +51,10 @@ export default function buildCardListing(listingData) {
             </div></a>
         </div>
         <div class="d-flex flex pb-2 col-md-12 flex-md-row justify-content-between">
-        <div class="border rounded-1 col-md-6 my-0 px-1 d-flex align-items-center">${nonFunctionCountDown}</div>
+        <div class="border rounded-1 py-1 my-0 px-2 d-flex align-items-center">${nonFunctionCountDown}</div>
         <section class="d-flex col-md-6 align-items-center justify-content-md-end align-items-md-end">
         ${lastBid}
-        <button href="./listing.html/?id=${id}"type="button" class="btn btn-primary ms-1 py-0 text-dark fs-md-5">${cta}</button>
+        <button href="./listing.html/?id=${id}"type="button" class="btn btn-primary ms-1 py-1 px-2 text-dark fs-md-5">${cta}</button>
         </section>
     </div>
 </div>`;

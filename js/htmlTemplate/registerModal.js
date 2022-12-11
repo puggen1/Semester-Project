@@ -15,14 +15,18 @@ export default function registerModal() {
       <div class="modal-body">
           <label for="registerUsername" class="form-label">username</label>
           <input type="text" id="registerUsername" class="form-control mb-2" placeholder="username">
+          <div id="registerUsernameResponse" ></div>
           <label for="registerAvatar" class="form-label">avatar</label>
           <input type="url" id="registerAvatar" class="form-control mb-2" placeholder="avatar url">
           <label for="registerEmail" class="form-label">email</label>
           <input type="email" id="registerEmail" class="form-control mb-2" placeholder="email">
+          <div id="registerEmailResponse" ></div>
           <label for="registerPassword" class="form-label">password</label>
           <input type="password" id="registerPassword"class="form-control mb-2" placeholder="password">
+          <div id="registerPasswordResponse"></div>
       </div>
       <div class="modal-footer">
+        <div id="registerResponse" class="ms-auto"></div>
         <button type="button" class="btn btn-link text-dark" data-bs-dismiss="modal">Cancel</button>
         <button type="submit" id="createUser" class="btn btn-secondary">Register</button>
       </div>

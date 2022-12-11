@@ -9,6 +9,7 @@ import bid from "./listingActions/bid.js";
 import createCarousel from "./htmlTemplate/mediaCarousel.js";
 import arrowButtons from "./buttonActivation/arrowBtn.js";
 import imgButtons from "./buttonActivation/mediaImgBtn.js";
+import back from "./buttonActivation/back.js";
 let singleListingLocation = document.querySelector("#listingPage");
 let popularListings = document.querySelector("#listings");
 let url = window.location.search;
@@ -44,6 +45,7 @@ async function displaySingle(id) {
   let self = storageRetriever("username");
   let bidSection;
   if (seller === self) {
+    //edit adn delete buttons will come here
     bidSection = ``;
   } else if (!storageRetriever("isLoggedIn")) {
     bidSection = `<div id="loggedInContent" class="col-xl-6">
@@ -57,9 +59,10 @@ async function displaySingle(id) {
     bidSection = `<div id="loggedInContent" class="col-xl-6">
     <div id="bidSection" class=" col-lg-8 col-xl-12">
         <form id="bidForm" class="d-flex justify-content-end flex-md-column flex-lg-row  col-md-8 col-xl-12 ms-auto justify-content-md-end justify-content-lg-start ms-lg-0 align-items-md-end">
-            <div class="col-6  col-md-12 col-xxl-8 me-2 me-md-0 "><input type="number" class="form-control" id="bidAmount" placeholder="Bid amount"></div>
+            <div class="col-6  col-md-12 col-xxl-8 me-2 me-md-0 "><input type="number" class="form-control" id="bidAmount" placeholder="Bid amount" required></div>
             <button type="submit" class="btn btn-primary col-4 mt-md-2 mt-xl-0 ms-lg-1" id="bidButton">Bid</button>
         </form>
+        <div id="bidResponse" class="col-12"></div>
     </div>
 </div>`;
   }
@@ -123,7 +126,7 @@ async function displaySingle(id) {
     let bidForm = document.querySelector("#bidForm");
     bidForm.addEventListener("submit", (event) => {
       event.preventDefault();
-      bid(event.target[0].valueAsNumber, id);
+      bid(event.target[0].valueAsNumber, id, bids);
     });
   } else {
     let loginBidButton = document.querySelector("#loginButtonBidSection");
@@ -149,3 +152,7 @@ showPopular();
 //modal for login/ register if click the login btn,
 //link another script to all pages so header and footer change based on logged in or not...
 //media carousel? and what if no images or many??
+
+//back button
+let backButton = document.querySelector("#back");
+backButton.addEventListener("click", back);
