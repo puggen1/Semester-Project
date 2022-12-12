@@ -1,6 +1,12 @@
 export default function createCarousel(media, placement) {
   let bigPart = document.createElement("div");
-  bigPart.classList.add("carousel", "carousel-dark", "slide");
+  bigPart.classList.add(
+    "carousel",
+    "carousel-dark",
+    "slide",
+    "col-12",
+    "col-md-10"
+  );
   bigPart.id = "carouselBigImage";
   bigPart.setAttribute("data-bs-interval", "false");
   let smallPart = document.createElement("div");
@@ -36,7 +42,7 @@ export default function createCarousel(media, placement) {
           <span class="visually-hidden">Previous</span>
         </button>
   </div>`;
-    smallPartHtml += `<div id="smallImg" class="col-10 d-flex flex-md-column flex-lg-row justify-content-around">`;
+    smallPartHtml += `<div id="smallImg" class="col-10 d-flex mt-2 mt-md-0 mt-lg-2 flex-md-column flex-lg-row justify-content-around">`;
     let x = 1;
     for (let i = 0; i < media.length; i++) {
       if (i > 2) {

@@ -15,7 +15,7 @@ let popularListings = document.querySelector("#listings");
 let url = window.location.search;
 let params = new URLSearchParams(url);
 let id = params.get("id");
-
+let own = false;
 async function displaySingle(id) {
   let listing = await apiCall(`listings/${id}?_bids=true&_seller=true`, "GET");
   let { title, tags, bids, endsAt, created, description, seller, media } =
@@ -54,9 +54,16 @@ async function displaySingle(id) {
   //if own
   let self = storageRetriever("username");
   let bidSection;
-  if (seller === self || new Date(endsAt) < new Date()) {
-    //edit adn delete buttons will come here
-    bidSection = ``;
+  if (seller.name === self || new Date(endsAt) < new Date()) {
+    console.log("own");
+    own = true;
+    //edit and delete buttons will come here
+    bidSection = `
+    <div id="loggedInContent" class="col-xl-6">
+    <button type="button" class="btn btn-primary mt-md-2 mt-xl-0 ms-lg-1" id="editListingBtn">Edit Listing</button>
+    <button type="button" class="btn btn-danger mt-md-2 mt-xl-0 ms-lg-1" id="deleteListingBtn">Delete Listing</button>
+    </div>
+    `;
   } else if (!storageRetriever("isLoggedIn")) {
     bidSection = `<div id="loggedInContent" class="col-xl-6">
     <div id="bidSection" class="d-block col-lg-8 col-xl-12">
@@ -72,6 +79,9 @@ async function displaySingle(id) {
             <div class="col-6  col-md-12 col-xxl-8 me-2 me-md-0 "><input type="number" class="form-control" id="bidAmount" placeholder="Bid amount" required></div>
             <button type="submit" class="btn btn-primary col-4 mt-md-2 mt-xl-0 ms-lg-1" id="bidButton">Bid</button>
         </form>
+        <div id="avalible" class="d-flex justify-content-end justify-content-lg-start">avalible: ${storageRetriever(
+          "token"
+        )} <img class="ms-1" src="./assets/token.svg"> </div>
         <div id="bidResponse" class="col-12"></div>
     </div>
 </div>`;
@@ -130,6 +140,8 @@ async function displaySingle(id) {
   let currentSlide = 0;
   imgButtons(numberOfSlides, currentSlide);
   arrowButtons(numberOfSlides, currentSlide);
+  //if own listing, activate edit button
+  //coming soon if(own){something};
   //add bid function to button
   if (new Date() < new Date(endsAt)) {
     if (storageRetriever("isLoggedIn")) {
