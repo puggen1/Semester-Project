@@ -6,6 +6,9 @@ let listings = document.querySelector("#listings");
 let listingListTitle = document.querySelector("#numberOfListings");
 let allListings = "";
 let filteredListings = "";
+/**
+ * @description when you come to this page, it will display all the listings it can find. (up tp 100)
+ */
 async function showListings() {
   listings.innerHTML = "";
   let result = await apiCall(
@@ -103,7 +106,17 @@ resetButtons.forEach((button) => {
   });
 });
 //make global
-
+/**
+ *
+ * @param {object} listings all listings that should be shown
+ * @param {*} location the location where the listings should be shown
+ * @description this function will display the listings in the location given
+ * @example
+ * ```js
+ * displayListings(listings, location)
+ * //expected output is html of listings in wanted location
+ * ```
+ */
 function displayListings(listings, location) {
   location.innerHTML = "";
   for (let listing of listings) {
