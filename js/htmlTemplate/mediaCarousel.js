@@ -41,8 +41,8 @@ export default function createCarousel(media, placement) {
     for (let i = 0; i < media.length; i++) {
       if (i > 2) {
         smallPartHtml += `
-              <button type="button" data-bs-target="#carouselBigImage" data-bs-slide-to="${i}" class="active d-none btn btn-link col-3 col-md-12 p-0 my-md-3" aria-current="true" aria-label="Slide ${x}">
-              <img src="${media[i]}" class="d-block w-100" alt="listing Image">
+              <button type="button" data-bs-target="#carouselBigImage" data-bs-slide-to="${i}" class="active d-none btn btn-link col-3 col-md-12 col-lg-3 p-0 my-md-3" aria-current="true" aria-label="Slide ${x}">
+              <img src="${media[i]}" class="d-block w-100 rounded-1" alt="listing Image">
               </button>`;
       } else {
         smallPartHtml += `

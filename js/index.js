@@ -82,7 +82,6 @@ sortButtons.forEach((button) => {
       listToBeSorted = allListings;
       //so original list is not sorted
       listToBeSorted = sortBy(listToBeSorted, sortByValue);
-      console.log(listToBeSorted);
     }
     displayListings(listToBeSorted, listings);
   });
