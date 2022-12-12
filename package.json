@@ -1,6 +1,6 @@
 {
   "name": "bidder-website",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "This is the Bidder website package, that sorts out all of the required things this site need",
   "main": "script.js",
   "scripts": {
