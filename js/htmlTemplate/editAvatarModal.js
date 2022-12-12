@@ -14,7 +14,7 @@ export default function avatarModal(oldImage) {
         </div>
         <div class="modal-body">
         <div class="profileImageRight m-auto ratio col-12">
-          <img src="${oldImage}" alt="old avatar" class="img-fluid mb-2 rounded-circle">
+          <img src="${oldImage}" alt="old avatar" id="avatarPreview" class="img-fluid mb-2 rounded-circle">
           </div>
           <label for="avatar" class="form-label">new avatar</label>
           <input type="text" id="avatar" class="form-control mb-2" placeholder="link" required>
@@ -23,7 +23,7 @@ export default function avatarModal(oldImage) {
         <div class="modal-footer d-flex flex-column">
           <div class="ms-auto">
           <button type="button" class="btn btn-link text-dark" data-bs-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary">Change</button>
+          <button id="avatarSubmit" type="submit" class="btn btn-primary">Change</button>
           </div>
         </div>
       </div>
