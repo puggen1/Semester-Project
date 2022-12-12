@@ -61,28 +61,28 @@
         </div>
         <div id="mainContent" class="d-md-flex flex-md-wrap mt-md-2 align-items-md-start justify-content-lg-between">
             <div  id="filtersBig" class="d-none col-md-4 col-lg-3 col-xl-3 col-xxl-2 d-md-block mt-md-2 ps-md-3 py-md-3 border border-start-0 rounded-end">
-                <div class="currentFilters">
-                    </div>
+                <h3>Filters</h3>
                 <div class="col-10">
-                    <input type="search" class="form-control mb-2" placeholder="search">
+                    <input type="search" id="search" class="form-control mb-2" placeholder="search">
                 </div>
                 <div class="col-7">
-                <select class="form-control">
+                <select id="sort" class="form-control">
                     <option selected class="form-control"value="new">Sort new</option>
                     <option value="old">sort old</option>
                     <option value="popular">Sort Popular</option>
+                    <option value="soon">Sort Ending soon</option>
+
                 </select>
                 </div>
-                <div class="tags d-flex flex-wrap align-items-start col-md-10">
+                <!--<div class="tags d-flex flex-wrap align-items-start col-md-10">
                     <button class="btn btn-secondary text-decoration-none text-dark m-1 rounded-0">technology</button>
                     <button class="btn btn-secondary text-decoration-none text-dark m-1 rounded-0">car</button>
                     <button class="btn btn-secondary text-decoration-none text-dark m-1 rounded-0">art</button>
-                </div>
+                </div>-->
                 <div id="FilterButtons" class="d-flex justify-content-between col-md-10 align-items-md-end">
-                    <button type="button" class="btn btn-link text-dark align-items-start p-md-0">reset</button>
+                    <button type="button" id="reset" class="btn btn-link text-dark align-items-start p-md-0">reset</button>
                     <div class="d-md-flex align-items-md-end">
                     <button type="button" class="btn btn-link text-dark align-items-start p-md-0 me-md-1 d-md-none">Cancel</button>
-                    <button type="button" class="btn btn-primary align-items-start">Show</button>
                 </div>
             </div>
         </div>
@@ -100,26 +100,26 @@
                     <h5 class="modal-title">Choose Filters</h5>
                 </div>
                 <div class="modal-body">
-                    <div class="currentFilters">
-                        <p>current filters will be displayed here</p>
-                    </div>
-                    <input type="search" class="form-control mb-2" placeholder="search">
-                    <select class="form-control">
+                    <input type="search" class="form-control mb-2" id="phoneSearch"placeholder="search">
+                    <select id="phoneSort" class="form-control">
                         <option selected class="form-control"value="new">Sort new</option>
                         <option value="old">sort old</option>
                         <option value="popular">Sort Popular</option>
+                        <option value="soon">Sort Ending soon</option>
+
                     </select>
+                    <!--
                     <div class="tags d-flex flex-wrap align-items-start">
                         <p class="col-12">some of the most popular tags will be displayed here like this:</p>
                         <button class="btn btn-secondary text-decoration-none text-dark m-1 rounded-0">technology</button>
                         <button class="btn btn-secondary text-decoration-none text-dark m-1 rounded-0">car</button>
                         <button class="btn btn-secondary text-decoration-none text-dark m-1 rounded-0">art</button>
-                    </div>
+                    </div>-->
                     <div id="phoneFilterButtons" class="d-flex justify-content-between">
-                        <button type="button" class="btn btn-link text-dark align-items-start">reset</button>
+                        <button type="button" id="phoneReset" class="btn btn-link text-dark align-items-start">reset</button>
                         <div>
                         <button type="button" class="btn btn-link text-dark align-items-start" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary align-items-start">Show</button>
+                        <button type="button" class="btn btn-primary align-items-start" data-bs-dismiss="modal">Show</button>
                     </div>
                     </div>
                 </div>

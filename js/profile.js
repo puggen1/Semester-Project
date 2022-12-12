@@ -54,6 +54,7 @@ async function showProfile() {
       );
       document.querySelector("#userTokens").remove();
       document.querySelector("#editPicture").remove();
+      document.querySelector("#profileNew").classList.add("invisible");
       let listings = await apiCall(
         `profiles/${user}/listings?_bids=true&_seller=true`,
         "GET",
@@ -63,7 +64,9 @@ async function showProfile() {
       console.log(profileData);
       profileListings(listings, profileData);
     }
-    avatar.src = profileData.avatar;
+    avatar.src = profileData.avatar
+      ? profileData.avatar
+      : "./assets/placeholder.png";
     username.innerText = profileData.name;
   }
 }
