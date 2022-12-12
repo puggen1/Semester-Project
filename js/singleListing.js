@@ -90,7 +90,7 @@ async function displaySingle(id) {
   <section id="mediaGallery" class="d-flex flex-column flex-md-row flex-lg-column align-items-center  col-11 col-md-10 col-lg-5 ">
      
   </section>
-  <section class="col-11 col-md-10 col-lg-5 d-md-flex flex-lg-wrap mt-md-2">
+  <section class="col-11 col-md-10 col-lg-5 d-md-flex flex-lg-wrap mt-md-2 align-items-lg-stretch ms-lg-1">
       <div class="bigLeft col-md-8 col-lg-12 flex-lg-wrap d-lg-flex me-md-1 ">
       <h1 id="listingTitle"class="col-lg-6 fs-3">${title}</h1>
       <div class="d-flex col-lg-6 justify-content-lg-end">

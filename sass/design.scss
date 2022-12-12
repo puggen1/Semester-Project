@@ -51,6 +51,19 @@ p, a, button{
     object-fit: cover;
     object-position: center;
 }
+//inspiration from: 
+.carousel-item img{
+    object-fit: cover;
+    object-position: center;
+   height: 50vh;
+   overflow: hidden; 
+}
+#smallImg button img{
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    height: 100%;
+}
 //create diffrent media queries for different screen sizes for .profileImages bootstrap
 @media screen and (min-width: 576px) {
     .profileImage{

@@ -54,6 +54,20 @@ p, a, button {
   object-position: center;
 }
 
+.carousel-item img {
+  object-fit: cover;
+  object-position: center;
+  height: 50vh;
+  overflow: hidden;
+}
+
+#smallImg button img {
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  height: 100%;
+}
+
 @media screen and (min-width: 576px) {
   .profileImage {
     width: 25% !important;

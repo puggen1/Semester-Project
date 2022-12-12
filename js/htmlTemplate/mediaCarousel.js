@@ -13,7 +13,7 @@ export default function createCarousel(media, placement) {
         active = "active";
       }
       html += `<div class="carousel-item ${active}">
-          <img src="${media[i]}" class="d-block w-100 " alt="listing Image">
+          <img src="${media[i]}" class="d-block w-100 rounded-1" alt="listing Image">
           </div>`;
     }
     html += `</div>`;
@@ -25,6 +25,7 @@ export default function createCarousel(media, placement) {
       "align-items-center",
       "flex-md-column",
       "col-md-2",
+      "col-lg-12",
       "flex-lg-row"
     );
     let smallPartHtml = "";
@@ -35,7 +36,7 @@ export default function createCarousel(media, placement) {
           <span class="visually-hidden">Previous</span>
         </button>
   </div>`;
-    smallPartHtml += `<div class="col-10 d-flex flex-md-column flex-lg-row justify-content-around">`;
+    smallPartHtml += `<div id="smallImg" class="col-10 d-flex flex-md-column flex-lg-row justify-content-around">`;
     let x = 1;
     for (let i = 0; i < media.length; i++) {
       if (i > 2) {
@@ -45,8 +46,8 @@ export default function createCarousel(media, placement) {
               </button>`;
       } else {
         smallPartHtml += `
-          <button type="button" data-bs-target="#carouselBigImage" data-bs-slide-to="${i}" class="active btn btn-link col-3 col-md-12 p-0 my-md-3" aria-current="true" aria-label="Slide ${x}">
-          <img src="${media[i]}" class="d-block w-100" alt="listing Image">
+          <button type="button" data-bs-target="#carouselBigImage" data-bs-slide-to="${i}" class="active btn btn-link col-3 col-md-12  col-lg-3 p-0 my-md-3" aria-current="true" aria-label="Slide ${x}">
+          <img src="${media[i]}" class="d-block w-100 rounded-1" alt="listing Image">
           </button>`;
       }
       x++;
