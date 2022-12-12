@@ -62,7 +62,7 @@ export default function createCarousel(media, placement) {
       `;
     smallPart.innerHTML = smallPartHtml;
   } else {
-    bigPart.innerHTML = `<img src="./assets/noImage.jpg" class="d-block w-100" alt="listing has no image">`;
+    bigPart.innerHTML = `<img src="./assets/noImg.png" class="d-block w-100" alt="listing has no image">`;
   }
   placement.insertAdjacentElement("beforeend", bigPart);
   placement.insertAdjacentElement("beforeend", smallPart);

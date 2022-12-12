@@ -4,7 +4,13 @@
   $warning: #C7AD5E;
   $danger: #CC6631;
   
-  
+p, a, button{
+    font-family: "Nunito", serif;
+}
+
+.card h3, #ListingTop h2,#ListingTop p, #listingPage h1, #popularListings h2{
+    font-family: "Arvo", serif;
+}
 .card{
     border: none !important;
 }

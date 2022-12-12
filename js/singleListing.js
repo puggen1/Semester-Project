@@ -29,6 +29,16 @@ async function displaySingle(id) {
   }
   //last bid
   let lastBid = getLastBid(bids);
+  let currentBid = "";
+  if (new Date(endsAt) < new Date() && bids) {
+    currentBid = `<p class="d-flex mb-0 fs-5 ">Sold for </p>
+    ${lastBid}`;
+  } else if (new Date(endsAt) < new Date() && bids.length === 0) {
+    currentBid = `<p class="d-flex mb-0 fs-5 ">Listing got no bids</p>`;
+  } else {
+    currentBid = `<p class="d-flex mb-0 fs-5 ">Current Bid:</p>
+    ${lastBid}`;
+  }
   //countdown
   let countdown = timeDisplay(endsAt);
   //tags
@@ -44,7 +54,7 @@ async function displaySingle(id) {
   //if own
   let self = storageRetriever("username");
   let bidSection;
-  if (seller === self) {
+  if (seller === self || new Date(endsAt) < new Date()) {
     //edit adn delete buttons will come here
     bidSection = ``;
   } else if (!storageRetriever("isLoggedIn")) {
@@ -109,8 +119,7 @@ async function displaySingle(id) {
       </div>
       <section class="bigRight d-md-flex flex-md-column col-md-4 col-lg-12 col-xl-12 justify-content-md-between justify-content-xl-start flex-xl-row">
           <div id="currentBid" class="d-flex flex-wrap justify-content-between justify-content-lg-start align-items-md-end align-items-xl-start col-12 col-xl-6">
-              <p class="d-flex mb-0 fs-5 ">Current bid: </p>
-              ${lastBid}
+              ${currentBid}
           </div>
           ${bidSection}`;
   singleListingLocation.insertAdjacentElement("afterbegin", singleListing);
@@ -122,18 +131,20 @@ async function displaySingle(id) {
   imgButtons(numberOfSlides, currentSlide);
   arrowButtons(numberOfSlides, currentSlide);
   //add bid function to button
-  if (storageRetriever("isLoggedIn")) {
-    let bidForm = document.querySelector("#bidForm");
-    bidForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      bid(event.target[0].valueAsNumber, id, bids);
-    });
-  } else {
-    let loginBidButton = document.querySelector("#loginButtonBidSection");
-    loginBidButton.addEventListener("click", () => {
-      let loginModal = bootstrap.Modal.getOrCreateInstance("#loginModal");
-      loginModal.show();
-    });
+  if (new Date() < new Date(endsAt)) {
+    if (storageRetriever("isLoggedIn")) {
+      let bidForm = document.querySelector("#bidForm");
+      bidForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        bid(event.target[0].valueAsNumber, id, bids);
+      });
+    } else {
+      let loginBidButton = document.querySelector("#loginButtonBidSection");
+      loginBidButton.addEventListener("click", () => {
+        let loginModal = bootstrap.Modal.getOrCreateInstance("#loginModal");
+        loginModal.show();
+      });
+    }
   }
 }
 async function showPopular() {
