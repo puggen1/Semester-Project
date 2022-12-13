@@ -29,7 +29,7 @@ p, a, button {
   position: relative;
   overflow: hidden;
   --bs-aspect-ratio: 100%;
-  width: 25% !important;
+  width: 25px !important;
 }
 
 .profileImageRight {
@@ -94,6 +94,9 @@ p, a, button {
   .profileImage {
     width: 20% !important;
   }
+  .profileImageListing {
+    width: 30px !important;
+  }
   .bigImg {
     border-radius: 5px 0px 0px 5px;
     height: 150px;
@@ -107,8 +110,11 @@ p, a, button {
   .profileImage {
     width: 15% !important;
   }
+  .profileImageListing {
+    width: 35px !important;
+  }
   .notLoggedIn {
-    height: 50vh;
+    height: 60vh;
   }
   .notLoggedIn img {
     transition: 0.2s ease-in !important;
