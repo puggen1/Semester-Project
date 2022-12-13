@@ -10,10 +10,12 @@ import createCarousel from "./htmlTemplate/mediaCarousel.js";
 import arrowButtons from "./buttonActivation/arrowBtn.js";
 import imgButtons from "./buttonActivation/mediaImgBtn.js";
 import back from "./buttonActivation/back.js";
+import createModal from "./htmlTemplate/modal.js";
 let singleListingLocation = document.querySelector("#listingPage");
 let popularListings = document.querySelector("#listings");
 let url = window.location.search;
 let params = new URLSearchParams(url);
+let moreBids = false;
 let id = params.get("id");
 let own = false;
 async function displaySingle(id) {
@@ -35,8 +37,11 @@ async function displaySingle(id) {
   } else if (new Date(endsAt) < new Date() && bids.length === 0) {
     currentBid = `<p class="d-flex my-auto mb-xl-0 fs-5 ">Listing got no bids</p>`;
   } else {
-    currentBid = `<p class="d-flex my-auto mb-xl-0 fs-5 ">Current Bid:</p>
-    ${lastBid}`;
+    currentBid = `<div class="d-flex flex-column my-2"><button id="allBids"type="button"class="btn btn-secondary me-1">view previous Bids: </button>`;
+    currentBid += `<div class="d-flex"><h3 class="d-flex my-auto mb-xl-0 fs-5 ">Current Bid:</h3>
+    ${lastBid} </div>`;
+    currentBid += `</div>`;
+    moreBids = true;
   }
   //countdown
   let countdown = timeDisplay(endsAt);
@@ -68,7 +73,7 @@ async function displaySingle(id) {
   } else if (!storageRetriever("isLoggedIn")) {
     bidSection = `<div id="loggedInContent" class="col-xl-6 d-xl-flex align-items-xl-end">
     <div id="bidSection" class="d-block col-lg-8 col-xl-12">
-        <div class="d-flex justify-content-end flex-md-column flex-lg-row  col-md-12 col-xl-12 ms-auto justify-content-md-end  justify-content-lg-start  justify-content-xl-end  ms-lg-0 align-items-md-end">
+        <div class="d-flex justify-content-end  flex-md-column flex-lg-row  col-md-12 col-xl-12 ms-auto justify-content-md-end  justify-content-lg-start  justify-content-xl-end  ms-lg-0 align-items-md-end">
             <button type="button" class="btn btn-primary mt-md-2 mt-xl-0 ms-lg-1" id="loginButtonBidSection">log in to bid</button>
         </div>
     </div>
@@ -76,8 +81,8 @@ async function displaySingle(id) {
   } else {
     bidSection = `<div id="loggedInContent" class="d-xl-flex col-xl-6 align-items-xl-end">
     <div id="bidSection" class=" col-lg-8 col-xl-12">
-        <form id="bidForm" class="d-flex justify-content-end flex-md-column flex-lg-row  col-md-8 col-xl-12 ms-auto justify-content-md-end justify-content-lg-start  justify-content-xl-end  flex-lg-wrap justify-content-xl-end ms-lg-0 align-items-md-end">
-            <div class="col-6  col-md-12 col-xxl-8 me-2 me-md-0 mb-xl-1"><input type="number" class="form-control" id="bidAmount" placeholder="Bid amount" required></div>
+        <form id="bidForm" class="d-flex justify-content-end flex-md-column flex-lg-row  col-md-12 col-xl-12 ms-auto justify-content-md-end justify-content-lg-start  justify-content-xl-end  flex-lg-wrap justify-content-xl-end ms-lg-0 align-items-md-end">
+            <div class="col-6  col-md-6 col-xxl-8 me-2 me-md-0 mb-xl-1"><input type="number" class="form-control" id="bidAmount" placeholder="Bid amount" required></div>
             <button type="submit" class="btn btn-primary col-4 mt-md-2 mt-xl-0 ms-lg-1" id="bidButton">Bid</button>
         </form>
         <div id="avalible" class="d-flex justify-content-end justify-content-lg-start justify-content-xl-end">avalible: ${storageRetriever(
@@ -158,6 +163,30 @@ async function displaySingle(id) {
         loginModal.show();
       });
     }
+  }
+  //if more bids show modal with all bids
+  if (moreBids) {
+    let allBids = document.querySelector("#allBids");
+    let bodyContent = `<div class="d-flex justify-content-between align-items-center flex-row flex-wrap">`;
+    for (let bid of bids) {
+      bodyContent += `
+      
+        <div class="m-auto d-flex border my-1 col-7 justify-content-center rounded-2 p-1"><p class="m-0">${bid.bidderName}: </p><p class="m-0">${bid.amount}<img class="ms-1" src="./assets/token.svg"></p></div>`;
+    }
+    bodyContent += `</div>`;
+    let footer = `<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>`;
+    let bidModal = createModal(
+      "bids",
+      bodyContent,
+      footer,
+      false,
+      "Previous bids"
+    );
+    document.querySelector("body").insertAdjacentElement("beforeend", bidModal);
+    allBids.addEventListener("click", () => {
+      let allBidsModal = bootstrap.Modal.getOrCreateInstance("#bidsModal");
+      allBidsModal.show();
+    });
   }
 }
 async function showPopular() {

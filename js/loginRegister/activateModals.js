@@ -6,14 +6,12 @@ import storageRetriever from "../storage/storageRetriever.js";
 let isLoggedIn = storageRetriever("isLoggedIn");
 //to activate login and register buttons
 
-
 //if logged in, change login to  logout, target both on front? class?
 function activateButtons() {
-  if(isLoggedIn){
+  if (isLoggedIn) {
     let logoutNavButton = document.querySelector("#logoutNav");
     logoutNavButton.addEventListener("click", logOut);
-  }
-  else{
+  } else {
     addModals();
     let loggedInstatus = localStorage.getItem("loggedIn");
     let nav = bootstrap.Offcanvas.getOrCreateInstance("#navbar");
@@ -29,21 +27,20 @@ function activateButtons() {
         nav.hide();
         loginModal.show();
       });
-      loginForm.addEventListener("submit", (event)=>{
+      loginForm.addEventListener("submit", (event) => {
         event.preventDefault();
         logIn(event);
-      })
+      });
       registerButton.addEventListener("click", () => {
         loginModal.hide();
         registerModal.show();
       });
       registerForm.addEventListener("submit", (event) => {
-        event.preventDefault(); 
+        event.preventDefault();
         register(event);
       });
     }
-  
   }
-  }
+}
 
 activateButtons();
