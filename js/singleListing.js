@@ -31,12 +31,12 @@ async function displaySingle(id) {
   let lastBid = getLastBid(bids);
   let currentBid = "";
   if (new Date(endsAt) < new Date() && bids) {
-    currentBid = `<p class="d-flex mb-0 fs-5 ">Sold for </p>
+    currentBid = `<p class="d-flex my-auto mb-xl-0 fs-5 ">Sold for </p>
     ${lastBid}`;
   } else if (new Date(endsAt) < new Date() && bids.length === 0) {
-    currentBid = `<p class="d-flex mb-0 fs-5 ">Listing got no bids</p>`;
+    currentBid = `<p class="d-flex my-auto mb-xl-0 fs-5 ">Listing got no bids</p>`;
   } else {
-    currentBid = `<p class="d-flex mb-0 fs-5 ">Current Bid:</p>
+    currentBid = `<p class="d-flex my-auto mb-xl-0 fs-5 ">Current Bid:</p>
     ${lastBid}`;
   }
   //countdown
@@ -54,32 +54,34 @@ async function displaySingle(id) {
   //if own
   let self = storageRetriever("username");
   let bidSection;
-  if (seller.name === self || new Date(endsAt) < new Date()) {
+  if (seller.name === self && new Date(endsAt) > new Date()) {
     console.log("own");
     own = true;
     //edit and delete buttons will come here
     bidSection = `
-    <div id="loggedInContent" class="col-xl-6">
+    <div id="loggedInContent" class="col-xl-6 d-xl-flex align-items-xl-end">
     <button type="button" class="btn btn-primary mt-md-2 mt-xl-0 ms-lg-1" id="editListingBtn">Edit Listing</button>
     <button type="button" class="btn btn-danger mt-md-2 mt-xl-0 ms-lg-1" id="deleteListingBtn">Delete Listing</button>
     </div>
     `;
+  } else if (new Date(endsAt) < new Date()) {
+    bidSection = `<div id="loggedInContent" class="col-xl-6"></div>`;
   } else if (!storageRetriever("isLoggedIn")) {
-    bidSection = `<div id="loggedInContent" class="col-xl-6">
+    bidSection = `<div id="loggedInContent" class="col-xl-6 d-xl-flex align-items-xl-end">
     <div id="bidSection" class="d-block col-lg-8 col-xl-12">
-        <div class="d-flex justify-content-end flex-md-column flex-lg-row  col-md-12 col-xl-12 ms-auto justify-content-md-end justify-content-lg-end ms-lg-0 align-items-md-end">
+        <div class="d-flex justify-content-end flex-md-column flex-lg-row  col-md-12 col-xl-12 ms-auto justify-content-md-end  justify-content-lg-start  justify-content-xl-end  ms-lg-0 align-items-md-end">
             <button type="button" class="btn btn-primary mt-md-2 mt-xl-0 ms-lg-1" id="loginButtonBidSection">log in to bid</button>
         </div>
     </div>
 </div>`;
   } else {
-    bidSection = `<div id="loggedInContent" class="col-xl-6">
+    bidSection = `<div id="loggedInContent" class="d-xl-flex col-xl-6 align-items-xl-end">
     <div id="bidSection" class=" col-lg-8 col-xl-12">
-        <form id="bidForm" class="d-flex justify-content-end flex-md-column flex-lg-row  col-md-8 col-xl-12 ms-auto justify-content-md-end justify-content-lg-start ms-lg-0 align-items-md-end">
-            <div class="col-6  col-md-12 col-xxl-8 me-2 me-md-0 "><input type="number" class="form-control" id="bidAmount" placeholder="Bid amount" required></div>
+        <form id="bidForm" class="d-flex justify-content-end flex-md-column flex-lg-row  col-md-8 col-xl-12 ms-auto justify-content-md-end justify-content-lg-start  justify-content-xl-end  flex-lg-wrap justify-content-xl-end ms-lg-0 align-items-md-end">
+            <div class="col-6  col-md-12 col-xxl-8 me-2 me-md-0 mb-xl-1"><input type="number" class="form-control" id="bidAmount" placeholder="Bid amount" required></div>
             <button type="submit" class="btn btn-primary col-4 mt-md-2 mt-xl-0 ms-lg-1" id="bidButton">Bid</button>
         </form>
-        <div id="avalible" class="d-flex justify-content-end justify-content-lg-start">avalible: ${storageRetriever(
+        <div id="avalible" class="d-flex justify-content-end justify-content-lg-start justify-content-xl-end">avalible: ${storageRetriever(
           "token"
         )} <img class="ms-1" src="./assets/token.svg"> </div>
         <div id="bidResponse" class="col-12"></div>
@@ -94,21 +96,21 @@ async function displaySingle(id) {
     "flex-column",
     "flex-lg-row",
     "align-items-center",
-    "align-items-lg-start"
+    "align-items-lg-stretch"
   );
   singleListing.innerHTML = `
   <section id="mediaGallery" class="d-flex flex-column flex-md-row flex-lg-column align-items-center  col-11 col-md-10 col-lg-5 ">
      
   </section>
-  <section class="col-11 col-md-10 col-lg-5 d-md-flex flex-lg-wrap mt-md-2 align-items-lg-stretch ms-lg-1">
-      <div class="bigLeft col-md-8 col-lg-12 flex-lg-wrap d-lg-flex me-md-1 ">
-      <h1 id="listingTitle"class="col-lg-6 fs-3">${title}</h1>
-      <div class="d-flex col-lg-6 justify-content-lg-end">
+  <section class="col-11 col-md-10 col-lg-4 col-xl-3 d-md-flex flex-lg-wrap mt-md-2 align-items-lg-stretch ms-lg-1">
+      <div class="bigLeft col-md-8 col-lg-12 flex-lg-wrap d-lg-flex me-md-1 align-content-lg-start">
+      <h1 id="listingTitle"class=" fs-3">${title}</h1>
+      <div class="d-flex justify-content-lg-start col-lg-12 ">
       <p class=" me-1 fs-5 d-flex mb-0 align-items-center align-items-xl-start">Listed by </p>
-      <a href="profile.html?username=${seller.name}" class="col-6 col-sm-5 col-md-4 col-lg-7 col-xl-6 col-xxl-5 fs-5 text-end text-dark text-decoration-none d-flex align-items-center align-items-xl-start">
+      <a href="profile.html?username=${seller.name}" class="col-6 col-sm-5 col-md-4 col-lg-auto fs-5 text-end text-dark text-decoration-none d-flex align-items-center align-items-xl-start">
           ${seller.name}
-          <div class="profileImageListing ratio">
-              <img src="${avatar}" class="rounded-circle img-fluid ">
+          <div class="profileImageListing ratio col-1">
+              <img src="${avatar}" class="rounded-circle img-fluid">
           </div>
       </a>
       </div>
@@ -127,8 +129,8 @@ async function displaySingle(id) {
       <p>Listed: 29.11.2022 at 14:48</p>
       -->
       </div>
-      <section class="bigRight d-md-flex flex-md-column col-md-4 col-lg-12 col-xl-12 justify-content-md-between justify-content-xl-start flex-xl-row">
-          <div id="currentBid" class="d-flex flex-wrap justify-content-between justify-content-lg-start align-items-md-end align-items-xl-start col-12 col-xl-6">
+      <section class="bigRight d-md-flex flex-md-column col-md-4 col-lg-12 col-xl-12 justify-content-md-between justify-content-lg-end justify-content-xl-start flex-xl-row">
+          <div id="currentBid" class="d-flex flex-wrap justify-content-between justify-content-md-end justify-content-lg-start align-items-md-end align-items-xl-end col-12 col-xl-6">
               ${currentBid}
           </div>
           ${bidSection}`;
@@ -143,7 +145,7 @@ async function displaySingle(id) {
   //if own listing, activate edit button
   //coming soon if(own){something};
   //add bid function to button
-  if (new Date() < new Date(endsAt)) {
+  if (new Date() < new Date(endsAt) && !own) {
     if (storageRetriever("isLoggedIn")) {
       let bidForm = document.querySelector("#bidForm");
       bidForm.addEventListener("submit", (event) => {
