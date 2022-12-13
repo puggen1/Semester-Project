@@ -94,6 +94,10 @@ p, a, button{
         border-radius: 5px 0px 0px 5px;
         height: 150px;
        }
+       #filtersBig, #profileRight{
+        position: sticky;
+        top: 1rem;
+       }
     }  
 @media screen and (min-width: 992px) {
     .profileImage{
@@ -118,7 +122,6 @@ p, a, button{
         display: block!important;
 
     }
-    
 
 }
 @media screen and (min-width: 1200px) {
