@@ -70,6 +70,9 @@ p, a, button{
     overflow: hidden;
     height: 50px;
 }
+.notLoggedIn{
+    background-color: rgba(255, 255, 255, 0.4);;
+}
 //create diffrent media queries for different screen sizes for .profileImages bootstrap
 @media screen and (min-width: 576px) {
     .profileImage{
@@ -81,6 +84,9 @@ p, a, button{
 }
 
 @media screen and (min-width: 768px) {
+    #mainSection{
+     background-color: $secondary;
+    }
     .profileImage{
         width: 20% !important;
     }
@@ -93,6 +99,26 @@ p, a, button{
     .profileImage{
         width: 15% !important;
     }
+    .notLoggedIn{
+        height: 50vh;
+    }
+    .notLoggedIn img{
+        transition: .2s ease-in!important;
+        opacity: 1!important;
+    }
+    #buyOverlay, #sellOverlay {
+     display: none!important;
+     transition: .2s ease-in!important;
+    }
+    #sell:hover img, #buy:hover img{
+        opacity: 0.25!important;
+    }
+
+    #sell:hover #sellOverlay, #buy:hover #buyOverlay{
+        display: block!important;
+
+    }
+    
 
 }
 @media screen and (min-width: 1200px) {

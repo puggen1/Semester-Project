@@ -18,12 +18,11 @@ let id = params.get("id");
 let own = false;
 async function displaySingle(id) {
   let listing = await apiCall(`listings/${id}?_bids=true&_seller=true`, "GET");
-  let { title, tags, bids, endsAt, created, description, seller, media } =
-    listing;
+  let { title, tags, bids, endsAt, description, seller, media } = listing;
   //title
   document.title = `${title} | Bidder`;
   //seller avatar
-  let avatar = "../assets/avatar.jpg";
+  let avatar = "../assets/placeholder.png";
   if (seller.avatar) {
     avatar = seller.avatar;
   }
@@ -166,7 +165,10 @@ async function showPopular() {
   let mostPopular = popular(result, true);
   popularListings.innerHTML = "";
   for (let listing of mostPopular) {
-    popularListings.insertAdjacentElement("beforeend", cardListing(listing));
+    popularListings.insertAdjacentElement(
+      "beforeend",
+      cardListing(listing, false, `./listing.html?id=${id}`)
+    );
   }
 }
 displaySingle(id);

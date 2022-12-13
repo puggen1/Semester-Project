@@ -27,17 +27,17 @@ function dynamicHero() {
     heroLocation.innerHTML = ` <!--Here the buy sell buttons will be when you are not logged in, and the profile picture and some buttons when you are logged in-->
         <h1 class="">Welcome!</h1>
         <h2> what do you seek?</h2>
-        <div id="actions" class="d-flex flex-column flex-lg-row col-11 justify-content-center  align-items-center bg-light rounded-1 py-2">
-        <div class="position-relative col-8 col-lg-4 mx-2 my-1">
+        <div id="actions" class="notLoggedIn d-flex flex-column flex-lg-row col-11 justify-content-center  align-items-center rounded-1 py-2">
+        <div id="buy" class="position-relative col-8 col-lg-4 mx-2 my-1">
             <img class="opacity-25 rounded-1 col-12"src="./assets/buy.jpg" alt="buy image">
             <div id="buyOverlay" class="position-absolute top-50 start-50 translate-middle">
             <a href="#mainContent" class="btn btn-link border-dark text-dark text-decoration-none">Buy</a>
         </div>
             <!--hover effect-->
         </div>
-        <div class="position-relative col-8 col-lg-4 mx-2 my-1">
+        <div id="sell" class="position-relative col-8 col-lg-4 mx-2 my-1">
             <img class="rounded-1 col-12 opacity-25" src="./assets/sell.jpg" alt="sell image">
-            <div id="sellOverlay " class="position-absolute top-50 start-50 translate-middle">
+            <div id="sellOverlay" class="position-absolute top-50 start-50 translate-middle">
             <a href="./createlisting.html" class="btn border-dark text-dark text-decoration-none">Sell</a>
         </div>
             <!--hover effect-->

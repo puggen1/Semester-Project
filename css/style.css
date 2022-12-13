@@ -75,6 +75,10 @@ p, a, button {
   height: 50px;
 }
 
+.notLoggedIn {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
 @media screen and (min-width: 576px) {
   .profileImage {
     width: 25% !important;
@@ -84,6 +88,9 @@ p, a, button {
   }
 }
 @media screen and (min-width: 768px) {
+  #mainSection {
+    background-color: #C7BC9D;
+  }
   .profileImage {
     width: 20% !important;
   }
@@ -95,6 +102,23 @@ p, a, button {
 @media screen and (min-width: 992px) {
   .profileImage {
     width: 15% !important;
+  }
+  .notLoggedIn {
+    height: 50vh;
+  }
+  .notLoggedIn img {
+    transition: 0.2s ease-in !important;
+    opacity: 1 !important;
+  }
+  #buyOverlay, #sellOverlay {
+    display: none !important;
+    transition: 0.2s ease-in !important;
+  }
+  #sell:hover img, #buy:hover img {
+    opacity: 0.25 !important;
+  }
+  #sell:hover #sellOverlay, #buy:hover #buyOverlay {
+    display: block !important;
   }
 }
 @media screen and (min-width: 1200px) {

@@ -80,7 +80,11 @@ showProfile();
 function profileListings(listings) {
   let temp;
   for (let listing of listings) {
-    temp = buildCardListing(listing);
+    temp = buildCardListing(
+      listing,
+      true,
+      `./profile.html?username=${user ? user : storageRetriever("username")}`
+    );
     listingLocation.insertAdjacentElement("beforeend", temp);
   }
 }
