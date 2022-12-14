@@ -7,6 +7,7 @@ import avatarModal from "./htmlTemplate/editAvatarModal.js";
 import { imageRegex } from "./validation/image.js";
 import createAlertResponse from "./responses/createAlertResponse.js";
 import createTextResponse from "./responses/createTextResponse.js";
+import createModal from "./htmlTemplate/modal.js";
 //multiple html elements that is needed
 let username = document.querySelector("#username");
 let token = document.querySelector("#tAmount");
@@ -107,8 +108,27 @@ backButton.addEventListener("click", back);
  */
 function avatarChanger(profileData) {
   //targeting html elements
+  let bodyContent = ` <div class="profileImageRight m-auto ratio col-12">
+  <img src="${
+    profileData.avatar ? profileData.avatar : "./assets/placeholder.png"
+  }" alt="old avatar" id="avatarPreview" class="img-fluid mb-2 rounded-circle">
+  </div>
+  <label for="avatar" class="form-label">new avatar</label>
+  <input type="text" id="avatar" class="form-control mb-2" placeholder="link" required>
+  <div id="avatarResponse" ></div>
+`;
+  let footerContent = ` <div class="ms-auto">
+<button type="button" class="btn btn-link text-dark" data-bs-dismiss="modal">Cancel</button>
+<button id="avatarSubmit" type="submit" class="btn btn-primary">Change</button>
+</div>`;
   let main = document.querySelector("main");
-  let modal = avatarModal(profileData.avatar);
+  let modal = createModal(
+    "avatar",
+    bodyContent,
+    footerContent,
+    false,
+    "Change Avatar"
+  );
 
   //inserting modal
   main.insertAdjacentElement("afterEnd", modal);
@@ -145,7 +165,10 @@ function avatarChanger(profileData) {
         storageRetriever("loginToken")
       );
       //possitive response
-      if (response.avatar === imgInput.value) {
+      if (
+        response.avatar === imgInput.value ||
+        response.name === profileData.name
+      ) {
         let alertResponse = createAlertResponse(
           "Avatar changed successfully",
           "success"
