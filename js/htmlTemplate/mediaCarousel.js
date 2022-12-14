@@ -1,3 +1,9 @@
+/**
+ *
+ * @param {array} media array of pictures
+ * @param {htmlDOM} placement the location where it will be inserted into
+ * @returns a carousel with the pictures provided, if no pictures are provided it will return a default image
+ */
 export default function createCarousel(media, placement) {
   let bigPart = document.createElement("div");
   bigPart.classList.add(

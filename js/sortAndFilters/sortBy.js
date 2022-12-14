@@ -1,4 +1,10 @@
 import mostPopular from "./popular.js";
+/**
+ *
+ * @param {object} list all listings to be sorted
+ * @param {string} by the valuse gotten from the select element
+ * @returns sorted list
+ */
 export default function sortBy(list, by) {
   if (by === "old") {
     list.sort((a, b) => {

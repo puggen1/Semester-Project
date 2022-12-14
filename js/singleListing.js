@@ -20,6 +20,7 @@ let id = params.get("id");
 let own = false;
 async function displaySingle(id) {
   let listing = await apiCall(`listings/${id}?_bids=true&_seller=true`, "GET");
+  console.log(listing);
   let { title, tags, bids, endsAt, description, seller, media } = listing;
   //title
   document.title = `${title} | Bidder`;

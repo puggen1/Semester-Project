@@ -1,4 +1,7 @@
 import createModal from "../htmlTemplate/modal.js";
+/**
+ * @description adds the modals to the dom
+ */
 export default function addModals() {
   let registerContent = `<label for="registerUsername" class="form-label">username</label>
   <input type="text" id="registerUsername" class="form-control mb-2" placeholder="username">

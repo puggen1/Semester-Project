@@ -1,5 +1,8 @@
 import storageRetriever from "../storage/storageRetriever.js";
 import createModal from "../htmlTemplate/modal.js";
+/**
+ * this code runs on some pages, and if you are not logged in it will trigger a modal that asks you to login or register
+ */
 if (!storageRetriever("isLoggedIn")) {
   let bodyContent = ` <div class="col-12 d-flex justify-content-between"><button type=button" id="goBack" class="btn btn-link text-dark text-decoration-none border" data-bs-dismiss="modal"><i class="bi bi-arrow-left"></i>Go back</button>
   <div class="d-flex justify-content-center">

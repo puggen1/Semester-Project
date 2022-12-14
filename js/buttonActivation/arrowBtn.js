@@ -1,3 +1,9 @@
+/**
+ *
+ * @param {number} numberOfSlides the nunber of slides in the carousel
+ * @param {number} currentSlide the current slide in the carousel
+ * @description adds function to the arrow buttons on the carousel.
+ */
 export default function arrowButtons(numberOfSlides, currentSlide) {
   let buttons = document.querySelectorAll(".carouselButtons button");
   buttons.forEach((button) => {

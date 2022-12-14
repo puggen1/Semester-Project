@@ -1,25 +1,33 @@
 let tags = [];
 //add
-function addTag(value){
-    tags.push(value);
+/**
+ *
+ * @param {string} value the value of the tag you want to add
+ */
+function addTag(value) {
+  tags.push(value);
 }
 
 //remove
-function removeTag(value){
-    console.log(tags);
-    tags.splice(tags.indexOf(value), 1);
-    console.log(tags);
+/**
+ *
+ * @param {string} value the value of the tag you want to remove
+ */
+function removeTag(value) {
+  tags.splice(tags.indexOf(value), 1);
 }
 
 //display
-
-function displayTags(location){
-    location.innerHTML = "";
-    for(let i = 0; i < tags.length; i++){
-        location.innerHTML += `<button type="button" data-tag-name="${tags[i]}" class="d-flex justify-content-between btn m-1 btn-secondary">${tags[i]}<i class="bi bi-trash"></i></button>`;
-    }
-    console.log(location)
-    console.log(tags);
+/**
+ *
+ * @param {htmlDOm} location  the location to display the preview
+ * @description displays the tag preview in the location given
+ */
+function displayTags(location) {
+  location.innerHTML = "";
+  for (let i = 0; i < tags.length; i++) {
+    location.innerHTML += `<button type="button" data-tag-name="${tags[i]}" class="d-flex justify-content-between btn m-1 btn-secondary">${tags[i]}<i class="bi bi-trash"></i></button>`;
+  }
 }
 
-export {addTag, removeTag, displayTags, tags};
+export { addTag, removeTag, displayTags, tags };

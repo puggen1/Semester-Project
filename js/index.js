@@ -23,21 +23,6 @@ async function showListings() {
 }
 showListings();
 
-/*
-function showTags() {
-  console.log(allListings);
-  for (let listing of allListings) {
-    for (let tag of listing.tags) {
-      if (!tag) {
-        console.log("no tag");
-        continue;
-      } else {
-        console.log(tag);
-      }
-    }
-  }
-}
-*/
 //need for reseting search
 let searchButtons;
 //search filtering

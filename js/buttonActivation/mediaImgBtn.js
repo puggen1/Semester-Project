@@ -1,3 +1,9 @@
+/**
+ *
+ * @param {number} numberOfSlides the number of slides on a carousel
+ * @param {number} currentSlide the number that is currently showing
+ * @description adds functionality to the images on bottom of carousel, so if 4 pictures and 3 preview, the fourth will appear when third is active
+ */
 export default function imgButtons(numberOfSlides, currentSlide) {
   let buttons = document.querySelectorAll("#lowerMedia button.btn-link");
   buttons.forEach((button) => {
