@@ -1,14 +1,20 @@
 @charset "UTF-8";
-p, a, button {
+p, a, button, #phoneFilter {
   font-family: "Nunito", serif;
 }
 
-.card h3, .card .h3, #ListingTop h2, #ListingTop .h2, #ListingTop p, #listingPage h1, #listingPage .h1, #popularListings h2, #popularListings .h2 {
+.card h3, .card .h3, #ListingTop h2, #ListingTop .h2, #ListingTop p, #listingPage h1, #listingPage .h1, #popularListings h2, #popularListings .h2, #mainSection h1, #mainSection .h1, #mainSection h2, #mainSection .h2, #numberOfListings, #ListingTop h2 {
   font-family: "Arvo", serif;
 }
 
 .card {
   border: none !important;
+}
+
+#ListingTop {
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 .bigImg {
@@ -83,6 +89,10 @@ p, a, button {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
+#buyOverlay, #sellOverlay {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
 @media screen and (min-width: 576px) {
   .profileImage {
     width: 25% !important;
@@ -107,7 +117,7 @@ p, a, button {
   }
   #filtersBig, #profileRight {
     position: sticky;
-    top: 1rem;
+    top: 140px;
   }
 }
 @media screen and (min-width: 992px) {
@@ -120,19 +130,15 @@ p, a, button {
   .notLoggedIn {
     height: 60vh;
   }
-  .notLoggedIn img {
-    transition: 0.2s ease-in !important;
-    opacity: 1 !important;
-  }
   #buyOverlay, #sellOverlay {
     display: none !important;
-    transition: 0.2s ease-in !important;
+    transition: display 0.5s ease-in !important;
   }
-  #sell:hover img, #buy:hover img {
-    opacity: 0.25 !important;
+  #buy:hover #buyOverlay, #sell:hover #sellOverlay {
+    display: flex !important;
   }
-  #sell:hover #sellOverlay, #buy:hover #buyOverlay {
-    display: block !important;
+  #buyOverlay a:hover, #sellOverlay a:hover {
+    text-decoration: none !important;
   }
 }
 @media screen and (min-width: 1200px) {
