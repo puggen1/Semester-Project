@@ -64,6 +64,5 @@ export default async function createListing(data) {
       "Please fill out required fields",
       "danger"
     );
-    console.log("invalid data");
   }
 }
