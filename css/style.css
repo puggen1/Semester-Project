@@ -18,6 +18,10 @@ p, a, button {
   object-position: center;
 }
 
+#navContent .profileImage {
+  width: 15% !important;
+}
+
 .profileImage {
   position: relative;
   --bs-aspect-ratio: 100%;

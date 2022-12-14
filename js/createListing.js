@@ -31,6 +31,10 @@ form.addEventListener("submit", (event) => {
 form.addEventListener("keyup", (event) => {
   previewListing(event, form, listingPreviewSection);
 });
+//make the date on change?
+form.addEventListener("change", (event) => {
+  previewListing(event, form, listingPreviewSection);
+});
 addImg.addEventListener("click", (event) => {
   //test if input is valid image url
   let imgInput = document.querySelector("#tempImage");

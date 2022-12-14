@@ -61,7 +61,7 @@ export default function buildCardListing(
         </div>
         <div class="d-flex flex pb-2 col-md-12 flex-md-row justify-content-between">
         <div class="border rounded-1 py-1 my-0 px-2 d-flex align-items-center">${nonFunctionCountDown}</div>
-        <section class="d-flex col-md-6 align-items-center justify-content-md-end align-items-md-end">
+        <section class="d-flex align-items-center justify-content-md-end align-items-md-end">
         ${lastBid}
         <button href="./listing.html/?id=${id}"type="button" class="btn btn-primary ms-1 py-1 px-2 text-dark fs-md-5">${cta}</button>
         </section>

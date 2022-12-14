@@ -15,7 +15,7 @@
     <title>listing title | Bidder</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <header class="bg-primary d-flex">
+    <header id="header" class="bg-primary d-flex">
         <nav class="col-3 navbar ">
             <div class="container-fluid">
             <button aria-label="open navigation" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar" aria-controls="navbar">
@@ -43,8 +43,9 @@
         </div>
         </nav>
         <div id="logo" class="col-6 d-flex justify-content-center">
-            <img src="./assets/logo.svg" alt="The Bidder logo">
-        </div>
+            <a aria-label="Logo navigation to home page" href="./index.html">
+                <img src="./assets/logo.svg" alt="The Bidder logo">
+                </a>        </div>
         <div id="profileHeader" class=" d-flex justify-content-end align-items-center col-3">
             <div class="col-12 d-flex justify-content-end me-3">
                 </div>
@@ -71,14 +72,14 @@
             </section>
         </article>
     </main>
-    <footer class="bg-primary d-flex align-items-center mt-auto py-4">
+    <footer class="bg-primary d-flex align-items-center  justify-content-between mt-auto py-4">
         <div id="footerProfile" class="col-3 d-flex justify-content-center ">
             <a class="text-dark" href="./profile.html">Profile</a>
         </div>
-        <div id="iconToTop" class="col-6 d-flex justify-content-center">
-            <i class="rounded-circle bi bi-arrow-up-short bg-warning">
+        <a href="#header"id="iconToTop" class=" d-flex justify-content-center">
+            <i class="rounded-circle d-flex col-12 fs-4 bi bi-arrow-up-short text-dark bg-warning">
             </i>
-        </div>
+        </a>
         <div class="col-3 d-flex justify-content-center ">
             <button id="footerLogout" type="button" class="btn btn-link text-dark">
                 Logout

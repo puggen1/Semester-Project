@@ -47,7 +47,7 @@ async function displaySingle(id) {
   let countdown = timeDisplay(endsAt);
   //tags
   let allTags = "";
-  if (tags.lenth > 0) {
+  if (tags.length > 0) {
     allTags = createTags(tags);
   }
   //description
@@ -119,12 +119,12 @@ async function displaySingle(id) {
       </a>
       </div>
       <p class="mb-lg-1">${description}</p>
-      <section class="d-sm-flex flex-wrap align-items-center  mb-sm-1 col-lg-10 col-xl-12 justify-content-between  justify-content-md-start">
+      <section class="d-sm-flex flex-wrap  flex-column align-items-start  mb-sm-1 col-lg-10 col-xl-12 justify-content-between  justify-content-md-start">
       <div id="singlePageTags" class=" mb-2 mb-sm-1 mb-md-0">
         ${allTags}
       </div>
 
-      <div class="countdown border rounded-1 px-2 py-1 ms-lg-0">
+      <div class="countdown border rounded-1 px-2 ms-1 py-1 ms-lg-0">
          ${countdown}
       </div>
       <article id="lowerPart" class="d-flex flex-column flex-md-wrap flex-md-row justify-content-center col-12 col-lg-8">
@@ -171,7 +171,7 @@ async function displaySingle(id) {
     for (let bid of bids) {
       bodyContent += `
       
-        <div class="m-auto d-flex border my-1 col-7 justify-content-center rounded-2 p-1"><p class="m-0">${bid.bidderName}: </p><p class="m-0">${bid.amount}<img class="ms-1" src="./assets/token.svg"></p></div>`;
+        <div class="m-auto d-flex border my-1 col-12 justify-content-center rounded-2 p-1"><p class="m-0">${bid.bidderName}: </p><p class="m-0">${bid.amount}<img class="ms-1" src="./assets/token.svg"></p></div>`;
     }
     bodyContent += `</div>`;
     let footer = `<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>`;

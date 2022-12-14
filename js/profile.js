@@ -3,11 +3,11 @@ import storageRetriever from "./storage/storageRetriever.js";
 import apiCall from "./api/apiCall.mjs";
 import buildCardListing from "./htmlTemplate/cardListing.js";
 import back from "./buttonActivation/back.js";
-import avatarModal from "./htmlTemplate/editAvatarModal.js";
 import { imageRegex } from "./validation/image.js";
 import createAlertResponse from "./responses/createAlertResponse.js";
 import createTextResponse from "./responses/createTextResponse.js";
 import createModal from "./htmlTemplate/modal.js";
+import { storageRemover, storageSaver } from "./storage/storageSaver.js";
 //multiple html elements that is needed
 let username = document.querySelector("#username");
 let token = document.querySelector("#tAmount");
@@ -173,6 +173,8 @@ function avatarChanger(profileData) {
           "Avatar changed successfully",
           "success"
         );
+        storageRemover("avatar");
+        storageSaver("avatar", imgInput.value);
         document.querySelector("#avatarResponse").innerHTML = "";
         document
           .querySelector("#avatarResponse")

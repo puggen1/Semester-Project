@@ -14,7 +14,7 @@
     <title>username | Bidder</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <header class="bg-primary d-flex">
+    <header id="header" class="bg-primary d-flex">
         <nav class="col-3 navbar ">
             <div class="container-fluid">
             <button aria-label="open navigation" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar" aria-controls="navbar">
@@ -42,8 +42,9 @@
         </div>
         </nav>
         <div id="logo" class="col-6 d-flex justify-content-center">
-            <img src="./assets/logo.svg" alt="The Bidder logo">
-        </div>
+            <a aria-label="Logo navigation to home page" href="./index.html">
+                <img src="./assets/logo.svg" alt="The Bidder logo">
+                </a>        </div>
         <div id="profileHeader" class=" d-flex justify-content-end align-items-center col-3">
             <div class="col-12 d-flex justify-content-end me-3">
                 </div>
@@ -71,7 +72,7 @@
                 </div>
             <button type="button" class="btn btn-danger col-9 col-sm-6 col-lg-7 mx-auto my-2 py-1 px-3 d-md-block mt-md-2 " id="editPicture">Edit picture</button>
             </div>
-            <div class="d-flex  flex-column justify-content-center order-md-1 order-lg-2 col-md-6 col-lg-8 col-xl-10 align-items-md-center">
+            <div class="d-flex  flex-column justify-content-center order-md-1 order-lg-2 col-md-6 col-lg-12 align-items-md-center">
             <h1 id="username" class="mb-0  col-md-6  col-lg-12 col-xl-12 text-center">Username</h1>
             <div id="userTokens" class="border border-2 rounded-1 d-flex justify-content-center  p-1 my-2 col-md-3 col-lg-6">
                 <p id="tAmount" class="m-0 pe-1">1000</p>
@@ -81,14 +82,14 @@
         </section>
        
     </main>
-    <footer class="bg-primary d-flex align-items-center mt-auto py-4">
+    <footer class="bg-primary d-flex align-items-center justify-content-between mt-auto py-4">
         <div id="footerProfile" class="col-3 d-flex justify-content-center ">
             <a class="text-dark" href="./profile.html">Profile</a>
         </div>
-        <div id="iconToTop" class="col-6 d-flex justify-content-center">
-            <i class="rounded-circle bi bi-arrow-up-short bg-warning">
+        <a href="#header"id="iconToTop" class=" d-flex justify-content-center">
+            <i class="rounded-circle d-flex col-12 fs-4 bi bi-arrow-up-short text-dark bg-warning">
             </i>
-        </div>
+        </a>
         <div class="col-3 d-flex justify-content-center ">
             <button id="footerLogout" type="button" class="btn btn-link text-dark">
                 Logout

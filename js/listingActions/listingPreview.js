@@ -4,6 +4,7 @@ export default function previewListing(e, data, preview) {
   let prevTitle = document.querySelector("#previewTitle");
   let previewEnd = document.querySelector("#previewEnd");
   let gallery = document.querySelector("#gallery");
+
   if (e.target.id === "listingTitle") {
     prevTitle.innerText = e.target.value;
   } else if (e.target.id === "tempImage" && !gallery.firstElementChild) {
