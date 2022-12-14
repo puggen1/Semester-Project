@@ -69,7 +69,7 @@ addTagBtn.addEventListener("click", (event) => {
   }
 });
 
-previewuser.innerHTML = `${username} <div class="profileImageListing ratio"><img src="${avatar}" class="rounded-circle img-fluid "></div>`;
+previewuser.innerHTML = `${username} <div class="profileImageListing ratio"><img src="${avatar}" class="rounded-circle img-fluid " alt="${username}s profilePicture"></div>`;
 
 let backBtn = document.querySelector("#backBtn");
 backBtn.addEventListener("click", back);

@@ -93,6 +93,8 @@ function profileListings(listings) {
 //back button
 let backButton = document.querySelector("#back");
 backButton.addEventListener("click", back);
+let backButtonPhone = document.querySelector("#backPhone");
+backButtonPhone.addEventListener("click", back);
 /**
  *
  * @param {object} profileData is the profile data of the user(yourself)

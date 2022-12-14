@@ -7,7 +7,9 @@
 p, a, button, #phoneFilter{
     font-family: "Nunito", serif;
 }
-
+button{
+    font-weight: 500!important;
+}
 .card h3, #ListingTop h2,#ListingTop p, #listingPage h1, #popularListings h2, #mainSection h1, #mainSection h2, #numberOfListings, #ListingTop h2{
     font-family: "Arvo", serif;
 }

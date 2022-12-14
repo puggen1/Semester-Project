@@ -39,7 +39,7 @@ async function displaySingle(id) {
     currentBid = `<p class="d-flex my-auto mb-xl-0 fs-5 ">Listing got no bids</p>`;
   } else {
     currentBid = `<div class="d-flex flex-column my-2"><button id="allBids"type="button"class="btn btn-secondary me-1">view previous Bids: </button>`;
-    currentBid += `<div class="d-flex"><h3 class="d-flex my-auto mb-xl-0 fs-5 ">Current Bid:</h3>
+    currentBid += `<div class="d-flex"><h2 class="d-flex my-auto mb-xl-0 fs-5 ">Current Bid:</h2>
     ${lastBid} </div>`;
     currentBid += `</div>`;
     moreBids = true;
@@ -88,7 +88,7 @@ async function displaySingle(id) {
         </form>
         <div id="avalible" class="d-flex justify-content-end justify-content-lg-start justify-content-xl-end">avalible: ${storageRetriever(
           "token"
-        )} <img class="ms-1" src="./assets/token.svg"> </div>
+        )} <img class="ms-1" src="./assets/token.svg" alt="token icon "> </div>
         <div id="bidResponse" class="col-12"></div>
     </div>
 </div>`;
@@ -115,7 +115,7 @@ async function displaySingle(id) {
       <a href="profile.html?username=${seller.name}" class="col-6 col-sm-5 col-md-4 col-lg-auto fs-5 text-end text-dark text-decoration-none d-flex align-items-center align-items-xl-start">
           ${seller.name}
           <div class="profileImageListing ratio col-1">
-              <img src="${avatar}" class="rounded-circle img-fluid">
+              <img src="${avatar}" class="rounded-circle img-fluid" alt="${seller.name}s profile picture">
           </div>
       </a>
       </div>

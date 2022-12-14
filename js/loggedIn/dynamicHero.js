@@ -23,7 +23,7 @@ function dynamicHero() {
             <a href="./createlisting.html" class="btn btn-primary col-10 col-sm-3 col-lg-4 col-xl-5 col-xxl-4 my-2">New Listing</a>
             <p>or</p>
             <h3>something to buy</h3>
-            <a href="#mainContent"><i class="bi bi-chevron-down"></i></a>
+            <a href="#ListingTop"><i class="bi bi-chevron-down"></i></a>
     
                 </div>
         `;
