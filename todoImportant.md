@@ -1,4 +1,4 @@
-remember to fix form on modal is full width (try clicking outside)
+remember to fix form on modal is full width (try clicking outside) done
 
 countdown: show only days when over a certain amout, done
 

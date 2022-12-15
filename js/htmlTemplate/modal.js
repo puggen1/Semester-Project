@@ -24,8 +24,7 @@ export default function createModal(
   modal.ariaLabel = `${type}Label`;
   modal.ariaHidden = true;
   modal.innerHTML = `
-  <${outerDiv} id="${type}${form ? "Form" : "inner"}">
-  <div class="modal-dialog">
+  <${outerDiv} class="modal-dialog" id="${type}${form ? "Form" : "inner"}">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="${type}Label">${header}</h1>
@@ -35,7 +34,6 @@ export default function createModal(
       </div>
       <div class="modal-footer d-flex flex-column">
         ${footerContent}
-    </div>
   </div>
   </${outerDiv}>`;
   if(restricted) {

@@ -4,8 +4,9 @@
   "description": "This is the Bidder website package, that sorts out all of the required things this site need",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "sassBuild": "sass --watch ./sass/design.scss:./css/style.css"
+    "sassDev": "sass --watch ./sass/design.scss:./css/style.css",
+    "sassBuild": "sass ./sass/design.scss:./css/style.css",
+    "liveServer": "live-server --port=5500"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.2",
     "sass": "^1.56.1"
+  },
+  "devDependencies": {
+    "live-server": "^1.1.0"
   }
 }
