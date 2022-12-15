@@ -34,10 +34,10 @@ if (isLoggedIn) {
         <h2 class="fs-5 text-center">login to make a listing or bid</h2>
       </div>
       <div class="col-10 col-xxl-11 m-auto">
-          <label for="loginEmail" class="form-label">email</label>
-        <input type="email" id="loginEmail" class="form-control mb-2" placeholder="email">
-          <label for="loginPassword" class="form-label">password</label>
-          <input type="password" id="loginPassword"class="form-control mb-2" placeholder="password">
+          <label for="loginEmailSide" class="form-label">email</label>
+        <input type="email" id="loginEmailSide" class="form-control mb-2" placeholder="email">
+          <label for="loginPasswordSide" class="form-label">password</label>
+          <input type="password" id="loginPasswordSide"class="form-control mb-2" placeholder="password">
       </div>
       <div class="col-10 col-xxl-11 d-flex m-auto">
         <button type="submit" class="btn btn-primary">Login</button>

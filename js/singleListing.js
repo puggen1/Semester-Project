@@ -20,7 +20,6 @@ let id = params.get("id");
 let own = false;
 async function displaySingle(id) {
   let listing = await apiCall(`listings/${id}?_bids=true&_seller=true`, "GET");
-  console.log(listing);
   let { title, tags, bids, endsAt, description, seller, media } = listing;
   //title
   document.title = `${title} | Bidder`;
@@ -38,7 +37,7 @@ async function displaySingle(id) {
   } else if (new Date(endsAt) < new Date() && bids.length === 0) {
     currentBid = `<p class="d-flex align-items-center my-auto mb-xl-0 fs-5 ">Listing got no bids</p>`;
   } else {
-    currentBid = `<div class="d-flex flex-column my-2 align-items-center"><button id="allBids"type="button"class="btn btn-secondary me-1">view previous Bids: </button>`;
+    currentBid = `<div class="d-flex flex-column my-2 align-items-center"><button id="allBids"type="button"class="btn btn-secondary me-1">${storageRetriever("isLoggedIn")?  "view previous Bids:": "login to view all bids"} </button>`;
     currentBid += `<div class="d-flex"><h2 class="d-flex  mb-xl-0 fs-5 ">Current Bid:</h2>
     ${lastBid} </div>`;
     currentBid += `</div>`;
@@ -166,13 +165,13 @@ async function displaySingle(id) {
     }
   }
   //if more bids show modal with all bids
-  if (moreBids) {
+  if (moreBids && storageRetriever("isLoggedIn")) {
     let allBids = document.querySelector("#allBids");
     let bodyContent = `<div class="d-flex justify-content-between align-items-center flex-row flex-wrap">`;
     for (let bid of bids) {
       bodyContent += `
       
-        <div class="m-auto d-flex border my-1 col-12 justify-content-center rounded-2 p-1"><p class="m-0">${bid.bidderName}: </p><p class="m-0">${bid.amount}<img class="ms-1" src="./assets/token.svg"></p></div>`;
+        <div class="m-auto d-flex border my-1 col-12 justify-content-center rounded-2 p-1"><p class="m-0">${bid.bidderName}:</p><p class="m-0"> ${bid.amount}<img class="ms-1" src="./assets/token.svg"></p></div>`;
     }
     bodyContent += `</div>`;
     let footer = `<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>`;

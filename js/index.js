@@ -7,7 +7,7 @@ let listingListTitle = document.querySelector("#numberOfListings");
 let allListings = "";
 let filteredListings = "";
 /**
- * @description when you come to this page, it will display all the listings it can find. (up tp 100)
+ * @description when you come to this page, it will display all the listings it can find. (up to 100)
  */
 async function showListings() {
   listings.innerHTML = "";
