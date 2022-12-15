@@ -7,6 +7,9 @@ let isLoggedIn = storageRetriever("isLoggedIn");
 //to activate login and register buttons
 
 //if logged in, change login to  logout, target both on front? class?
+/**
+ * @description activates the login and register buttons if not logged in, and the logout button if logged in
+ */
 function activateButtons() {
   if (isLoggedIn) {
     let logoutNavButton = document.querySelector("#logoutNav");
