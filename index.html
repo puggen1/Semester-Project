@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="this is the frontpage of bidder, here you can look at listings, login or navigate to other pages(note that some require login)">
+    <meta name="theme-color" content="#4189B6">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <title>MainPage | Bidder</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <header class="bg-primary d-flex">
+    <header id="header" class="bg-primary d-flex">
         <nav class="col-3 navbar ">
             <div class="container-fluid">
             <button class="navbar-toggler" aria-label="open navigation" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar" aria-controls="navbar">
@@ -38,7 +43,9 @@
         </div>
         </nav>
         <div id="logo" class="col-6 d-flex justify-content-center">
+            <a aria-label="Logo navigation to home page" class="my-2 "href="./index.html">
             <img src="./assets/logo.svg" alt="The Bidder logo">
+            </a>
         </div>
         <div id="profileHeader" class=" d-flex justify-content-end align-items-center col-3">
             <div class="col-12  d-flex justify-content-end me-3">
@@ -47,7 +54,7 @@
         
     </header>
     <main>
-        <section class="d-flex flex-column col-12 align-items-center mb-2 bg-md-secondary mt-2" id="mainSection">
+        <section class="d-flex flex-column col-12  mt-2 my-md-0 py-md-2  align-items-center mb-2 bg-md-secondary" id="mainSection">
           
         </section>
         <section>
@@ -55,40 +62,103 @@
             <!--<i class="bi bi-chevron-down"></i>-->
             <h2 class="py-1 my-1">Listings</h2>
             <div class="d-flex my-2 align-items-center col-12">
-            <button id="phoneFilter" type="button" data-bs-toggle="modal" data-bs-target="#phoneFilterModal" class="p-1 m-md-0 d-lg-none col-3 m-2 btn bg-white rounded-0"><i class="bi bi-funnel-fill">Filter</i></button>
-            <p id="numberOfListings"class="m-0 p-0 col-6 col-lg-12 col-xl-12 text-center">Showning "52" listings</p>
+            <button id="phoneFilter" type="button" data-bs-toggle="modal" data-bs-target="#phoneFilterModal" class="p-1 m-md-0 d-md-none col-3 m-2 btn bg-white rounded-0"><i class="bi bi-funnel-fill"></i>Filter</button>
+            <p id="numberOfListings"class="m-0 p-0 col-6 col-md-12 col-xl-12 text-center">Showning "52" listings</p>
         </div>
         </div>
         <div id="mainContent" class="d-md-flex flex-md-wrap mt-md-2 align-items-md-start justify-content-lg-between">
             <div  id="filtersBig" class="d-none col-md-4 col-lg-3 col-xl-3 col-xxl-2 d-md-block mt-md-2 ps-md-3 py-md-3 border border-start-0 rounded-end">
-                <div class="currentFilters">
-                    </div>
+                <h3>Filters</h3>
                 <div class="col-10">
-                    <input type="search" class="form-control mb-2" placeholder="search">
+                    <input type="search" id="search" class="form-control mb-2" placeholder="search">
                 </div>
                 <div class="col-7">
-                <select class="form-control">
+                <select id="sort" class="form-control">
                     <option selected class="form-control"value="new">Sort new</option>
                     <option value="old">sort old</option>
                     <option value="popular">Sort Popular</option>
+                    <option value="soon">Sort Ending soon</option>
+
                 </select>
                 </div>
-                <div class="tags d-flex flex-wrap align-items-start col-md-10">
+                <!--<div class="tags d-flex flex-wrap align-items-start col-md-10">
                     <button class="btn btn-secondary text-decoration-none text-dark m-1 rounded-0">technology</button>
                     <button class="btn btn-secondary text-decoration-none text-dark m-1 rounded-0">car</button>
                     <button class="btn btn-secondary text-decoration-none text-dark m-1 rounded-0">art</button>
-                </div>
+                </div>-->
                 <div id="FilterButtons" class="d-flex justify-content-between col-md-10 align-items-md-end">
-                    <button type="button" class="btn btn-link text-dark align-items-start p-md-0">reset</button>
+                    <button type="button" id="reset" class="btn btn-link text-dark align-items-start p-md-0">reset</button>
                     <div class="d-md-flex align-items-md-end">
                     <button type="button" class="btn btn-link text-dark align-items-start p-md-0 me-md-1 d-md-none">Cancel</button>
-                    <button type="button" class="btn btn-primary align-items-start">Show</button>
                 </div>
             </div>
         </div>
             <div id="listings" class="col-md-8 col-lg-6 col-xl-6 col-xl-4 d-md-flex flex-column justify-content-center align-items-center">
+                <a href="" class="col-md-10 col-xxl-8 text-decoration-none shadow placeholder-glow card d-md-flex flex-md-row mx-3 my-2 text-dark">
+                    <img alt="first listing picture if any" class="bigImg col-md-4 placeholder" src="">
+                    <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-md-flex flex-md-column  justify-content-md-between">
+                        <div class="card-title d-flex mb-md-1 flex-wrap align-items-end justify-content-between align-items-center">
+                          <h3 class="col-12 mb-0 fs-5 text-break placeholder">test</h3>
+                          <div  class="d-flex text-end fs-5 col-6 my-2 text-decoration-none text-dark d-md-flex align-items-center placeholder justify-content-start">
+                            <div class="profileImageListing ratio col-2 ">
+                                <img src="../../assets/placeholder.png" class="rounded-circle img-fluid" alt="the avatar of the user that created this listing">
+                            </div>
+                        </div>
+                            </div>
+                          <div class="d-flex flex pb-2 col-md-12 flex-md-row justify-content-between">
+                          <p class="border rounded-1 py-1 my-0 px-2 d-flex align-items-center placeholder placeholder-glow">15 days left</p>
+                          <section class="d-flex align-items-center justify-content-md-end align-items-md-end">
+                          <div class="amount d-flex  ms-1 mb-xl-0">
+                          <p class="m-auto me-xl-0 d-flex fs-5 placeholder">550<img class="ms-1 " src="./assets/token.svg" alt="token icon"></p></div>
+                          <button href="./listing.html/?id=535cd966-40d6-4087-8a5c-bfc1212580bc" type="button" class="btn btn-primary ms-1 disabled py-1 px-3 text-dark fs-md-5 placeholder"></button>
+                          </section>
+                      </div>
+                  </div>
+                </a>
+                <a href="" class="col-md-10 col-xxl-8 text-decoration-none shadow placeholder-glow card d-md-flex flex-md-row mx-3 my-2 text-dark">
+                    <img alt="first listing picture if any" class="bigImg col-md-4 placeholder" src="">
+                    <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-md-flex flex-md-column  justify-content-md-between">
+                        <div class="card-title d-flex mb-md-1 flex-wrap align-items-end justify-content-between align-items-center">
+                          <h3 class="col-12 mb-0 fs-5 text-break placeholder">test</h3>
+                          <div  class="d-flex text-end fs-5 col-6 my-2 text-decoration-none text-dark d-md-flex align-items-center placeholder justify-content-start">
+                            <div class="profileImageListing ratio col-2 ">
+                                <img src="../../assets/placeholder.png" class="rounded-circle img-fluid" alt="the avatar of the user that created this listing">
+                            </div>
+                        </div>
+                            </div>
+                          <div class="d-flex flex pb-2 col-md-12 flex-md-row justify-content-between">
+                          <p class="border rounded-1 py-1 my-0 px-2 d-flex align-items-center placeholder placeholder-glow">15 days left</p>
+                          <section class="d-flex align-items-center justify-content-md-end align-items-md-end">
+                          <div class="amount d-flex  ms-1 mb-xl-0">
+                          <p class="m-auto me-xl-0 d-flex fs-5 placeholder">550<img class="ms-1 " src="./assets/token.svg" alt="token icon"></p></div>
+                          <button href="./listing.html/?id=535cd966-40d6-4087-8a5c-bfc1212580bc" type="button" class="btn btn-primary ms-1 disabled py-1 px-3 text-dark fs-md-5 placeholder"></button>
+                          </section>
+                      </div>
+                  </div>
+                </a>
+                <a href="" class="col-md-10 col-xxl-8 text-decoration-none shadow placeholder-glow card d-md-flex flex-md-row mx-3 my-2 text-dark">
+                    <img alt="first listing picture if any" class="bigImg col-md-4 placeholder" src="">
+                    <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-md-flex flex-md-column  justify-content-md-between">
+                        <div class="card-title d-flex mb-md-1 flex-wrap align-items-end justify-content-between align-items-center">
+                          <h3 class="col-12 mb-0 fs-5 text-break placeholder">test</h3>
+                          <div  class="d-flex text-end fs-5 col-6 my-2 text-decoration-none text-dark d-md-flex align-items-center placeholder justify-content-start">
+                            <div class="profileImageListing ratio col-2 ">
+                                <img src="../../assets/placeholder.png" class="rounded-circle img-fluid" alt="the avatar of the user that created this listing">
+                            </div>
+                        </div>
+                            </div>
+                          <div class="d-flex flex pb-2 col-md-12 flex-md-row justify-content-between">
+                          <p class="border rounded-1 py-1 my-0 px-2 d-flex align-items-center placeholder placeholder-glow">15 days left</p>
+                          <section class="d-flex align-items-center justify-content-md-end align-items-md-end">
+                          <div class="amount d-flex  ms-1 mb-xl-0">
+                          <p class="m-auto me-xl-0 d-flex fs-5 placeholder">550<img class="ms-1 " src="./assets/token.svg" alt="token icon"></p></div>
+                          <button href="./listing.html/?id=535cd966-40d6-4087-8a5c-bfc1212580bc" type="button" class="btn btn-primary ms-1 disabled py-1 px-3 text-dark fs-md-5 placeholder"></button>
+                          </section>
+                      </div>
+                  </div>
+                </a>
             </div>
-            <div id="profileRight" class="d-none col-lg-3 col-xl-3 col-xxl-2  d-lg-block border border-end-0 rounded-start mt-lg-2 p-lg-1">
+            <div id="profileRight" class="d-none col-lg-3 col-xl-3 col-xxl-2 mb-2 d-lg-block border border-end-0 rounded-start mt-lg-2 p-lg-1">
                 <!--changing content-->
             </div>
         </section>
@@ -100,40 +170,33 @@
                     <h5 class="modal-title">Choose Filters</h5>
                 </div>
                 <div class="modal-body">
-                    <div class="currentFilters">
-                        <p>current filters will be displayed here</p>
-                    </div>
-                    <input type="search" class="form-control mb-2" placeholder="search">
-                    <select class="form-control">
+                    <input type="search" class="form-control mb-2" id="phoneSearch"placeholder="search">
+                    <select id="phoneSort" class="form-control">
                         <option selected class="form-control"value="new">Sort new</option>
                         <option value="old">sort old</option>
                         <option value="popular">Sort Popular</option>
+                        <option value="soon">Sort Ending soon</option>
+
                     </select>
-                    <div class="tags d-flex flex-wrap align-items-start">
-                        <p class="col-12">some of the most popular tags will be displayed here like this:</p>
-                        <button class="btn btn-secondary text-decoration-none text-dark m-1 rounded-0">technology</button>
-                        <button class="btn btn-secondary text-decoration-none text-dark m-1 rounded-0">car</button>
-                        <button class="btn btn-secondary text-decoration-none text-dark m-1 rounded-0">art</button>
-                    </div>
-                    <div id="phoneFilterButtons" class="d-flex justify-content-between">
-                        <button type="button" class="btn btn-link text-dark align-items-start">reset</button>
+                    <div id="phoneFilterButtons" class="d-flex justify-content-between mt-2">
+                        <button type="button" id="phoneReset" class="btn btn-link text-dark px-0 align-items-start">reset</button>
                         <div>
                         <button type="button" class="btn btn-link text-dark align-items-start" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary align-items-start">Show</button>
+                        <button type="button" class="btn btn-primary align-items-start" data-bs-dismiss="modal">Show</button>
                     </div>
                     </div>
                 </div>
         </div>
     </div>
     </div>
-    <footer class="bg-primary d-flex align-items-center mt-auto py-4">
+    <footer class="bg-primary d-flex align-items-center justify-content-between mt-auto py-4">
         <div id="footerProfile" class="col-3 d-flex justify-content-center ">
             <a class="text-dark" href="./profile.html">Profile</a>
         </div>
-        <div id="iconToTop" class="col-6 d-flex justify-content-center">
-            <i class="rounded-circle bi bi-arrow-up-short bg-warning">
+        <a href="#header"id="iconToTop" aria-label="icon to top" class=" d-flex justify-content-center">
+            <i class="rounded-circle d-flex col-12 fs-4 bi bi-arrow-up-short text-dark bg-warning">
             </i>
-        </div>
+        </a>
         <div class="col-3 d-flex justify-content-center ">
             <button id="footerLogout" type="button" class="btn btn-link text-dark">
                 Logout

@@ -3,10 +3,11 @@ import storageRetriever from "./storage/storageRetriever.js";
 import apiCall from "./api/apiCall.mjs";
 import buildCardListing from "./htmlTemplate/cardListing.js";
 import back from "./buttonActivation/back.js";
-import avatarModal from "./htmlTemplate/editAvatarModal.js";
 import { imageRegex } from "./validation/image.js";
 import createAlertResponse from "./responses/createAlertResponse.js";
 import createTextResponse from "./responses/createTextResponse.js";
+import createModal from "./htmlTemplate/modal.js";
+import { storageRemover, storageSaver } from "./storage/storageSaver.js";
 //multiple html elements that is needed
 let username = document.querySelector("#username");
 let token = document.querySelector("#tAmount");
@@ -23,7 +24,7 @@ async function showProfile() {
     //declare variable
     let profileData;
     //if user is logged in and is on their own profile. show relevant content
-    if (!user) {
+    if (!user || user === storageRetriever("username")) {
       let userToGet = storageRetriever("username");
       profileData = await apiCall(
         `profiles/${userToGet}?_listings=true&_seller=true&_bids=true`,
@@ -54,6 +55,7 @@ async function showProfile() {
       );
       document.querySelector("#userTokens").remove();
       document.querySelector("#editPicture").remove();
+      document.querySelector("#profileNew").classList.add("invisible");
       let listings = await apiCall(
         `profiles/${user}/listings?_bids=true&_seller=true`,
         "GET",
@@ -63,7 +65,9 @@ async function showProfile() {
       console.log(profileData);
       profileListings(listings, profileData);
     }
-    avatar.src = profileData.avatar;
+    avatar.src = profileData.avatar
+      ? profileData.avatar
+      : "./assets/placeholder.png";
     username.innerText = profileData.name;
   }
 }
@@ -77,7 +81,11 @@ showProfile();
 function profileListings(listings) {
   let temp;
   for (let listing of listings) {
-    temp = buildCardListing(listing);
+    temp = buildCardListing(
+      listing,
+      true,
+      `./profile.html?username=${user ? user : storageRetriever("username")}`
+    );
     listingLocation.insertAdjacentElement("beforeend", temp);
   }
 }
@@ -85,6 +93,8 @@ function profileListings(listings) {
 //back button
 let backButton = document.querySelector("#back");
 backButton.addEventListener("click", back);
+let backButtonPhone = document.querySelector("#backPhone");
+backButtonPhone.addEventListener("click", back);
 /**
  *
  * @param {object} profileData is the profile data of the user(yourself)
@@ -100,8 +110,27 @@ backButton.addEventListener("click", back);
  */
 function avatarChanger(profileData) {
   //targeting html elements
+  let bodyContent = ` <div class="profileImageRight m-auto ratio col-12">
+  <img src="${
+    profileData.avatar ? profileData.avatar : "./assets/placeholder.png"
+  }" alt="old avatar" id="avatarPreview" class="img-fluid mb-2 rounded-circle">
+  </div>
+  <label for="avatar" class="form-label">new avatar</label>
+  <input type="text" id="avatar" class="form-control mb-2" placeholder="link" required>
+  <div id="avatarResponse" ></div>
+`;
+  let footerContent = ` <div class="ms-auto">
+<button type="button" class="btn btn-link text-dark" data-bs-dismiss="modal">Cancel</button>
+<button id="avatarSubmit" type="submit" class="btn btn-primary">Change</button>
+</div>`;
   let main = document.querySelector("main");
-  let modal = avatarModal(profileData.avatar);
+  let modal = createModal(
+    "avatar",
+    bodyContent,
+    footerContent,
+    false,
+    "Change Avatar"
+  );
 
   //inserting modal
   main.insertAdjacentElement("afterEnd", modal);
@@ -138,11 +167,16 @@ function avatarChanger(profileData) {
         storageRetriever("loginToken")
       );
       //possitive response
-      if (response.avatar === imgInput.value) {
+      if (
+        response.avatar === imgInput.value ||
+        response.name === profileData.name
+      ) {
         let alertResponse = createAlertResponse(
           "Avatar changed successfully",
           "success"
         );
+        storageRemover("avatar");
+        storageSaver("avatar", imgInput.value);
         document.querySelector("#avatarResponse").innerHTML = "";
         document
           .querySelector("#avatarResponse")

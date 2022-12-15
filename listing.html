@@ -5,12 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="This is a listing on bidder, here you can bid on the listing. If it is you own listing, you can edit or delete it. unde the listing you can also find some of the most popular listings">
+    <meta name="theme-color" content="#4189B6">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    
     <title>listing title | Bidder</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <header class="bg-primary d-flex">
+    <header id="header" class="bg-primary d-flex">
         <nav class="col-3 navbar ">
             <div class="container-fluid">
             <button aria-label="open navigation" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar" aria-controls="navbar">
@@ -38,8 +45,9 @@
         </div>
         </nav>
         <div id="logo" class="col-6 d-flex justify-content-center">
-            <img src="./assets/logo.svg" alt="The Bidder logo">
-        </div>
+            <a aria-label="Logo navigation to home page" class="my-2" href="./index.html">
+                <img src="./assets/logo.svg" alt="The Bidder logo">
+                </a>        </div>
         <div id="profileHeader" class=" d-flex justify-content-end align-items-center col-3">
             <div class="col-12 d-flex justify-content-end me-3">
                 </div>
@@ -47,17 +55,16 @@
         
     </header>
     <main>
-        <div class="d-flex col-11 col-md-10 col-lg-8 m-auto">
+        <div class="d-flex col-11 col-md-10 col-lg-8 col-xl-7 m-auto">
             <button class="btn btn-white border m-1 py-1 ms-0" type="button" id="back"> <i class="bi bi-arrow-left"></i> Back</button>
         </div>
         <article id="listingPage" class="d-flex flex-column flex-lg-row flex-lg-wrap justify-content-lg-center align-items-center align-items-lg-stretch ">
             
             </section>
             </section>
-            <i id="arrowDown" class="bi bi-chevron-down col-lg-12"></i>
-            <section id="popularListings" class="col-12">
+            <section id="popularListings" class="col-12 mt-3">
                 <div class="bg-secondary mb-3">
-                    <h2 class="text-center py-2">
+                    <h2 class="text-center py-4">
                         Popular listings
                     </h2>
                 </div>
@@ -67,14 +74,14 @@
             </section>
         </article>
     </main>
-    <footer class="bg-primary d-flex align-items-center mt-auto py-4">
+    <footer class="bg-primary d-flex align-items-center  justify-content-between mt-auto py-4">
         <div id="footerProfile" class="col-3 d-flex justify-content-center ">
             <a class="text-dark" href="./profile.html">Profile</a>
         </div>
-        <div id="iconToTop" class="col-6 d-flex justify-content-center">
-            <i class="rounded-circle bi bi-arrow-up-short bg-warning">
+        <a href="#header"id="iconToTop" aria-label="icon to top" class=" d-flex justify-content-center">
+            <i class="rounded-circle d-flex col-12 fs-4 bi bi-arrow-up-short text-dark bg-warning">
             </i>
-        </div>
+        </a>
         <div class="col-3 d-flex justify-content-center ">
             <button id="footerLogout" type="button" class="btn btn-link text-dark">
                 Logout

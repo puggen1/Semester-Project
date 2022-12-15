@@ -1,8 +1,10 @@
 import storageRetriever from "../storage/storageRetriever.js";
-
+//targets information needed
 let isLoggedIn = storageRetriever("isLoggedIn");
 let headerProfileImg = document.querySelector("#profileHeader div");
-
+/**
+ * @description if logged in, adds the profile image to the header
+ */
 function dynamicHeaderImg() {
   if (isLoggedIn) {
     let avatar = storageRetriever("avatar");

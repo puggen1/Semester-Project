@@ -1,3 +1,9 @@
+/**
+ *
+ * @param {date} endTime the end date of an listing
+ * @description this function will display the time left of an listing by showing the days, hours or minutes left based on if the listing is ending in days, hours or minutes
+ * @returns countdown in form of a string that displays the time left
+ */
 export default function timeDisplayer(endTime) {
   let timeNow = new Date();
 
@@ -25,7 +31,6 @@ export default function timeDisplayer(endTime) {
 
       countdown = `${minutes} ${amount} left`;
     }
-    /*nonFunctionCountDown = `D:${days} H:${hours} M:${minutes} S:${seconds}`;*/
   }
 
   return countdown;

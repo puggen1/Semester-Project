@@ -1,9 +1,15 @@
 import timeDisplayer from "../htmlTemplate/timeDisplay.js";
-export default function previewListing(e, data, preview) {
+/**
+ *
+ * @param {event} e keyup event that gives needed information, also used as change event
+ * @description this function will preview the listing as you type in the form.
+ */
+export default function previewListing(e) {
   let prevImg = document.querySelector("#previewImg");
   let prevTitle = document.querySelector("#previewTitle");
   let previewEnd = document.querySelector("#previewEnd");
   let gallery = document.querySelector("#gallery");
+
   if (e.target.id === "listingTitle") {
     prevTitle.innerText = e.target.value;
   } else if (e.target.id === "tempImage" && !gallery.firstElementChild) {
@@ -24,9 +30,4 @@ export default function previewListing(e, data, preview) {
     console.log(previewEnd);
     previewEnd.innerHTML = test;
   }
-  let {
-    desc = data[1].value,
-    tags = data[4].value,
-    ending = data[5].value,
-  } = data;
 }

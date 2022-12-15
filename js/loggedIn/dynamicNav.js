@@ -3,6 +3,9 @@ let dynamicNavLocation = document.querySelector("#navContent");
 let avatar = storageRetriever("avatar");
 let url = new URL(window.location.href);
 let isLoggedIn = storageRetriever("isLoggedIn");
+/**
+ * @description if logged in, adds some navigation options in nav, if not logged in, the login button is in nav
+ */
 function dynamicNav() {
   if (!isLoggedIn) {
     dynamicNavLocation.innerHTML = `
