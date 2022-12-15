@@ -44,22 +44,29 @@ npm run liveServer
 
 
 ## links
+
 ### figma
 here is the link to both wireframes, design and prototype, as well as styleguide
 https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=19%3A2144&t=tnNp3wjpL7ej6iri-1
-### github project
+
+### github project (kanban)
 here is the github project link. on some tasks there is more information inside the task itself. <br>
 https://github.com/users/puggen1/projects/4
-### github pages
-here is the link to the github pages, where you can see the website. <br>
-https://puggen1.github.io/Semester-Project/
 
 ### gantt project
 here is a picture of the gantt project, where you can see the timeline of work process
 ![gantt prosjekt](./assets/readmeAssets/semester-project-2022.png)
 
-## functions that works now:
+### github repo
+here is the link to the github repo, where you can see the code. <br>
+https://github.com/puggen1/Semester-Project
 
+### github pages (live site)
+here is the link to the github pages, where you can see the website. <br>
+https://puggen1.github.io/Semester-Project/
+
+## functions that works now:
+needs to be fixed:
 ### login
 A user can login with the login modal, and/or the sidelogin on pc.
 when logged in, you will se more information like your profile picture, and a you tokens in the profile
