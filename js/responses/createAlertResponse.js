@@ -6,7 +6,7 @@
  */
 export default function createAlertResponse(responseText, responseType) {
   let response = document.createElement("div");
-  response.classList.add("alert", "alert-dismissible", "fade", "show", "mt-2");
+  response.classList.add("alert", "alert-dismissible", "fade", "show", "my-0");
   if (responseType === "success") {
     response.classList.add("alert-success");
   } else {

@@ -64,7 +64,7 @@ export default async function register(e) {
     };
     let response = await apiCall("auth/register", "POST", data);
     if (!response.id) {
-      let alertResponse = createAlertResponse("danger", response.message);
+      let alertResponse = createAlertResponse(response.message, "danger",);
       alertLocationLower.innerHTML = "";
       alertLocationLower.insertAdjacentElement("beforeend", alertResponse);
     } else {

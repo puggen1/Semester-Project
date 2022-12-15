@@ -5,6 +5,7 @@
  * @param {string} footerContent the content for the modal footer, for example submit and close buttons
  * @param {boolean} form whether the modal is a form or not
  * @param {string} header the modal header
+ * @param {boolean} restricted decides if the modal is restricted or not
  * @returns a modal with the given parameters
  */
 export default function createModal(
@@ -12,7 +13,8 @@ export default function createModal(
   bodyContent,
   footerContent,
   form = false,
-  header
+  header,
+  restricted = false
 ) {
   let outerDiv = form ? "form" : "div";
   let modal = document.createElement("div");
@@ -36,6 +38,10 @@ export default function createModal(
     </div>
   </div>
   </${outerDiv}>`;
+  if(restricted) {
+    modal.dataset.bsBackdrop = "static";
+    modal.dataset.bsKeyboard = "false";
+  }
 
   return modal;
 }

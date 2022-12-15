@@ -14,7 +14,8 @@ if (!storageRetriever("isLoggedIn")) {
     bodyContent,
     "",
     false,
-    "You have to be Logged in to be here"
+    "You have to be Logged in to be here",
+    true
   );
   document.body.insertAdjacentElement("beforeEnd", modal);
   let restrictedModal = bootstrap.Modal.getOrCreateInstance("#restrictedModal");
