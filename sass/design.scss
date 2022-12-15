@@ -117,6 +117,22 @@ button{
        }
     }  
 @media screen and (min-width: 992px) {
+    #inner{
+        background-color: white!important;
+    }
+    //buttons
+    .btn-primary, .btn-secondary, .btn-danger{
+        background-color: transparent!important;
+    }
+    .btn-secondary:hover{
+        background-color: $secondary !important;
+    }
+    .btn-primary:hover{
+        background-color: $primary !important;
+    }
+    .btn-danger:hover{
+        background-color: $danger!important;
+    }
     .profileImage{
         width: 15% !important;
     }

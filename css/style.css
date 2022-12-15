@@ -125,6 +125,21 @@ button {
   }
 }
 @media screen and (min-width: 992px) {
+  #inner {
+    background-color: white !important;
+  }
+  .btn-primary, .btn-secondary, .btn-danger {
+    background-color: transparent !important;
+  }
+  .btn-secondary:hover {
+    background-color: #C7BC9D !important;
+  }
+  .btn-primary:hover {
+    background-color: #4189B6 !important;
+  }
+  .btn-danger:hover {
+    background-color: #CC6631 !important;
+  }
   .profileImage {
     width: 15% !important;
   }

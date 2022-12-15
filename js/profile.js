@@ -24,7 +24,7 @@ async function showProfile() {
     //declare variable
     let profileData;
     //if user is logged in and is on their own profile. show relevant content
-    if (!user) {
+    if (!user || user === storageRetriever("username")) {
       let userToGet = storageRetriever("username");
       profileData = await apiCall(
         `profiles/${userToGet}?_listings=true&_seller=true&_bids=true`,

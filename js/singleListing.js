@@ -33,13 +33,13 @@ async function displaySingle(id) {
   let lastBid = getLastBid(bids);
   let currentBid = "";
   if (new Date(endsAt) < new Date() && bids) {
-    currentBid = `<p class="d-flex my-auto mb-xl-0 fs-5 ">Sold for </p>
+    currentBid = `<p class="d-flex align-items-center my-auto mb-xl-0 fs-5 ">Sold for </p>
     ${lastBid}`;
   } else if (new Date(endsAt) < new Date() && bids.length === 0) {
-    currentBid = `<p class="d-flex my-auto mb-xl-0 fs-5 ">Listing got no bids</p>`;
+    currentBid = `<p class="d-flex align-items-center my-auto mb-xl-0 fs-5 ">Listing got no bids</p>`;
   } else {
-    currentBid = `<div class="d-flex flex-column my-2"><button id="allBids"type="button"class="btn btn-secondary me-1">view previous Bids: </button>`;
-    currentBid += `<div class="d-flex"><h2 class="d-flex my-auto mb-xl-0 fs-5 ">Current Bid:</h2>
+    currentBid = `<div class="d-flex flex-column my-2 align-items-center"><button id="allBids"type="button"class="btn btn-secondary me-1">view previous Bids: </button>`;
+    currentBid += `<div class="d-flex"><h2 class="d-flex  mb-xl-0 fs-5 ">Current Bid:</h2>
     ${lastBid} </div>`;
     currentBid += `</div>`;
     moreBids = true;
@@ -111,8 +111,8 @@ async function displaySingle(id) {
       <div class="bigLeft col-md-8 col-lg-12 flex-lg-wrap d-lg-flex me-md-1 align-content-lg-start">
       <h1 id="listingTitle"class=" fs-3">${title}</h1>
       <div class="d-flex justify-content-lg-start col-lg-12 ">
-      <p class=" me-1 fs-5 d-flex mb-0 align-items-center align-items-xl-start">Listed by </p>
-      <a href="profile.html?username=${seller.name}" class="col-6 col-sm-5 col-md-4 col-lg-auto fs-5 text-end text-dark text-decoration-none d-flex align-items-center align-items-xl-start">
+      <p class=" me-1 fs-5 d-flex mb-0 align-items-center align-items-xl-end">Listed by </p>
+      <a href="profile.html?username=${seller.name}" class="col-6 col-sm-5 col-md-4 col-lg-auto fs-5 text-end text-dark text-decoration-none d-flex align-items-center align-items-xl-end">
           ${seller.name}
           <div class="profileImageListing ratio col-1">
               <img src="${avatar}" class="rounded-circle img-fluid" alt="${seller.name}s profile picture">
