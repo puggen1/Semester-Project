@@ -167,7 +167,7 @@ function avatarChanger(profileData) {
         storageRetriever("loginToken")
       );
       //possitive response
-      if (
+      if(
         response.avatar === imgInput.value ||
         response.name === profileData.name
       ) {
