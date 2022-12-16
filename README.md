@@ -68,7 +68,7 @@ https://github.com/users/puggen1/projects/4
 ### gantt project
 here is a picture of the gantt project, where you can see the timeline of work process
 ![gantt prosjekt](./assets/readmeAssets/semester-project-2022.png)
-
+(bigger in assets/readmeAssets)
 ### github repo
 here is the link to the github repo, where you can see the code. <br>
 https://github.com/puggen1/Semester-Project
