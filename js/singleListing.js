@@ -26,7 +26,7 @@ async function displaySingle(id) {
   //title
   document.title = `${title} | Bidder`;
   //seller avatar
-  let avatar = "../assets/placeholder.png";
+  let avatar = "./assets/placeholder.png";
   if (seller.avatar) {
     avatar = seller.avatar;
   }
