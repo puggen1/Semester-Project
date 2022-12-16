@@ -5,6 +5,16 @@ This is my semester project where i have created an auction website called Bidde
 * [Setup](#setup)
 * [Github Status](#status)
 * [Links](#links)
+    * [figma](#figma)
+        * [prototype](#prototype)
+        * [style guide](#style-guide)
+        * [design](#design)
+        * [wireframes](#wireframes)
+    * [github projects(canban)](#github-project-kanban)
+    * [gantt project](#gantt-project)
+    * [github repo](#github-repo)
+    * [github pages](#github-pages-live-site)
+    
 * [file system](#file-system)
 * [design](#design)
     * [Basic design](#basic-design)
@@ -41,8 +51,16 @@ npm run liveServer
 
 ### figma
 here is the link to both wireframes, design and prototype, as well as styleguide
-https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=19%3A2144&t=tnNp3wjpL7ej6iri-1
+#### prototype 
+https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=70%3A4348&t=FmkQXWsCaZUE1aQ2-1
+#### style guide
+    https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=42%3A1599&t=FmkQXWsCaZUE1aQ2-1
 
+#### design
+https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=63%3A6092&t=FmkQXWsCaZUE1aQ2-1
+
+#### wireframes 
+https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=3%3A353&t=FmkQXWsCaZUE1aQ2-1
 ### github project (kanban)
 here is the github project link. on some tasks there is more information inside the task itself. <br>
 https://github.com/users/puggen1/projects/4
@@ -103,8 +121,11 @@ here are some of the wireframes early on:
 ![mobile homepage](./assets/readmeAssets/IMG_4150.JPEG)
 ![pc homepage](./assets/readmeAssets/IMG_4147.JPEG)
 ![profile tablet](./assets/readmeAssets/IMG_4153.JPEG)
+more can be seen in ./assets/readmeAssets/
+
 
 ### planning methods
 after / while i was sketching wireframes, i also created an kanban and gantt chart.
 the gantt chart was was made early, but not used very much in the end. I only checked the chart sometimes to check is i was up to date.
+<br>
 the kanban i used a little bit more frequent. i created some checkboxes for javascript, so i could check out what i needed to do. But i did not do this too much, i used the figma design alot to remember what features i wanted
