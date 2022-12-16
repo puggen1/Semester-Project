@@ -54,7 +54,7 @@ here is the link to both wireframes, design and prototype, as well as styleguide
 #### prototype 
 https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=70%3A4348&t=FmkQXWsCaZUE1aQ2-1
 #### style guide
-    https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=42%3A1599&t=FmkQXWsCaZUE1aQ2-1
+https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=42%3A1599&t=FmkQXWsCaZUE1aQ2-1
 
 #### design
 https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=63%3A6092&t=FmkQXWsCaZUE1aQ2-1
