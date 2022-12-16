@@ -2,6 +2,7 @@ import apiCall from "./api/apiCall.mjs";
 import buildCardListing from "./htmlTemplate/cardListing.js";
 import searchFilter from "./sortAndFilters/searchFilter.js";
 import sortBy from "./sortAndFilters/sortBy.js";
+import createAlertResponse from "./responses/createAlertResponse.js";
 let listings = document.querySelector("#listings");
 let listingListTitle = document.querySelector("#numberOfListings");
 let allListings = "";
@@ -11,15 +12,24 @@ let filteredListings = "";
  */
 async function showListings() {
   listings.innerHTML = "";
+  //&sort=endsAt&sortOrder=asc
   let result = await apiCall(
     "listings?_bids=true&_seller=true&_active=true",
     "GET"
   );
-  allListings = result;
-  displayListings(allListings, listings);
-  listingListTitle.innerHTML = `showing ${result.length} listings`;
-  //showTags();
-  filterSearch(allListings);
+  if(result.length > 0){
+    allListings = result;
+    displayListings(allListings, listings);
+    listingListTitle.innerHTML = `showing ${result.length} listings`;
+    //showTags();
+    filterSearch(allListings);
+  }
+  else{
+    let response = createAlertResponse("No listings found", "danger");
+    listings.insertAdjacentElement("beforeend", response);
+    listingListTitle.innerHTML = `no listings found`;
+  }
+  
 }
 showListings();
 
@@ -54,7 +64,6 @@ function noListings() {
 let sortSelect = document.querySelector("#sort");
 let sortSelectPhone = document.querySelector("#phoneSort");
 let sortButtons = [sortSelect, sortSelectPhone];
-console.log(sortButtons);
 sortButtons.forEach((button) => {
   button.addEventListener("change", async (e) => {
     let listToBeSorted;

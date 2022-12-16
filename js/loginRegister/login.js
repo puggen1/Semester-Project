@@ -42,7 +42,6 @@ export default async function logIn(e) {
     alertLocationPassword.innerHTML = "";
   }
 
-  console.log(email, password);
   if (emailStatus && passwordStatus) {
     alertLocationLower.innerHTML = "";
     let body = { email: email, password: password };
@@ -63,6 +62,5 @@ export default async function logIn(e) {
       alertLocationLower.innerHTML = "";
       alertLocationLower.insertAdjacentElement("beforeend", alert);
     }
-    console.log(response);
   }
 }

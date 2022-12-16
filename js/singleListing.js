@@ -11,6 +11,7 @@ import arrowButtons from "./buttonActivation/arrowBtn.js";
 import imgButtons from "./buttonActivation/mediaImgBtn.js";
 import back from "./buttonActivation/back.js";
 import createModal from "./htmlTemplate/modal.js";
+import createAlertResponse from "./responses/createAlertResponse.js"
 let singleListingLocation = document.querySelector("#listingPage");
 let popularListings = document.querySelector("#listings");
 let url = window.location.search;
@@ -20,6 +21,7 @@ let id = params.get("id");
 let own = false;
 async function displaySingle(id) {
   let listing = await apiCall(`listings/${id}?_bids=true&_seller=true`, "GET");
+  if(listing.title){
   let { title, tags, bids, endsAt, description, seller, media } = listing;
   //title
   document.title = `${title} | Bidder`;
@@ -32,13 +34,13 @@ async function displaySingle(id) {
   let lastBid = getLastBid(bids);
   let currentBid = "";
   if (new Date(endsAt) < new Date() && bids) {
-    currentBid = `<p class="d-flex align-items-center my-auto mb-xl-0 fs-5 ">Sold for </p>
+    currentBid = `<p class="d-flex align-items-center my-auto mb-0 fs-5 ">Sold for </p>
     ${lastBid}`;
   } else if (new Date(endsAt) < new Date() && bids.length === 0) {
-    currentBid = `<p class="d-flex align-items-center my-auto mb-xl-0 fs-5 ">Listing got no bids</p>`;
+    currentBid = `<p class="d-flex align-items-center my-auto mb-0 fs-5 ">Listing got no bids</p>`;
   } else {
-    currentBid = `<div class="d-flex flex-column my-2 align-items-center"><button id="allBids"type="button"class="btn btn-secondary me-1">${storageRetriever("isLoggedIn")?  "view previous Bids:": "login to view all bids"} </button>`;
-    currentBid += `<div class="d-flex"><h2 class="d-flex  mb-xl-0 fs-5 ">Current Bid:</h2>
+    currentBid = `<div class="d-flex flex-column my-2 align-items-center mb-0"><button id="allBids"type="button"class="btn btn-secondary me-1">${storageRetriever("isLoggedIn")?  "view previous Bids:": "login to view all bids"} </button>`;
+    currentBid += `<div class="d-flex"><h2 class="d-flex  mb-0 fs-5 ">Current Bid:</h2>
     ${lastBid} </div>`;
     currentBid += `</div>`;
     moreBids = true;
@@ -59,7 +61,6 @@ async function displaySingle(id) {
   let self = storageRetriever("username");
   let bidSection;
   if (seller.name === self && new Date(endsAt) > new Date()) {
-    console.log("own");
     own = true;
     //edit and delete buttons will come here
     bidSection = `
@@ -69,9 +70,9 @@ async function displaySingle(id) {
     </div>
     `;
   } else if (new Date(endsAt) < new Date()) {
-    bidSection = `<div id="loggedInContent" class="col-xl-6"></div>`;
+    bidSection = `<div id="loggedInContent" class="col-xl-6 mb-xl-0"></div>`;
   } else if (!storageRetriever("isLoggedIn")) {
-    bidSection = `<div id="loggedInContent" class="col-xl-6 d-xl-flex align-items-xl-end">
+    bidSection = `<div id="loggedInContent" class="col-xl-6 d-xl-flex mb-xl-0 align-items-xl-end">
     <div id="bidSection" class="d-block col-lg-8 col-xl-12">
         <div class="d-flex justify-content-end  flex-md-column flex-lg-row  col-md-12 col-xl-12 ms-auto justify-content-md-end  justify-content-lg-start  justify-content-xl-end  ms-lg-0 align-items-md-end">
             <button type="button" class="btn btn-primary mt-md-2 mt-xl-0 ms-lg-1" id="loginButtonBidSection">log in to bid</button>
@@ -79,10 +80,10 @@ async function displaySingle(id) {
     </div>
 </div>`;
   } else {
-    bidSection = `<div id="loggedInContent" class="d-xl-flex col-xl-6 align-items-xl-end">
+    bidSection = `<div id="loggedInContent" class="d-xl-flex col-xl-6 align-items-xl-end mb-xl-0">
     <div id="bidSection" class=" col-lg-8 col-xl-12">
         <form id="bidForm" class="d-flex justify-content-end flex-md-column flex-lg-row  col-md-12 col-xl-12 ms-auto justify-content-md-end justify-content-lg-start  justify-content-xl-end  flex-lg-wrap justify-content-xl-end ms-lg-0 align-items-md-end">
-            <div class="col-6  col-md-6 col-xxl-8 me-2 me-md-0 mb-xl-1"><input type="number" class="form-control" id="bidAmount" placeholder="Bid amount" required></div>
+            <div class="col-6  col-md-6 col-xxl-8 me-2 me-md-0"><input type="number" class="form-control" id="bidAmount" placeholder="Bid amount" required></div>
             <button type="submit" class="btn btn-primary col-4 mt-md-2 mt-xl-0 ms-lg-1" id="bidButton">Bid</button>
         </form>
         <div id="avalible" class="d-flex justify-content-end justify-content-lg-start justify-content-xl-end">avalible: ${storageRetriever(
@@ -106,7 +107,7 @@ async function displaySingle(id) {
   <section id="mediaGallery" class="d-flex flex-column flex-md-row flex-lg-column align-items-center  col-11 col-md-10 col-lg-5 ">
      
   </section>
-  <section class="col-11 col-md-10 col-lg-4 col-xl-3 d-md-flex flex-lg-wrap mt-md-2 align-items-lg-stretch ms-lg-1">
+  <section class="col-11 col-md-10 col-lg-4 col-xl-4 col-xxl-3 d-md-flex flex-lg-wrap mt-md-2 align-items-lg-stretch ms-lg-1">
       <div class="bigLeft col-md-8 col-lg-12 flex-lg-wrap d-lg-flex me-md-1 align-content-lg-start">
       <h1 id="listingTitle"class=" fs-3">${title}</h1>
       <div class="d-flex justify-content-lg-start col-lg-12 ">
@@ -118,23 +119,19 @@ async function displaySingle(id) {
           </div>
       </a>
       </div>
-      <p class="mb-lg-1">${description}</p>
+      <p class="mb-lg-1 col-xl-10 col-xxl-12">${description}</p>
       <section class="d-sm-flex flex-wrap  flex-column align-items-start  mb-sm-1 col-lg-10 col-xl-12 justify-content-between  justify-content-md-start">
       <div id="singlePageTags" class=" mb-2 mb-sm-1 mb-md-0">
         ${allTags}
       </div>
 
-      <div class="countdown border rounded-1 px-2 ms-1 py-1 ms-lg-0">
+      <p class="countdown border rounded-1 px-2 ms-0 py-1 ms-lg-0">
          ${countdown}
-      </div>
+      </p>
       <article id="lowerPart" class="d-flex flex-column flex-md-wrap flex-md-row justify-content-center col-12 col-lg-8">
-
-      <!--debatable
-      <p>Listed: 29.11.2022 at 14:48</p>
-      -->
       </div>
-      <section class="bigRight d-md-flex flex-md-column col-md-4 col-lg-12 col-xl-12 justify-content-md-between justify-content-lg-end justify-content-xl-start flex-xl-row">
-          <div id="currentBid" class="d-flex flex-wrap justify-content-between justify-content-md-end justify-content-lg-start align-items-md-end align-items-xl-end col-12 col-xl-6">
+      <section class="bigRight d-md-flex flex-md-column col-md-4 col-lg-12 col-xl-12 justify-content-md-between justify-content-lg-end justify-content-xl-start flex-xl-row mb-2">
+          <div id="currentBid" class="d-flex flex-wrap justify-content-between justify-content-md-end justify-content-lg-start align-items-md-end align-items-xl-end col-12 col-xl-6 mb-xl-0">
               ${currentBid}
           </div>
           ${bidSection}`;
@@ -188,6 +185,14 @@ async function displaySingle(id) {
       allBidsModal.show();
     });
   }
+}
+else{
+  let alert = createAlertResponse(listing.message, "danger")
+  singleListingLocation.insertAdjacentElement("afterbegin", alert)
+  setTimeout(()=>{
+    window.location.href = "./index.html";
+  },3000);
+}
 }
 async function showPopular() {
   let result = await apiCall("listings?_bids=true&_seller=true", "GET");

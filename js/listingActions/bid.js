@@ -27,7 +27,6 @@ export default async function bid(amount, id, bids) {
     let body = { amount: amount };
     let token = storageRetriever("loginToken");
     let response = await apiCall(url, "POST", body, token);
-    console.log(response);
     if (response.id) {
       let response = createAlertResponse(
         "Bid placed, refreshing page.....",

@@ -37,5 +37,4 @@ if (!storageRetriever("isLoggedIn")) {
   });
   restrictedModal.show();
 } else {
-  console.log("logged in");
 }

@@ -34,7 +34,7 @@ export default async function apiCall(url, method, data = null, token = null) {
         return response.json();
       }else if(response.status === 429){
         let readyError = await response.json();
-        throw new Error("Too many requests, try again");
+        throw new Error(readyError.status);
       }
        else {
         let readyError = await response.json();

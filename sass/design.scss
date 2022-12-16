@@ -4,20 +4,20 @@
   $warning: #C7AD5E;
   $danger: #CC6631;
 
-p, a, button, #phoneFilter{
-    font-family: "Nunito", serif;
+p, a, button, #phoneFilter, #username, #profileListings h2{
+    font-family: "Nunito", serif!important;
 }
 button{
     font-weight: 500!important;
 }
 .card h3, #ListingTop h2,#ListingTop p, #listingPage h1, #popularListings h2, #mainSection h1, #mainSection h2, #numberOfListings, #ListingTop h2{
-    font-family: "Arvo", serif;
+    font-family: "Arvo", serif!important;
 }
 .card{
     border: none !important;
 }
 //listing top sticky?
-#ListingTop{
+#ListingTopIndex{
     position: sticky;
     top: 0;
     z-index: 1;
@@ -63,6 +63,7 @@ button{
     object-position: center;
 }
 //inspiration from: 
+// https://www.youtube.com/watch?v=KHF6nysy0-c
 .carousel-item img{
     object-fit: cover;
     object-position: center;

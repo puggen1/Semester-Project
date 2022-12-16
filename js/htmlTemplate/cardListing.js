@@ -28,7 +28,7 @@ export default function buildCardListing(
     cta = "Bid";
   }
   //for user avatar
-  let avatar = "../../assets/placeholder.png";
+  let avatar = "./assets/placeholder.png";
   if (seller.avatar) {
     avatar = seller.avatar;
   }

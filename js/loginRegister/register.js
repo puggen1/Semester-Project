@@ -69,7 +69,6 @@ export default async function register(e) {
       alertLocationLower.insertAdjacentElement("beforeend", alertResponse);
     } else {
       //give success message
-      console.log(response);
       let alertResponse = createAlertResponse(
         "You have successfully registered, you will be redirected to login",
         "success"

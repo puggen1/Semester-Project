@@ -39,8 +39,6 @@ async function showProfile() {
         storageRetriever("loginToken")
       );
       token.innerText = profileData.credits;
-      console.log(profileData);
-      console.log(listings);
       profileListings(listings, profileData);
 
       //activate edit picture modal and create it
@@ -53,6 +51,7 @@ async function showProfile() {
         null,
         storageRetriever("loginToken")
       );
+      if(profileData.email){
       document.querySelector("#userTokens").remove();
       document.querySelector("#editPicture").remove();
       document.querySelector("#profileNew").classList.add("invisible");
@@ -62,9 +61,16 @@ async function showProfile() {
         null,
         storageRetriever("loginToken")
       );
-      console.log(profileData);
       profileListings(listings, profileData);
     }
+    else{
+     let alert =  createAlertResponse(profileData.message, "danger");
+     document.querySelector("main").insertAdjacentElement("afterbegin", alert)
+     setTimeout(() => {
+      document.location.href = "./index.html";
+     }, 2000);
+    }
+  }
     avatar.src = profileData.avatar
       ? profileData.avatar
       : "./assets/placeholder.png";
@@ -167,7 +173,7 @@ function avatarChanger(profileData) {
         storageRetriever("loginToken")
       );
       //possitive response
-      if (
+      if(
         response.avatar === imgInput.value ||
         response.name === profileData.name
       ) {
