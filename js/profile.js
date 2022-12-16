@@ -51,6 +51,7 @@ async function showProfile() {
         null,
         storageRetriever("loginToken")
       );
+      if(profileData.email){
       document.querySelector("#userTokens").remove();
       document.querySelector("#editPicture").remove();
       document.querySelector("#profileNew").classList.add("invisible");
@@ -62,6 +63,14 @@ async function showProfile() {
       );
       profileListings(listings, profileData);
     }
+    else{
+     let alert =  createAlertResponse(profileData.message, "danger");
+     document.querySelector("main").insertAdjacentElement("afterbegin", alert)
+     setTimeout(() => {
+      document.location.href = "./index.html";
+     }, 2000);
+    }
+  }
     avatar.src = profileData.avatar
       ? profileData.avatar
       : "./assets/placeholder.png";

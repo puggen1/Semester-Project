@@ -11,6 +11,7 @@ import arrowButtons from "./buttonActivation/arrowBtn.js";
 import imgButtons from "./buttonActivation/mediaImgBtn.js";
 import back from "./buttonActivation/back.js";
 import createModal from "./htmlTemplate/modal.js";
+import createAlertResponse from "./responses/createAlertResponse.js"
 let singleListingLocation = document.querySelector("#listingPage");
 let popularListings = document.querySelector("#listings");
 let url = window.location.search;
@@ -20,6 +21,7 @@ let id = params.get("id");
 let own = false;
 async function displaySingle(id) {
   let listing = await apiCall(`listings/${id}?_bids=true&_seller=true`, "GET");
+  if(listing.title){
   let { title, tags, bids, endsAt, description, seller, media } = listing;
   //title
   document.title = `${title} | Bidder`;
@@ -32,13 +34,13 @@ async function displaySingle(id) {
   let lastBid = getLastBid(bids);
   let currentBid = "";
   if (new Date(endsAt) < new Date() && bids) {
-    currentBid = `<p class="d-flex align-items-center my-auto mb-xl-0 fs-5 ">Sold for </p>
+    currentBid = `<p class="d-flex align-items-center my-auto mb-0 fs-5 ">Sold for </p>
     ${lastBid}`;
   } else if (new Date(endsAt) < new Date() && bids.length === 0) {
-    currentBid = `<p class="d-flex align-items-center my-auto mb-xl-0 fs-5 ">Listing got no bids</p>`;
+    currentBid = `<p class="d-flex align-items-center my-auto mb-0 fs-5 ">Listing got no bids</p>`;
   } else {
-    currentBid = `<div class="d-flex flex-column my-2 align-items-center mb-xl-0"><button id="allBids"type="button"class="btn btn-secondary me-1">${storageRetriever("isLoggedIn")?  "view previous Bids:": "login to view all bids"} </button>`;
-    currentBid += `<div class="d-flex"><h2 class="d-flex  mb-xl-0 fs-5 ">Current Bid:</h2>
+    currentBid = `<div class="d-flex flex-column my-2 align-items-center mb-0"><button id="allBids"type="button"class="btn btn-secondary me-1">${storageRetriever("isLoggedIn")?  "view previous Bids:": "login to view all bids"} </button>`;
+    currentBid += `<div class="d-flex"><h2 class="d-flex  mb-0 fs-5 ">Current Bid:</h2>
     ${lastBid} </div>`;
     currentBid += `</div>`;
     moreBids = true;
@@ -123,9 +125,9 @@ async function displaySingle(id) {
         ${allTags}
       </div>
 
-      <div class="countdown border rounded-1 px-2 ms-1 py-1 ms-lg-0">
+      <p class="countdown border rounded-1 px-2 ms-0 py-1 ms-lg-0">
          ${countdown}
-      </div>
+      </p>
       <article id="lowerPart" class="d-flex flex-column flex-md-wrap flex-md-row justify-content-center col-12 col-lg-8">
       </div>
       <section class="bigRight d-md-flex flex-md-column col-md-4 col-lg-12 col-xl-12 justify-content-md-between justify-content-lg-end justify-content-xl-start flex-xl-row mb-2">
@@ -183,6 +185,14 @@ async function displaySingle(id) {
       allBidsModal.show();
     });
   }
+}
+else{
+  let alert = createAlertResponse(listing.message, "danger")
+  singleListingLocation.insertAdjacentElement("afterbegin", alert)
+  setTimeout(()=>{
+    window.location.href = "./index.html";
+  },3000);
+}
 }
 async function showPopular() {
   let result = await apiCall("listings?_bids=true&_seller=true", "GET");
