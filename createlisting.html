@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Here you can create an new listing if you are logged in. i a listing you can have title, description, tags and media, also title and end date is required. if you are not logged in, you will be promted with a login/register modal">
+    <meta name="theme-color" content="#4189B6">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <title>create New | Bidder</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header id="header" class="bg-primary d-flex">
+        <nav class="col-3 navbar ">
+            <div class="container-fluid">
+            <button  aria-label="open navigation" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbar" aria-controls="navbar">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-start bg-primary" tabindex="-1" id="navbar">
+                <div class="offcanvas-header">
+                  <button type="button" class="btn border-dark border-1 bg-primary rounded-3" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-arrow-left"></i> back</button>
+                </div>
+                <div id="navContent" class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <button id="loginNav" type="button"class="btn btn-link ms-0 ps-0">Login</button>
+                      </li>
+                    
+                  </ul>
+                </div>
+              </div>
+        </div>
+        </nav>
+        <div id="logo" class="col-6 d-flex justify-content-center">
+            <a aria-label="Logo navigation to home page" class="my-2" href="./index.html">
+                <img src="./assets/logo.svg" alt="The Bidder logo">
+                </a>        </div>
+        <div id="profileHeader" class=" d-flex justify-content-end align-items-center col-3">
+            <div class="col-12 d-flex justify-content-end me-3">
+                </div>
+        </div>
+        
+    </header>
+    <main class="d-flex flex-column flex-md-wrap flex-md-row justify-content-center">
+        <div class="bg-secondary py-2 col-md-12">
+            <h1 class="text-center">New Listing</h1>
+        </div>
+        <article id="lowerPart" class="d-flex flex-column flex-md-wrap flex-md-row justify-content-center col-12 col-xl-11">
+        <div class="col-10 col-md-11 col-lg-11 col-xl-10 m-auto">
+            <button type="button" class="btn btn-white border border-dark rounded-3 mt-2" id="backBtn"><i class="bi bi-arrow-left"></i> back</button>
+        </div>
+        <section id="content" class="d-flex col-md-5 col-lg-5 col-xl-5 me-md-2 me-lg-0 justify-content-center my-2 align-items-md-start">
+            <form class="col-10 col-md-12 border rounded-1 p-4">
+                <h2>Content</h2>
+            <label class="form-label">title*</label>
+            <input class="form-control" type="text" id="listingTitle" placeholder="Title" required>
+            <div id="createListingTitleResponse"></div>
+            <label class="form-label">description</label>
+            <textarea class="form-control" type="text" id="listingDesc" placeholder="Description"></textarea>
+            <label class="form-label">gallery</label>
+            <input class="form-control" id="tempImage" type="text" placeholder="valid image url ends with .jpg .png or .gif">
+            <button type="button" id="add" class="btn btn-white border border-dark rounded-3 mt-2 d-block" aria-label="Add image button" id="addImgBtn"><i class="bi bi-plus"></i></button>
+            <div id="gallery" class="d-flex flex-row">
+                
+            </div>
+            <label class="form-label">Tags</label>
+            <input class="form-control" id="listingTags"  type="text" placeholder="example: boat">
+            <button type="button" id="addTag" aria-label="Add tag button" class="btn btn-white border border-dark rounded-3 mt-2 d-block" id="addImgBtn"><i class="bi bi-plus"></i></button>
+            <div id="tags" class="d-flex flex-wrap"></div>
+            <label class="form-label" for="listingEnd">End date*</label>
+            <input class="form-control mb-1" id="listingEnd" type="datetime-local" max="2050-09-24T00:00" value="" required>
+            <div id="createListingDateResponse" class="py-1"></div>
+            <button type="submit"class="btn btn-primary">Create</button>
+            <button type="button" class="btn btn-danger" id="cancel">Cancel</button>
+            <div id="createListingResponse" class="py-2"></div>
+        </form>
+        </section>
+        <section id="preview" class="col-md-6  col-lg-6 col-xl-5 rounded-1 p-lg-2 my-lg-2">
+            <div class="fillerListing card d-md-flex flex-md-row m-auto shadow col-11 col-md-12 col-lg-10 col-xl-12 col-xxl-10 my-2 my-lg-0  mb-lg-2">
+                <img id="previewImg" class="bigImg col-md-4 rounded-start" src="./assets/noImg.png" alt="preview first image">
+                <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-flex flex-column justify-content-between">
+                    <div class="card-title flex-column d-flex mb-md-1 ">
+                    <h3 id="previewTitle"class=" mb-0 fs-5">Listing title</h3>
+                    <div id="previewUser" href="" class=" d-flex text-dark d-md-flex align-items-end"></div>
+                    </div>
+                    <div class="d-flex flex-md-wrap pb-2">
+                    <div class="d-flex col-12  col-md-12 flex-md-row justify-content-between">
+                    <div id="previewEnd"class="border rounded-1 px-2 py-1">no time yet</div>
+                    <section class="d-flex col-md-6 align-items-center justify-content-md-end align-items-md-end">
+                    <button type="button" class="btn btn-primary ms-1 py-1 px-2 text-dark fs-md-5">Bid</button>
+                    </section>
+                </div>
+                </div>
+            </div>
+            </div>
+        </article>
+    </main>
+    <footer class="bg-primary d-flex align-items-center justify-content-between mt-auto py-4">
+        <div id="footerProfile" class="col-3 d-flex justify-content-center ">
+            <a class="text-dark" href="./profile.html">Profile</a>
+        </div>
+        <a href="#header"id="iconToTop" aria-label="icon to top" class="d-flex justify-content-center">
+            <i class="rounded-circle d-flex col-12 fs-4 bi bi-arrow-up-short text-dark bg-warning">
+            </i>
+        </a>
+        <div class="col-3 d-flex justify-content-center ">
+            <button id="footerLogout" type="button" class="btn btn-link text-dark">
+                Logout
+            </button>
+        </div>
+    </footer>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./js/loggedIn/dynamicHeader.js" type="module"></script>
+<script src="./js/loggedIn/dynamicNav.js" type="module"></script>
+<script src="./js/loginRegister/activateModals.js" type="module"></script>
+<script src="./js/loggedIn/restrictedAccess.js" type="module"></script>
+
+<script src="./js/createListing.js" type="module"></script>
+</body>
+</html>
