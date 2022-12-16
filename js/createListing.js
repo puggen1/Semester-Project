@@ -24,7 +24,6 @@ let addImg = document.querySelector("#add");
 let imageList = document.querySelector("#gallery");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log(event);
   createListing(event.target);
 });
 

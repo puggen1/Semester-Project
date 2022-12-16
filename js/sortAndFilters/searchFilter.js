@@ -18,6 +18,5 @@ export default function searchFilter(keyword, listings) {
       return true;
     }
   });
-  console.log(toReturn);
   return toReturn;
 }

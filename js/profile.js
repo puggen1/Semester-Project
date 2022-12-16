@@ -39,8 +39,6 @@ async function showProfile() {
         storageRetriever("loginToken")
       );
       token.innerText = profileData.credits;
-      console.log(profileData);
-      console.log(listings);
       profileListings(listings, profileData);
 
       //activate edit picture modal and create it
@@ -62,7 +60,6 @@ async function showProfile() {
         null,
         storageRetriever("loginToken")
       );
-      console.log(profileData);
       profileListings(listings, profileData);
     }
     avatar.src = profileData.avatar

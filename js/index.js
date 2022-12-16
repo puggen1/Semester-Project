@@ -64,7 +64,6 @@ function noListings() {
 let sortSelect = document.querySelector("#sort");
 let sortSelectPhone = document.querySelector("#phoneSort");
 let sortButtons = [sortSelect, sortSelectPhone];
-console.log(sortButtons);
 sortButtons.forEach((button) => {
   button.addEventListener("change", async (e) => {
     let listToBeSorted;

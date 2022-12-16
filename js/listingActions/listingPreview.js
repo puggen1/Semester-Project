@@ -19,15 +19,11 @@ export default function previewListing(e) {
       return;
     } else {
       prevImg.src = e.target.value;
-      console.log(prevImg);
-    }
+        }
   } else if (gallery.firstElementChild && e.target.id === "tempImage") {
     prevImg.src = gallery.firstElementChild.dataset.link;
   } else if (e.target.id === "listingEnd") {
-    console.log(e.target.value);
     let test = timeDisplayer(e.target.value);
-    console.log(test);
-    console.log(previewEnd);
     previewEnd.innerHTML = test;
   }
 }
