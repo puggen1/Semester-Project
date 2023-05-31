@@ -1,5 +1,7 @@
 # Semester Project - Bidder
 
+[![Github pages build](https://github.com/puggen1/Semester-Project/actions/workflows/ghPages.yml/badge.svg)](https://github.com/puggen1/Semester-Project/actions/workflows/ghPages.yml)
+
 ![Image of the front page](./assets/readmeAssets/Bidderfrontpage.jpg)
 
 A project for the first semester. The theme was an auction site.
