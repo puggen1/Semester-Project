@@ -1,131 +1,96 @@
-# Semester-Project
-This is my semester project where i have created an auction website called Bidder
+# Semester Project - Bidder
 
-## Table of contents
-* [Setup](#setup)
-* [Github Status](#status)
-* [Links](#links)
-    * [figma](#figma)
-        * [prototype](#prototype)
-        * [style guide](#style-guide)
-        * [design](#design)
-        * [wireframes](#wireframes)
-    * [github projects(canban)](#github-project-kanban)
-    * [gantt project](#gantt-project)
-    * [github repo](#github-repo)
-    * [github pages](#github-pages-live-site)
-    
-* [file system](#file-system)
-* [design](#design)
-    * [Basic design](#basic-design)
-    * [css / scss](#css-scss)
-    * [bootstrap](#bootstrap)
-    * [contrast](#contrast)
-* [Javascript](#javascript)
-    * [scrapped plans](#scrapped-plans)
-* [Planning](#planning)
-    * [Wireframes](#wireframes)
-    * [planning methods](#planning-methods)
+![Image of the front page](./assets/readmeAssets/Bidderfrontpage.jpg)
 
-## status
-Github Pages: <br>
-[![Deploy build to github pages](https://github.com/puggen1/Semester-Project/actions/workflows/ghPages.yml/badge.svg)](https://github.com/puggen1/Semester-Project/actions/workflows/ghPages.yml)
+A project for the first semester. The theme was an auction site.
 
-## setup
-for local use, you need to setup the repo like this
-when repo is cloned and opened:
-run node install
+## Table of Contents
+
+- [Links](#links)
+- [Description](#description)
+- [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Installing](#installing)
+  - [Running](#running)
+- [Contributing](#contributing)
+- [Contact](#contact)
+
+## Links
+
+- [Website](https://puggen1.github.io/Semester-Project/)
+
+## Description
+
+In this project i was tasked with creating an auction website, where you can bid on items, or list your own items for auction.
+In this task i had to use an css framework, i choose bootstrap.
+The project also relied on an api, wich I got from the school.
+
+there was some requirements for the project, wich was:
+
+- A user with a stud.noroff.no email may register
+- A registered user may login
+- A registered user may logout
+- A registered user may update their avatar
+- A registered user may view their total credit
+- A registered user may create a Listing with a title, deadline date, media gallery and description
+- A registered user may add a Bid to another user’s Listing
+- A registered user may view Bids made on a Listing
+- An unregistered user may search through Listings
+
+What i had to deliver:
+
+- Gantt chart
+- Design prototype
+- a style guide
+- Kanban project board
+- A repository link
+- A hosted application demo link
+
+## Built With
+
+- [Bootstrap](https://getbootstrap.com)
+- [Sass](https://sass-lang.com)
+
+## Getting Started
+
+### Installing
+
+How to recreate the project:
+
+1. Clone the repo:
+
+```bash
+git clone https://github.com/puggen1/Semester-Project.git
+```
+
+2. Install the dependencies:
+
 ```
 npm install
 ```
-setup sass for the latest version
-```
+
+### Running
+
+to start the project, do the following:
+
+```bash
 npm run sassBuild
 ```
-run liveserver to get preview
-```
+
+there might be need of two terminals, one for sass and one for live server.
+
+```bash
 npm run liveServer
 ```
 
-## links
+## Contributing
 
-### figma
-here is the link to both wireframes, design and prototype, as well as styleguide
-#### prototype 
-https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=70%3A4348&t=FmkQXWsCaZUE1aQ2-1
-#### style guide
-https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=42%3A1599&t=FmkQXWsCaZUE1aQ2-1
+Feel free to contribute if you'd like to!
+if you have found a problem, open a new issue.
+if you have a solution to a problem, open a new pull request.
 
-#### design
-https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=63%3A6092&t=FmkQXWsCaZUE1aQ2-1
+## Contact
 
-#### wireframes 
-https://www.figma.com/file/Uj2mGOpk7Iq7ihJctwvIjY/styletile%2C-design-elements%2C-wireframe-and-design?node-id=3%3A353&t=FmkQXWsCaZUE1aQ2-1
-### github project (kanban)
-here is the github project link. on some tasks there is more information inside the task itself. <br>
-https://github.com/users/puggen1/projects/4
+If you have any questions about the project, or want to contact me, you can do so here:
 
-### gantt project
-here is a picture of the gantt project, where you can see the timeline of work process
-![gantt prosjekt](./assets/readmeAssets/semester-project-2022.png)
-(bigger in assets/readmeAssets)
-### github repo
-here is the link to the github repo, where you can see the code. <br>
-https://github.com/puggen1/Semester-Project
-
-### github pages (live site)
-here is the link to the github pages, where you can see the website. <br>
-https://puggen1.github.io/Semester-Project/
-
-## file system
-the files are divided based on the use of the file, all sort functions are in a folder etc.
-
-## design
-
-### Basic design
-the design i made has been a little bit changed from figma to html, but overal it is the same.
-even thought it looks a bit boring, i feel it works well with the content. only on some pages it feels not that great.
-
-### css / scss
-there is some custom scss added, most if for image sizes and buttons for pc version
-the rest is bootstrap
-### bootstrap
-i used bootstrap for most of the design, and try to have is as close to the original bootstrap examples, but some places i changed it to be better for the content i wanted to show
-
-### contrast
-when i first choosed colors and design, i checked the colors for color blind mode and contrast, and everything checked out, but later in the proccess, Google lighthouse says that some of my buttons dont have good enough contrast. I dont really know if this it true or not, it might be two diffrent evaluations?
-
-### logo problem
-so my logo is combied between a icon and the name of my page Bidder, the icon is originally form here:
-https://www.flaticon.com/free-icon/auction_566710?term=auction&page=1&position=3&page=1&position=3&related_id=566710&origin=tag
-but i reworked it in figma to be better as svg(if it became to big it got black border). 
-probably not needed but it annoyed me that it happened
-
-
-## javascript
-
-there is not so many modular files in this project, there are some, but mostly there was no need to make it like that. An example of an modular file is the modal.js. it consists of one function to create all the modalms and just changes key features inside it based on what values you give it.
-### scrapped plans
-originaly wanted to create an countdown for each listing. but i decided to remove it and only show numbers of day / numbers of hour based on how many was left
-
-I also wanted to add edit and delete post buttons, but scrapped it.
-
-the filters as planned on figma were supposed to have more filters, like filter by tag and price range, but that was way more advanced than i thought. (but thats why the figma design is a bit diffrent.)
-
-
-
-## planning
-for planning i brainstormed a bit with wireframes and ideas.
-### wireframes
-here are some of the wireframes early on:
-![mobile homepage](./assets/readmeAssets/IMG_4150.JPEG)
-![pc homepage](./assets/readmeAssets/IMG_4147.JPEG)
-![profile tablet](./assets/readmeAssets/IMG_4153.JPEG)
-more can be seen in ./assets/readmeAssets/
-
-
-### planning methods
-after / while i was sketching wireframes, i also created an kanban and gantt chart.
-the gantt chart was was made early, but not used very much in the end. I only checked the chart sometimes to check is i was up to date.
-<br>
-the kanban i used a little bit more frequent. i created some checkboxes for javascript, so i could check out what i needed to do. But i did not do this too much, i used the figma design alot to remember what features i wanted
+[LinkedIn Profile](https://www.linkedin.com/in/bendik-kvam)
