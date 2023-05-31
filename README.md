@@ -46,6 +46,12 @@ What i had to deliver:
 - A repository link
 - A hosted application demo link
 
+I created the page with both buyers and sellers in mind, making it easy for both to navigate the page.
+the frontpage changes based on if you are logged in or not, showing more options when logged in.
+the page is also responsive, and works on both mobile and desktop, optimized to have all functionality on all sizes.
+
+The Bootstrap is heavily modified to fit the theme i wanted, for example the carousel is modified to have small images to navigate the big image.
+
 ## Built With
 
 - [Bootstrap](https://getbootstrap.com)
@@ -94,3 +100,7 @@ if you have a solution to a problem, open a new pull request.
 If you have any questions about the project, or want to contact me, you can do so here:
 
 [LinkedIn Profile](https://www.linkedin.com/in/bendik-kvam)
+
+## later changes
+
+later changes will be shown here if any
