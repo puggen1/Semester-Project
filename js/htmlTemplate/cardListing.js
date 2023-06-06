@@ -1,7 +1,7 @@
 import getLastBid from "../sortAndFilters/getLastBid.js";
 import timeDisplayer from "./timeDisplay.js";
 import storageRetriever from "../storage/storageRetriever.js";
-
+import clean from "../validation/clean.js";
 //if logged in show bid button, if not show view button
 let isLoggedIn = storageRetriever("isLoggedIn");
 /**
@@ -20,7 +20,7 @@ export default function buildCardListing(
   //gets the diffrent elements we need to build the card
   let { id, title, media, endsAt, bids, seller } = listingData;
     //cleaning title cause innerHTML is used in some api entries
-  const cleanedTitle = title.replace(/<[^>]*>/g, '');
+  const cleanedTitle = clean(title)
 
   //for the big image on the card
   let bigMedia = "./assets/noImg.png";
