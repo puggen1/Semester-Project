@@ -1,6 +1,7 @@
 import getLastBid from "../sortAndFilters/getLastBid.js";
 import timeDisplayer from "./timeDisplay.js";
 import storageRetriever from "../storage/storageRetriever.js";
+
 //if logged in show bid button, if not show view button
 let isLoggedIn = storageRetriever("isLoggedIn");
 /**
@@ -18,6 +19,9 @@ export default function buildCardListing(
 ) {
   //gets the diffrent elements we need to build the card
   let { id, title, media, endsAt, bids, seller } = listingData;
+    //cleaning title cause innerHTML is used in some api entries
+  const cleanedTitle = title.replace(/<[^>]*>/g, '');
+
   //for the big image on the card
   let bigMedia = "./assets/noImg.png";
   if (media.length > 0) {
@@ -61,7 +65,7 @@ export default function buildCardListing(
   <img  alt="first listing picture if any" class="bigImg col-md-4" src="${bigMedia}">
     <div class="card-body pt-1 px-2 pb-0 pt-md-1 px-md-3 d-md-flex flex-md-column justify-content-md-between">
         <div class="card-title d-flex mb-md-1 flex-wrap align-items-end justify-content-between align-items-center">
-        <h3 class="col-12 mb-0 fs-5 text-break">${title}</h3>
+        <h3 class="col-12 mb-0 fs-5 text-break">${cleanedTitle}</h3>
         <div class="d-flex text-end fs-5 text-decoration-none text-dark d-md-flex align-items-center justify-content-start">
             ${seller.name}
             <div class="profileImageListing ratio col-2 ">
