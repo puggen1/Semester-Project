@@ -7,10 +7,12 @@ let listings = document.querySelector("#listings");
 let listingListTitle = document.querySelector("#numberOfListings");
 let prev = document.querySelector("#prev");
 let next = document.querySelector("#next");
+let currPage = document.querySelector("#currPage");
 let allListings = "";
 let filteredListings = "";
 let offset = 0;
 let limit = 100;
+let currPageNum = 1;
 /**
  * @description when you come to this page, it will display all the listings it can find. (up to 100)
  */
@@ -41,16 +43,21 @@ showListings();
 const prevFunction = () => {
   if (offset > 0) {
     offset -= limit;
+    currPageNum--
+    currPage.innerHTML = "page " + currPageNum;
     showListings();
     prev.scrollIntoView({ behavior: "smooth" });
   }
 }
 const nextFunction = () => {
-
-  if (allListings.length !== 0) {
+  if(allListings.length < limit){
+    return;
+  }
+  else if (allListings.length === limit) {
     listingListTitle.scrollIntoView({ behavior: "smooth" });
-
     offset += limit;
+    currPageNum++
+    currPage.innerHTML = "page " + currPageNum;
     showListings();
   }
 }
