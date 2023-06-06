@@ -42,12 +42,14 @@ const prevFunction = () => {
   if (offset > 0) {
     offset -= limit;
     showListings();
+    prev.scrollIntoView({ behavior: "smooth" });
   }
 }
 const nextFunction = () => {
 
   if (allListings.length !== 0) {
     listingListTitle.scrollIntoView({ behavior: "smooth" });
+
     offset += limit;
     showListings();
   }

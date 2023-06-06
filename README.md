@@ -105,4 +105,5 @@ If you have any questions about the project, or want to contact me, you can do s
 
 ## later changes
 
-later changes will be shown here if any
+- added pagination to front page
+- sanitized the content of title and description multiple places
