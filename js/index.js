@@ -5,8 +5,14 @@ import sortBy from "./sortAndFilters/sortBy.js";
 import createAlertResponse from "./responses/createAlertResponse.js";
 let listings = document.querySelector("#listings");
 let listingListTitle = document.querySelector("#numberOfListings");
+let prev = document.querySelector("#prev");
+let next = document.querySelector("#next");
+let currPage = document.querySelector("#currPage");
 let allListings = "";
 let filteredListings = "";
+let offset = 0;
+let limit = 100;
+let currPageNum = 1;
 /**
  * @description when you come to this page, it will display all the listings it can find. (up to 100)
  */
@@ -14,7 +20,7 @@ async function showListings() {
   listings.innerHTML = "";
   //&sort=endsAt&sortOrder=asc
   let result = await apiCall(
-    "listings?_bids=true&_seller=true&_active=true",
+    `listings?_bids=true&_seller=true&_active=true&offset=${offset}&limit=${limit}`,
     "GET"
   );
   if(result.length > 0){
@@ -33,6 +39,31 @@ async function showListings() {
 }
 showListings();
 
+
+const prevFunction = () => {
+  if (offset > 0) {
+    offset -= limit;
+    currPageNum--
+    currPage.innerHTML = "page " + currPageNum;
+    showListings();
+    prev.scrollIntoView({ behavior: "smooth" });
+  }
+}
+const nextFunction = () => {
+  if(allListings.length < limit){
+    return;
+  }
+  else if (allListings.length === limit) {
+    listingListTitle.scrollIntoView({ behavior: "smooth" });
+    offset += limit;
+    currPageNum++
+    currPage.innerHTML = "page " + currPageNum;
+    showListings();
+  }
+}
+
+prev.addEventListener("click", prevFunction);
+next.addEventListener("click", nextFunction);
 //need for reseting search
 let searchButtons;
 //search filtering

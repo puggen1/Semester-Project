@@ -12,6 +12,7 @@ import imgButtons from "./buttonActivation/mediaImgBtn.js";
 import back from "./buttonActivation/back.js";
 import createModal from "./htmlTemplate/modal.js";
 import createAlertResponse from "./responses/createAlertResponse.js"
+import clean from "./validation/clean.js";
 let singleListingLocation = document.querySelector("#listingPage");
 let popularListings = document.querySelector("#listings");
 let url = window.location.search;
@@ -23,8 +24,10 @@ async function displaySingle(id) {
   let listing = await apiCall(`listings/${id}?_bids=true&_seller=true`, "GET");
   if(listing.title){
   let { title, tags, bids, endsAt, description, seller, media } = listing;
+  const cleanedTitle = clean(title);
+  const cleanedDescription = clean(description);
   //title
-  document.title = `${title} | Bidder`;
+  document.title = `${cleanedTitle} | Bidder`;
   //seller avatar
   let avatar = "./assets/placeholder.png";
   if (seller.avatar) {
@@ -109,7 +112,7 @@ async function displaySingle(id) {
   </section>
   <section class="col-11 col-md-10 col-lg-4 col-xl-4 col-xxl-3 d-md-flex flex-lg-wrap mt-md-2 align-items-lg-stretch ms-lg-1">
       <div class="bigLeft col-md-8 col-lg-12 flex-lg-wrap d-lg-flex me-md-1 align-content-lg-start">
-      <h1 id="listingTitle"class=" fs-3">${title}</h1>
+      <h1 id="listingTitle"class=" fs-3">${cleanedTitle}</h1>
       <div class="d-flex justify-content-lg-start col-lg-12 ">
       <p class=" me-1 fs-5 d-flex mb-0 align-items-center align-items-xl-end">Listed by </p>
       <a href="profile.html?username=${seller.name}" class="col-6 col-sm-5 col-md-4 col-lg-auto fs-5 text-end text-dark text-decoration-none d-flex align-items-center align-items-xl-end">
@@ -119,7 +122,7 @@ async function displaySingle(id) {
           </div>
       </a>
       </div>
-      <p class="mb-lg-1 col-xl-10 col-xxl-12">${description}</p>
+      <p class="mb-lg-1 col-xl-10 col-xxl-12">${cleanedDescription}</p>
       <section class="d-sm-flex flex-wrap  flex-column align-items-start  mb-sm-1 col-lg-10 col-xl-12 justify-content-between  justify-content-md-start">
       <div id="singlePageTags" class=" mb-2 mb-sm-1 mb-md-0">
         ${allTags}

@@ -92,7 +92,7 @@
                     <button type="button" class="btn btn-link text-dark align-items-start p-md-0 me-md-1 d-md-none">Cancel</button>
                 </div>
             </div>
-        </div>
+            </div>
             <div id="listings" class="col-md-8 col-lg-6 col-xl-6 col-xl-4 d-md-flex flex-column justify-content-center align-items-center">
                 <a href="" class="col-md-10 col-xxl-8 text-decoration-none shadow placeholder-glow card d-md-flex flex-md-row mx-3 my-2 text-dark">
                     <img alt="first listing picture if any" class="bigImg col-md-4 placeholder" src="">
@@ -157,11 +157,17 @@
                       </div>
                   </div>
                 </a>
+
             </div>
             <div id="profileRight" class="d-none col-lg-3 col-xl-3 col-xxl-2 mb-2 d-lg-block border border-end-0 rounded-start mt-lg-2 p-lg-1">
                 <!--changing content-->
             </div>
         </section>
+        <div class="my-2 mx-auto d-flex justify-content-center gap-4 col-md-8 col-lg-12 ms-md-auto me-md-0 align-items-center">
+            <button class="btn btn-primary text-dark fs-md-5"  id="prev">prev</button>
+            <p class="m-0" id="currPage">page 1</p>
+            <button class="btn btn-primary text-dark fs-md-5" id="next">next</button>
+        </div>
     </main>
     <div id="phoneFilterModal" class="modal" role="dialog" tabindex="-1">
         <div class="modal-dialog">
@@ -210,6 +216,5 @@
     <script src="./js/index.js" type="module"></script>
     <script src="./js/loginRegister/activateModals.js" type="module"></script>
     <script src="./js/loggedIn/profileRight.js" type="module"></script>
-
 </body>
 </html>
